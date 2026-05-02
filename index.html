@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>포트폴리오 | 안세웅</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 상단 네비게이션 -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">Portfolio</span>
+      <ul class="nav-links">
+        <li><a href="#intro">소개</a></li>
+        <li><a href="#stack">기술 스택</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#overview">프로젝트</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#architecture">아키텍처</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#role">담당 역할</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#domain">도메인 설계</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#detail">상세 구조</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#flow">기능 흐름</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#trouble">트러블슈팅</a></li>
+        <li class="project-nav-item" data-project="1"><a href="#retrospect">회고</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-overview">프로젝트</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-architecture">아키텍처</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-role">담당 역할</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-domain">도메인 설계</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-detail">상세 구조</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-flow">기능 흐름</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-trouble">트러블슈팅</a></li>
+        <li class="project-nav-item" data-project="2" style="display:none"><a href="#p2-retrospect">회고</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 0. 개인 소개 -->
+    <section id="intro" class="section">
+      <div class="container">
+        <div class="intro-card">
+          <div class="intro-avatar">
+            <img src="images/증명사진.jpg" alt="안세웅 프로필 사진" class="avatar-img" />
+          </div>
+          <div class="intro-info">
+            <h1 class="intro-name">안세웅</h1>
+            <p class="intro-tagline">React와 Spring을 함께 다루는 Java 풀스택 개발자입니다. 두 번의 팀 프로젝트에서 비즈니스 로직 설계부터 UI 구현까지 전 과정을 담당했습니다.</p>
+            <div class="intro-links">
+              <a href="mailto:dpcks2553@naver.com" class="link-badge">📧 dpcks2553@naver.com</a>
+              <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">🐙 GitHub</a>
+              <!-- 필요 시 추가: LinkedIn, 블로그 등 -->
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-summary">
+          <h2 class="section-subtitle">교육 및 자격증</h2>
+          <div class="edu-list">
+            <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
+              <div class="edu-icon">🎓</div>
+              <div class="edu-info">
+                <div class="edu-header">
+                  <div>
+                    <div class="edu-title">자바(JAVA)활용 데이터 플랫폼 구축 풀스택 개발자 과정</div>
+                    <div class="edu-org">휴먼교육센터</div>
+                    <div class="edu-period">2025.10.15 ~ 2026.04.08</div>
+                    <div class="edu-tags">
+                      <span class="tag tag-backend">Java</span>
+                      <span class="tag tag-backend">Spring Framework</span>
+                      <span class="tag tag-backend">MyBatis</span>
+                      <span class="tag tag-backend">REST API</span>
+                      <span class="tag tag-frontend">JavaScript (ES6+)</span>
+                      <span class="tag tag-frontend">React</span>
+                      <span class="tag tag-frontend">HTML5/CSS3</span>
+                      <span class="tag tag-db">Oracle SQL</span>
+                      <span class="tag tag-infra">Git</span>
+                      <span class="tag tag-infra">Docker</span>
+                    </div>
+                  </div>
+                  <span class="edu-toggle">▼</span>
+                </div>
+                <div class="edu-detail">
+                  <div class="edu-curriculum">
+                    <div class="edu-cur-group">
+                      <div class="edu-cur-title">Backend (Java &amp; Spring)</div>
+                      <ul class="edu-cur-list">
+                        <li><strong>Java</strong> — 객체지향 프로그래밍(OOP) 기초 및 심화, 컬렉션 프레임워크 활용</li>
+                        <li><strong>Spring Framework</strong> — Spring Framework 패턴 기반 웹 서비스 구조 설계 및 RESTful API 구현</li>
+                        <li><strong>MyBatis</strong> — XML 기반 SQL 매핑을 통한 DB 연동 및 비즈니스 로직 분리</li>
+                      </ul>
+                    </div>
+                    <div class="edu-cur-group">
+                      <div class="edu-cur-title">Frontend (JavaScript &amp; Library)</div>
+                      <ul class="edu-cur-list">
+                        <li><strong>JavaScript (ES6+)</strong> — 비동기 처리(Async/Await, Promise) 및 DOM 조작</li>
+                        <li><strong>React</strong> — 컴포넌트 기반 설계, Props/State를 활용한 상태 관리 및 화면 렌더링 최적화</li>
+                        <li><strong>HTML5/CSS3</strong> — 시맨틱 마크업 및 반응형 웹 디자인 구현</li>
+                      </ul>
+                    </div>
+                    <div class="edu-cur-group">
+                      <div class="edu-cur-title">Database &amp; Data Analysis</div>
+                      <ul class="edu-cur-list">
+                        <li><strong>Oracle SQL</strong> — RDBMS 설계(ERD), 관계 정의 및 복잡한 Join/Subquery를 활용한 데이터 추출</li>
+                        <li><strong>데이터 플랫폼 구축</strong> — 공공 데이터 API 연동 및 데이터 가공/분석 로직 구현</li>
+                        <li><strong>SQLD 역량</strong> — 데이터 모델링 및 SQL 실행 계획 분석을 통한 쿼리 성능 최적화</li>
+                      </ul>
+                    </div>
+                    <div class="edu-cur-group">
+                      <div class="edu-cur-title">DevOps &amp; Tools</div>
+                      <ul class="edu-cur-list">
+                        <li><strong>IDE/Environment</strong> — VS Code, Eclipse를 활용한 효율적인 코드 작성 및 디버깅</li>
+                        <li><strong>Version Control</strong> — Git/GitHub를 활용한 코드 형상 관리 및 팀 협업 수행</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-icon">📜</div>
+              <div class="edu-info">
+                <div class="edu-title">자격증</div>
+                <div class="cert-list">
+                  <div class="cert-item">
+                    <div class="cert-left">
+                      <span class="cert-name">SQLD (SQL 개발자)</span>
+                      <span class="cert-org">한국데이터산업진흥원</span>
+                    </div>
+                    <div class="cert-right">
+                      <span class="cert-date">2026.03.27 취득</span>
+                      <span class="cert-badge">합격</span>
+                    </div>
+                  </div>
+                  <div class="cert-item">
+                    <div class="cert-left">
+                      <span class="cert-name">정보처리기사</span>
+                      <span class="cert-org">한국산업인력공단</span>
+                    </div>
+                    <div class="cert-right">
+                      <span class="cert-date">필기 합격 · 실기 준비 중</span>
+                      <span class="cert-badge">준비 중</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. 보유 기술 스택 -->
+    <section id="stack" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">보유 기술 스택</h2>
+        <p class="section-desc">프로젝트 경험을 통해 습득한 보유 기술입니다.</p>
+        <div class="stack-grid">
+          <div class="stack-group">
+            <h3 class="stack-group-title">Backend</h3>
+            <div class="stack-tags">
+              <span class="tag tag-backend">Java</span>
+              <span class="tag tag-backend">Spring Framework</span>
+              <span class="tag tag-backend">Spring JDBC</span>
+              <span class="tag tag-backend">MyBatis</span>
+              <span class="tag tag-backend">REST API</span>
+              <span class="tag tag-backend">Spring Security</span>
+              <span class="tag tag-backend">JWT</span>
+              <span class="tag tag-backend">OAuth2</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3 class="stack-group-title">Frontend</h3>
+            <div class="stack-tags">
+              <span class="tag tag-frontend">React</span>
+              <span class="tag tag-frontend">JavaScript</span>
+              <span class="tag tag-frontend">React Router</span>
+              <span class="tag tag-frontend">Redux Toolkit</span>
+              <span class="tag tag-frontend">Axios</span>
+              <span class="tag tag-frontend">QR Scanner</span>
+              <span class="tag tag-frontend">Web Push</span>
+              <span class="tag tag-frontend">Kakao Map API</span>
+            </div>
+          </div>
+          <div class="stack-group stack-group-full">
+            <h3 class="stack-group-title">Database & Infra</h3>
+            <div class="stack-tags">
+              <span class="tag tag-db">Oracle DB</span>
+              <span class="tag tag-infra">Maven</span>
+              <span class="tag tag-infra">Git</span>
+              <span class="tag tag-infra">Docker</span>
+              <span class="tag tag-infra">Nginx</span>
+              <span class="tag tag-infra">Log4j2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT 1 ===== -->
+    <div class="project-content active" data-project="1">
+
+    <!-- 2. 프로젝트 한 줄 소개 -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="overview-header">
+          <h2 class="section-title">프로젝트 소개</h2>
+          <div class="project-switcher">
+            <button class="project-tab active" data-project="1">LocalQuest</button>
+            <button class="project-tab" data-project="2">HashTrip</button>
+          </div>
+        </div>
+        <div class="overview-card">
+          <h3 class="project-name">LocalQuest</h3>
+          <p class="project-tagline">
+            지역을 게임처럼 탐험하는 미션 기반 O2O 로컬 발견 플랫폼
+          </p>
+          <div class="project-meta">
+            <span class="meta-item">📅 기간: 2026.03.09 ~ 2026.04.03</span>
+            <span class="meta-item">👥 팀 구성: 5명</span>
+            <span class="meta-item">🔗 <a href="https://github.com/hhho0coco1-star/LocalQuest_3" target="_blank">GitHub 링크</a></span>
+          </div>
+          <div class="edu-tags" style="margin-top:12px;">
+            <span class="tag tag-backend">Java 11</span>
+            <span class="tag tag-backend">Spring Framework</span>
+            <span class="tag tag-backend">Spring Security</span>
+            <span class="tag tag-backend">MyBatis</span>
+            <span class="tag tag-backend">JWT</span>
+            <span class="tag tag-frontend">React</span>
+            <span class="tag tag-frontend">JSP</span>
+            <span class="tag tag-frontend">Vanilla JS</span>
+            <span class="tag tag-db">Oracle</span>
+            <span class="tag tag-infra">Maven</span>
+            <span class="tag tag-infra">Kakao Map API</span>
+            <span class="tag tag-infra">OAuth2</span>
+            <span class="tag tag-infra">Web Push</span>
+            <span class="tag tag-infra">Python OCR</span>
+          </div>
+        </div>
+        <div class="project-bg">
+          <p class="project-bg-text">
+            로컬 상권은 여전히 알려지지 않은 경우가 많고, 소비자는 가까운 지역을 탐험할 동기가 부족합니다.
+            LocalQuest는 퀘스트·포인트·배지 시스템을 통해 지역 탐험을 게임처럼 만들어 O2O 연결을 자연스럽게 유도합니다.
+          </p>
+        </div>
+        <div class="project-features">
+          <div class="feature-card">
+            <span class="feature-icon">🗺️</span>
+            <strong>미션 기반 퀘스트</strong>
+            <span>지역 장소를 순서대로 방문하는 퀘스트 수행</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <strong>QR 현장 인증</strong>
+            <span>카메라로 스캔해 즉시 방문 인증</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🏪</span>
+            <strong>비즈니스 대시보드</strong>
+            <span>파트너가 매장 통계·쿠폰·QR을 직접 관리</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎖️</span>
+            <strong>포인트·배지 보상</strong>
+            <span>퀘스트 완료 시 포인트·배지 자동 지급</span>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <h3 class="video-title">프로젝트 시연 영상</h3>
+          <video controls>
+            <source src="images/LocalQuesst_프로젝트시연영상.mp4" type="video/mp4" />
+            브라우저가 동영상을 지원하지 않습니다.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 전체 시스템 구조도 -->
+    <section id="architecture" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">전체 시스템 구조도</h2>
+        <p class="section-desc">인프라, 서버, DB 구성</p>
+        <div class="arch-system">
+          <!-- Client -->
+          <div class="sys-row layer-client">
+            <div class="sys-label">Client Layer</div>
+            <div class="sys-content">
+              <div class="app-branches">
+                <div class="app-branch-box branch-admin">⚛️ React SPA<br><span style="font-size:0.72rem;color:#64748b;">사용자 · 비즈니스 페이지<br>포트 3000</span></div>
+                <div class="app-branch-box branch-api">🖥️ 브라우저 / 📱 모바일<br><span style="font-size:0.72rem;color:#64748b;">관리자 페이지<br>(JSP 서버 렌더링)</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sys-connector">
+            <span class="sys-connector-arrow">↓</span>
+            <span>HTTP</span>
+          </div>
+          <!-- App -->
+          <div class="sys-row layer-app">
+            <div class="sys-label">App Layer</div>
+            <div class="sys-content">
+              <div>
+                <div class="layer-title">Spring Framework (Java 11 · 포트 8080)</div>
+                <div class="app-branches">
+                  <div class="app-branch-box branch-admin">🔒 Admin Controller<br><span style="font-size:0.72rem;color:#64748b;">JSP 서버 렌더링<br>세션 기반 인증</span></div>
+                  <div class="app-branch-box branch-api">⚡ REST API Controller<br><span style="font-size:0.72rem;color:#64748b;">JSON 응답<br>JWT 기반 인증</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sys-connector">
+            <span class="sys-connector-arrow">↓</span>
+            <span>MyBatis</span>
+          </div>
+          <!-- Data -->
+          <div class="sys-row layer-data">
+            <div class="sys-label">Data Layer</div>
+            <div class="sys-content">🗄️ Oracle DB</div>
+          </div>
+          <hr class="sys-divider">
+          <!-- External -->
+          <div class="sys-row layer-ext">
+            <div class="sys-label">External Services</div>
+            <div class="sys-content">
+              <div class="ext-badges">
+                <span class="ext-badge">🗺️ Kakao Map API</span>
+                <span class="ext-badge">🔑 OAuth2</span>
+                <span class="ext-badge">🔔 Web Push (VAPID)</span>
+                <span class="ext-badge">📁 File Storage</span>
+                <span class="ext-badge">🐍 Python OCR Server</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 내 담당 범위 및 역할 -->
+    <section id="role" class="section">
+      <div class="container">
+        <h2 class="section-title">담당 범위 및 역할</h2>
+        <div class="role-header">
+          <span class="role-badge role-badge-leader">👑 팀 리더</span>
+          <span class="role-badge role-badge-stack">풀스택 (Frontend + Backend)</span>
+        </div>
+        <div class="role-stats">
+          <div class="role-stat-card">
+            <span class="role-stat-num">14개</span>
+            <span class="role-stat-label">관리자 페이지 구현</span>
+          </div>
+          <div class="role-stat-card">
+            <span class="role-stat-num">3개 영역</span>
+            <span class="role-stat-label">풀스택 담당 (비즈니스 · 관리자 · QR)</span>
+          </div>
+          <div class="role-stat-card">
+            <span class="role-stat-num">설계</span>
+            <span class="role-stat-label">QR 시스템 (LocationQrService · DAO)</span>
+          </div>
+        </div>
+        <div class="role-list">
+            <ul>
+              <li>
+                <div class="role-item-header">
+                  <strong>비즈니스 페이지</strong>
+                  <span class="role-tag">Full Stack</span>
+                </div>
+                <div class="role-sub-list">
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-fe">Frontend</span>
+                    <span class="role-sub-desc">대시보드(HomeTab) · QR 스캔(QrTab) · 쿠폰 관리(CouponTab) · 파트너 센터 · 문의 페이지 — React SPA 전체 구현</span>
+                  </div>
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-be">Backend</span>
+                    <span class="role-sub-desc">BusinessAPIController · BusinessInquiryAPIController / Service · DAO 레이어 전담</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="role-item-header">
+                  <strong>관리자 페이지</strong>
+                  <span class="role-tag">Full Stack</span>
+                </div>
+                <div class="role-sub-list">
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-fe">Frontend</span>
+                    <span class="role-sub-desc">JSP 기반 관리자 14개 페이지 — 사용자 · 퀘스트 · 리워드 · 비즈니스 · QR/위치 · 문의 · 공지 · FAQ 관리</span>
+                  </div>
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-be">Backend</span>
+                    <span class="role-sub-desc">세션 기반 인증 · RoleBasedPageInterceptor 처리 포함</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="role-item-header">
+                  <strong>QR 기능</strong>
+                  <span class="role-tag">Full Stack</span>
+                </div>
+                <div class="role-sub-list">
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-fe">Frontend</span>
+                    <span class="role-sub-desc">React QR Scanner(QrTab) — 스캔 UI 및 인증 흐름 연동</span>
+                  </div>
+                  <div class="role-sub-item">
+                    <span class="role-sub-label role-sub-be">Backend</span>
+                    <span class="role-sub-desc">QR 코드 생성·검증 API 전체 — LocationQrService · LocationQrDAO 담당</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </section>
+
+    <!-- 5. 핵심 도메인 설계 -->
+    <section id="domain" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">핵심 도메인 설계</h2>
+        <p class="section-desc">퀘스트 수행 흐름 중심 핵심 테이블 발췌 (전체 29개 테이블 중 7개)</p>
+        <div class="diagram-box">
+          <img src="images/erd_core.png" alt="LocalQuest 핵심 도메인 ERD" style="width:100%;border-radius:8px;" />
+        </div>
+        <ol class="domain-desc">
+          <li>퀘스트 ↔ 장소를 N:M 중간 테이블(QUEST_LOCATION)로 분리하고,
+            VISIT_ORDER를 두어 순서 기반 장소 방문을 지원했습니다.</li>
+          <li>진행 단위를 USER_QUEST_PROGRESS로 세분화하여
+            장소별 완료 여부를 독립적으로 추적했습니다.</li>
+          <li>영수증 인증(RECEIPT)을 USER_QUEST_PROGRESS와 1:1로 연결해
+            인증 이력을 명확히 관리했습니다.</li>
+        </ol>
+        <div class="domain-link-wrap">
+          <a href="https://dbdiagram.io/d/%EC%B5%9C%EC%A2%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-698be1d3bd82f5fce2536f5e"
+             target="_blank" class="btn-erd-link">전체 ERD 보기 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 아키텍처 상세 -->
+    <section id="detail" class="section">
+      <div class="container">
+        <h2 class="section-title">아키텍처 상세</h2>
+        <div class="arch-tabs">
+          <button class="tab-btn active" data-tab="admin">관리자 페이지</button>
+          <button class="tab-btn" data-tab="business">비즈니스 페이지</button>
+        </div>
+        <div class="tab-content active" id="tab-admin">
+          <div class="arch-flow">
+            <div class="layer-box layer-box-client">
+              <div class="layer-title">브라우저 (관리자 · ADMIN)</div>
+              <div class="layer-sub">HTTP Form 요청 + 세션 쿠키</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-security">
+              <div class="layer-title">RoleBasedPageInterceptor</div>
+              <div class="layer-sub">세션 검증 · ADMIN 역할 확인 (userId=1 마스터 보호)</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="arch-flow-row">
+              <div class="layer-box layer-box-view">
+                <div class="layer-title">JSP View (14개 페이지)</div>
+                <div class="layer-sub">admin.jsp · admin-user.jsp · admin-quest.jsp<br>admin-business.jsp · admin-reward-item.jsp · admin-qna.jsp 외</div>
+              </div>
+              <div class="arch-flow-conn">
+                <span>⇆</span>
+                <span class="arch-split-conn-label">서버 렌더링</span>
+              </div>
+              <div class="layer-box layer-box-ctrl">
+                <div class="layer-title">Controller Layer</div>
+                <div class="layer-sub">AdminController · AdminBusinessAuthController · AdminBusinessQrController<br>사용자/퀘스트/리워드/비즈니스/위치·QR/문의·공지·FAQ</div>
+              </div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-service">
+              <div class="layer-title">Service Layer (공유 도메인)</div>
+              <div class="layer-sub">UserService · QuestService · BusinessService · RewardItemService · LocationQrService · NoticeService 외</div>
+            </div>
+            <div class="layer-arrow">↓ MyBatis</div>
+            <div class="layer-box layer-box-dao">
+              <div class="layer-title">DAO Layer (27+ Mapper)</div>
+              <div class="layer-sub">UserDAO · QuestDAO · BusinessDAO · RewardDAO · LocationQrDAO · NoticeDAO 외</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-db">
+              <div class="layer-title">Oracle DB</div>
+              <div class="layer-sub">tb_user · tb_quest · tb_business · tb_reward_item · tb_location_qr 외 20+ 테이블</div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="tab-business">
+          <div class="arch-flow">
+            <div class="layer-box layer-box-client">
+              <div class="layer-title">React SPA (비즈니스 파트너)</div>
+              <div class="layer-sub">BusinessPage (HomeTab · QrTab · CouponTab) · PartnerCenterPage · BusinessInquiryPage &nbsp;|&nbsp; Redux Toolkit · Axios</div>
+            </div>
+            <div class="layer-arrow">↓ REST API (Axios)</div>
+            <div class="layer-box layer-box-security">
+              <div class="layer-title">JwtTokenProvider + LoginUserResolver</div>
+              <div class="layer-sub">Authorization: Bearer JWT 검증 → userId · role(BUSINESS) 추출</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-ctrl">
+              <div class="layer-title">Controller Layer (REST API)</div>
+              <div class="layer-sub">BusinessAPIController · BusinessInquiryAPIController<br>/api/businesses/me · /api/businesses/me/coupons · /api/business-inquiries</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-service">
+              <div class="layer-title">Service Layer</div>
+              <div class="layer-sub">BusinessService (대시보드·매장 정보) · BusinessCouponRequestService (쿠폰 요청)<br>LocationQrService (QR 생성·검증) · BusinessInquiryService (파트너 신청)</div>
+            </div>
+            <div class="layer-arrow">↓ MyBatis</div>
+            <div class="layer-box layer-box-dao">
+              <div class="layer-title">DAO Layer</div>
+              <div class="layer-sub">BusinessDAO · BusinessCouponRequestDAO · LocationQrDAO · BusinessInquiryDAO · BusinessAuthLogDAO</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-db">
+              <div class="layer-title">Oracle DB</div>
+              <div class="layer-sub">tb_business · tb_business_coupon_request · tb_location_qr · tb_business_inquiry · tb_business_auth_log</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 대표 기능 흐름 -->
+    <section id="flow" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">대표 기능 흐름</h2>
+
+        <!-- 탭 버튼 -->
+        <div class="tabs flow-tabs">
+          <button class="tab-btn active" data-flow="flow1">퀘스트 완료 흐름 (QR + 영수증 인증)</button>
+          <button class="tab-btn" data-flow="flow2">비즈니스 관계자 신청 흐름</button>
+        </div>
+
+        <!-- Flow 1: 퀘스트 완료 흐름 -->
+        <div id="flow-panel-flow1" class="flow-panel active">
+          <div class="flow-steps">
+
+            <!-- Phase 1: 로그인 & 인증 -->
+            <div class="flow-phase-header">Phase 1. 로그인 &amp; 인증</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>로그인 요청</strong>
+                <span>POST /api/users/login — 아이디/비밀번호 입력 후 UserAPIController 호출</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 로그인 성공 여부</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>인증 실패</strong>
+                    <span>401 Unauthorized → 오류 메시지 표시</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>인증 성공</strong>
+                    <span>JWT 발급 (24시간) + HttpSession 저장 → authSlice에 accessToken, userId, role 저장</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <!-- Phase 2: 퀘스트 탐색 & 수락 -->
+            <div class="flow-phase-header">Phase 2. 퀘스트 탐색 &amp; 수락</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>퀘스트 목록 조회</strong>
+                <span>GET /api/quests — ACTIVE 상태 퀘스트 목록 + 내 진행 현황 오버레이</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>퀘스트 상세 조회</strong>
+                <span>GET /api/quests/{questId} — 위치 목록 + 카카오 지도 표시</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>퀘스트 수락</strong>
+                <span>POST /api/user-quests/accept?questId={id} — UserQuestAPIController</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 수락 가능 여부</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>이미 진행 중</strong>
+                    <span>alreadyAccepted: true 반환 → 중복 수락 방지</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>수락 가능</strong>
+                    <span>LQ_USER_QUEST INSERT (status: IN_PROGRESS, dueAt 계산) + LQ_USER_QUEST_PROGRESS 위치 수만큼 초기화</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <!-- Phase 3: 현장 QR 인증 -->
+            <div class="flow-phase-header">Phase 3. 현장 QR 인증</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>QR 카메라 스캔</strong>
+                <span>QrVerify.js — jsQR으로 카메라 스트림 디코딩 후 authKey 추출</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>POST /api/qr/verify</strong>
+                <span>QrAPIController — authKey 수신, JWT에서 userId 추출</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: QR 유효성 검증</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>운영 중지된 매장</strong>
+                    <span>IllegalStateException 반환</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>이전 위치 미완료 / 시간 초과 / 이미 완료</strong>
+                    <span>각 상황별 오류 메시지 반환</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>정상</strong>
+                    <span>LQ_USER_QUEST_PROGRESS 업데이트 (IS_COMPLETED=1)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 영수증 인증 필요 여부</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>영수증 필요 퀘스트</strong>
+                    <span>receipt 레코드 생성 후 인증 대기 상태 전환</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>영수증 불필요</strong>
+                    <span>즉시 완료 처리 진행</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <!-- Phase 4: 완료 & 보상 -->
+            <div class="flow-phase-header">Phase 4. 완료 &amp; 보상</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>퀘스트 완료 처리</strong>
+                <span>LQ_USER_QUEST → STATUS: COMPLETED, COMPLETED_AT 기록</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>보상 지급</strong>
+                <span>LQ_USER POINT/EXP 증가 + LQ_POINT_HISTORY INSERT</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>배지 수여 확인</strong>
+                <span>조건 달성 시 LQ_USER_BADGE INSERT</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>결과 표시</strong>
+                <span>QrVerificationResponseDTO — verifiedQuestCount, completedQuestCount, badges 렌더링</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Flow 2: 비즈니스 관계자 신청 흐름 -->
+        <div id="flow-panel-flow2" class="flow-panel">
+          <div class="flow-steps">
+
+            <!-- Phase 1: 파트너 신청 -->
+            <div class="flow-phase-header">Phase 1. 파트너 신청</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 로그인 상태 확인</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>미로그인</strong>
+                    <span>/login 으로 리다이렉트</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>로그인 완료</strong>
+                    <span>Redux store에서 사용자 정보 조회 → 신청 폼 진입</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-external">External</span>
+              <div class="flow-step-body">
+                <strong>주소 검색</strong>
+                <span>Daum Postcode API — 도로명 주소 + 우편번호 자동 입력</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-external">External</span>
+              <div class="flow-step-body">
+                <strong>좌표 변환</strong>
+                <span>Kakao Geocoder API — 주소 기반 위도/경도 자동 계산</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 폼 유효성 검증</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>검증 실패</strong>
+                    <span>전화번호 정규식 오류 / 주소·위도·경도 누락 → 오류 메시지 표시</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>검증 통과</strong>
+                    <span>POST /api/business-inquiries → LQ_BUSINESS_INQUIRY (status: PENDING) 저장</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>성공 메시지 표시</strong>
+                <span>localStorage에 pending userId 기록 → 중복 신청 방지</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <!-- Phase 2: 관리자 검토 & 승인 -->
+            <div class="flow-phase-header">Phase 2. 관리자 검토 &amp; 승인</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-admin">Admin</span>
+              <div class="flow-step-body">
+                <strong>신청 목록 조회</strong>
+                <span>관리자 페이지에서 PENDING 신청 목록 확인</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 검토 결과</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>거절</strong>
+                    <span>LQ_BUSINESS_INQUIRY status: REJECTED → 신청자 안내</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>승인</strong>
+                    <span>아래 자동 처리 시작</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>매장 정보 등록</strong>
+                <span>LQ_BUSINESS INSERT — 매장명, 주소, 연락처 저장</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>계정 역할 변경</strong>
+                <span>LQ_USER role: USER → BUSINESS</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>위치 &amp; QR 자동 생성</strong>
+                <span>LQ_LOCATION INSERT (대표 위치) + LQ_LOCATION_QR INSERT (UUID 기반 qrAuthKey 발급)</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <!-- Phase 3: 비즈니스 대시보드 -->
+            <div class="flow-phase-header">Phase 3. 비즈니스 대시보드</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>대시보드 진입</strong>
+                <span>GET /api/businesses/me — JWT에서 userId 추출, BUSINESS role 확인</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">HomeTab</span>
+              <div class="flow-step-body">
+                <strong>매장 현황 통계 조회</strong>
+                <span>누적·오늘 인증 수 (QR / 영수증 분리), 쿠폰 사용 수, 누적 결제액·정산액, 시간대별 인증 차트</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">QrTab</span>
+              <div class="flow-step-body">
+                <strong>QR 관리</strong>
+                <span>GET /api/businesses/me/qr/image — QR 이미지 조회 (160~1024px), 운영 중지 / 재개 토글 (IS_ACTIVE)</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 쿠폰 요청 처리</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>승인</strong>
+                    <span>approvedRewardItemId 연결, respondedAt 기록, 히스토리 저장</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>보류</strong>
+                    <span>lastHoldReason 저장 → 사용자 재요청 가능 (HOLD → REQUESTED 재전환)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <!-- 8. 트러블슈팅 -->
+    <section id="trouble" class="section">
+      <div class="container">
+        <h2 class="section-title">트러블슈팅 및 개선 포인트</h2>
+
+        <!-- 카드 선택 행 -->
+        <div class="trouble-cards">
+          <button class="trouble-card active" data-trouble="t1">
+            <span class="trouble-card-num">01</span>
+            <span class="trouble-card-title">QR URL 파라미터 이름 불일치로 인한 인증 불가</span>
+          </button>
+          <button class="trouble-card" data-trouble="t2">
+            <span class="trouble-card-num">02</span>
+            <span class="trouble-card-title">QR 이미지 Blob URL 메모리 누수</span>
+          </button>
+        </div>
+
+        <!-- 상세 패널 -->
+        <div class="trouble-detail">
+
+          <!-- 패널 1 -->
+          <div class="trouble-panel active" id="trouble-panel-t1">
+            <div class="trouble-steps">
+              <div class="trouble-step step-problem">
+                <span class="step-label">문제 상황</span>
+                <p>
+                  QR 코드를 스캔해 검증 페이지(<code>/qr/verify</code>)로 이동했을 때
+                  <code>qrAuthKey</code> 값을 읽지 못해 &quot;유효한 QR 코드가 아닙니다&quot; 오류가 발생.
+                  새로 출력한 QR은 정상 동작하지만 이전에 인쇄해 둔 QR은 계속 실패.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-cause">
+                <span class="step-label">원인 분석</span>
+                <p>
+                  초기 구현에서 <code>buildQrVerifyUrl()</code>이 <code>?qrAuthKey={uuid}</code>로
+                  URL을 생성했다가, 코드 간결화를 위해 <code>?key={uuid}</code>로 파라미터 이름을 변경함.
+                  <code>QrVerify.js</code>의 <code>searchParams.get()</code> 호출부는 그대로 두어
+                  구 파라미터명을 읽지 못하는 불일치 발생.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-solve">
+                <span class="step-label">해결 과정</span>
+                <p>
+                  <code>QrVerify.js</code>에서 두 파라미터를 모두 수용하도록
+                  <code>searchParams.get('key') || searchParams.get('qrAuthKey')</code>
+                  방어적 fallback 처리를 추가.
+                  이후 파라미터 이름 변경 시 양쪽을 동시에 수정하도록 팀 컨벤션에 명시.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-result">
+                <span class="step-label">결과</span>
+                <p>
+                  구 파라미터(<code>qrAuthKey</code>)로 생성된 기존 QR과
+                  신 파라미터(<code>key</code>)로 생성된 QR 모두 정상 인증.
+                  파라미터 불일치로 인한 인증 실패 0건.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 패널 2 -->
+          <div class="trouble-panel" id="trouble-panel-t2">
+            <div class="trouble-steps">
+              <div class="trouble-step step-problem">
+                <span class="step-label">문제 상황</span>
+                <p>
+                  비즈니스 대시보드의 QR 탭을 반복해서 진입·이탈하면
+                  브라우저 메모리 사용량이 점진적으로 증가.
+                  장시간 사용 시 탭이 느려지는 현상 발생.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-cause">
+                <span class="step-label">원인 분석</span>
+                <p>
+                  API에서 받은 QR 이미지 Blob을 <code>URL.createObjectURL(blob)</code>으로
+                  변환해 <code>&lt;img&gt;</code> src에 바인딩하는 방식.
+                  <code>createObjectURL()</code>로 생성된 URL은 명시적으로
+                  <code>revokeObjectURL()</code>을 호출하기 전까지 브라우저 메모리에 유지됨.
+                  초기 구현에서 <code>useEffect</code> cleanup이 없어 unmount 시 해제되지 않음.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-solve">
+                <span class="step-label">해결 과정</span>
+                <p>
+                  <code>useRef</code>(qrObjectUrlRef)로 현재 활성 Blob URL을 추적하고,
+                  useEffect의 cleanup 함수(return 블록)에서
+                  <code>URL.revokeObjectURL(qrObjectUrlRef.current)</code>를 호출해 명시적으로 해제.
+                  새 이미지 로드 시에도 이전 URL을 먼저 revoke한 뒤 새 URL을 저장.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-result">
+                <span class="step-label">결과</span>
+                <p>
+                  페이지 이탈 시 Blob URL이 즉시 해제되어
+                  반복 진입·이탈 후에도 메모리 사용량이 일정하게 유지.
+                  브라우저 DevTools Memory 탭에서 누수 패턴 소멸 확인.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 회고 및 배운 점 -->
+    <section id="retrospect" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">회고 및 배운 점</h2>
+        <div class="retro-grid">
+          <div class="retro-card">
+            <span class="retro-icon">⚙️</span>
+            <h3>기술적 성장</h3>
+            <p>
+              QR 코드 생성·검증 API를 설계·구현하며 도메인 로직과 인프라 코드를 분리하는 감각을 길렀습니다.
+              Blob URL 메모리 누수 트러블슈팅을 통해 브라우저 리소스 생명 주기와 React useEffect cleanup 패턴을 체득했고,
+              인터셉터 범위 밖 인증 공백을 직접 발견하면서 보안 관점으로 코드를 바라보는 습관이 생겼습니다.
+            </p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🤝</span>
+            <h3>협업 경험</h3>
+            <p>
+              5인 팀 리더로 역할 분담과 일정을 조율했습니다.
+              API 파라미터 명 불일치 버그를 직접 겪은 후 팀 컨벤션을 문서화하면서,
+              프론트·백을 동시에 담당하는 풀스택 포지션에서 인터페이스 계약을 먼저 정의하는 API-first 접근의 가치를 실감했습니다.
+            </p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🎯</span>
+            <h3>다음 목표</h3>
+            <p>
+              LocalQuest를 통해 설계 결정 하나가 인증 흐름 전체에 영향을 미친다는 것을 직접 체감했습니다.
+              이 경험을 발판 삼아 현재 Python과 데이터 분석을 학습하며,
+              스마트 팩토리 도메인에서 제조 데이터를 다루는 프로젝트에 도전하는 것이 다음 목표입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /project-content data-project="1" -->
+
+    <!-- ===== PROJECT 2 ===== -->
+    <div class="project-content" data-project="2" style="display:none">
+
+    <!-- P2. 프로젝트 한 줄 소개 -->
+    <section id="p2-overview" class="section overview-section">
+      <div class="container">
+        <div class="overview-header">
+          <h2 class="section-title">프로젝트 소개</h2>
+          <div class="project-switcher">
+            <button class="project-tab" data-project="1">LocalQuest</button>
+            <button class="project-tab active" data-project="2">HashTrip</button>
+          </div>
+        </div>
+        <div class="overview-card">
+          <h3 class="project-name">HashTrip</h3>
+          <p class="project-tagline">
+            여행 성향 분석부터 일정 공유까지, 내 취향에 맞는 여행을 계획하는 플랫폼
+          </p>
+          <div class="project-meta">
+            <span class="meta-item">📅 기간: 2026.02.09 ~ 2026.03.04</span>
+            <span class="meta-item">👥 팀 구성: 5명</span>
+            <span class="meta-item">🔗 <a href="https://github.com/hhho0coco1-star/HashTrip_2" target="_blank">GitHub 링크</a></span>
+          </div>
+          <div class="edu-tags" style="margin-top:12px;">
+            <span class="tag tag-backend">Java 11</span>
+            <span class="tag tag-backend">Spring Framework</span>
+            <span class="tag tag-backend">Spring Security</span>
+            <span class="tag tag-backend">MyBatis</span>
+            <span class="tag tag-backend">OAuth2</span>
+            <span class="tag tag-backend">Spring Mail</span>
+            <span class="tag tag-frontend">JSP</span>
+            <span class="tag tag-frontend">Vanilla JS</span>
+            <span class="tag tag-db">Oracle</span>
+            <span class="tag tag-infra">Maven</span>
+          </div>
+        </div>
+        <div class="project-bg">
+          <p class="project-bg-text">
+            여행 계획을 세울 때 어디를 가야 할지 막막함을 느끼는 경우가 많습니다.
+            HashTrip은 설문 기반 성향 분석으로 개인 맞춤 여행 스타일을 도출하고,
+            한국관광공사 공공API 기반 여행지 데이터를 활용해 체계적인 일정 계획과 공유를 지원합니다.
+          </p>
+        </div>
+        <div class="project-features">
+          <div class="feature-card">
+            <span class="feature-icon">🧭</span>
+            <strong>여행 성향 분석</strong>
+            <span>설문 기반 태그 가중치 합산으로 개인 맞춤 여행 스타일 도출</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <strong>여행 일정 계획</strong>
+            <span>공공API 여행지 기반 일정 생성·공유 및 루트 북마크</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🗺️</span>
+            <strong>여행지 탐색</strong>
+            <span>한국관광공사 API 기반 장소 검색·평점·운영시간 제공</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔑</span>
+            <strong>소셜 로그인</strong>
+            <span>Google · Kakao · Naver OAuth2 통합 인증 지원</span>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <h3 class="video-title">프로젝트 시연 영상</h3>
+          <video controls>
+            <source src="images/HashTrip_프로젝트시연영상.mp4" type="video/mp4" />
+            브라우저가 동영상을 지원하지 않습니다.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2. 전체 시스템 구조도 -->
+    <section id="p2-architecture" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">전체 시스템 구조도</h2>
+        <p class="section-desc">인프라, 서버, DB 구성</p>
+        <div class="arch-system">
+          <!-- Client -->
+          <div class="sys-row layer-client">
+            <div class="sys-label">Client Layer</div>
+            <div class="sys-content">
+              🖥️ 브라우저<br>
+              <span style="font-size:0.72rem;color:#64748b;">JSP 서버 렌더링 (사용자 · 관리자 페이지)</span>
+            </div>
+          </div>
+          <div class="sys-connector">
+            <span class="sys-connector-arrow">↓</span>
+            <span>HTTP / Form 요청</span>
+          </div>
+          <!-- App -->
+          <div class="sys-row layer-app">
+            <div class="sys-label">App Layer</div>
+            <div class="sys-content">
+              <div>
+                <div class="layer-title">Spring Framework 5.3 (Java 11 · 포트 8080)</div>
+                <div class="app-branches">
+                  <div class="app-branch-box branch-admin">🔒 Spring Security<br><span style="font-size:0.72rem;color:#64748b;">Form 로그인 + OAuth2<br>(Google · Kakao · Naver)</span></div>
+                  <div class="app-branch-box branch-api">⚙️ Spring MVC<br><span style="font-size:0.72rem;color:#64748b;">Controller → Service → DAO<br>JSP View 렌더링</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sys-connector">
+            <span class="sys-connector-arrow">↓</span>
+            <span>MyBatis</span>
+          </div>
+          <!-- Data -->
+          <div class="sys-row layer-data">
+            <div class="sys-label">Data Layer</div>
+            <div class="sys-content">🗄️ Oracle DB &nbsp;|&nbsp; Apache Commons DBCP2 커넥션 풀</div>
+          </div>
+          <hr class="sys-divider">
+          <!-- External -->
+          <div class="sys-row layer-ext">
+            <div class="sys-label">External Services</div>
+            <div class="sys-content">
+              <div class="ext-badges">
+                <span class="ext-badge">🏛️ 한국관광공사 공공API</span>
+                <span class="ext-badge">🔑 OAuth2 (Google · Kakao · Naver)</span>
+                <span class="ext-badge">📧 Spring Mail</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2. 내 담당 범위 및 역할 -->
+    <section id="p2-role" class="section">
+      <div class="container">
+        <h2 class="section-title">담당 범위 및 역할</h2>
+        <div class="role-header">
+          <span class="role-badge role-badge-stack">핵심 알고리즘 담당</span>
+          <span class="role-badge role-badge-stack">최종 발표</span>
+          <span class="role-badge role-badge-stack">풀스택 (Frontend + Backend)</span>
+        </div>
+        <div class="role-stats">
+          <div class="role-stat-card">
+            <span class="role-stat-num">4개 영역</span>
+            <span class="role-stat-label">메인 · 성향분석 · 관리자 · 데이터수집</span>
+          </div>
+          <div class="role-stat-card">
+            <span class="role-stat-num">설계</span>
+            <span class="role-stat-label">성향 분석 알고리즘 (가중치 합산)</span>
+          </div>
+          <div class="role-stat-card">
+            <span class="role-stat-num">성능 70~80% 향상</span>
+            <span class="role-stat-label">병렬 처리 도입 (6~12 스레드 · 300건 배치 INSERT)</span>
+          </div>
+        </div>
+        <div class="role-list">
+          <ul>
+            <li>
+              <div class="role-item-header">
+                <strong>메인 페이지</strong>
+                <span class="role-tag">Full Stack</span>
+              </div>
+              <div class="role-sub-list">
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-fe">Frontend</span>
+                  <span class="role-sub-desc">여행지 목록·검색 UI, 추천 여행 계획 카드 렌더링</span>
+                </div>
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-be">Backend</span>
+                  <span class="role-sub-desc">MainPageController — 메인 데이터 조회 및 뷰 바인딩</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="role-item-header">
+                <strong>성향 분석 페이지</strong>
+                <span class="role-tag">Full Stack</span>
+              </div>
+              <div class="role-sub-list">
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-fe">Frontend</span>
+                  <span class="role-sub-desc">1:1 선택지 설문 UI, 결과 시각화 페이지</span>
+                </div>
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-be">Backend</span>
+                  <span class="role-sub-desc">AnalysisController — 질문별 가중치 합산 성향 분석 알고리즘 설계 및 구현 (Travel_Styles · User_Tag_Map)</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="role-item-header">
+                <strong>관리자 페이지</strong>
+                <span class="role-tag">Full Stack</span>
+              </div>
+              <div class="role-sub-list">
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-fe">Frontend</span>
+                  <span class="role-sub-desc">JSP 기반 관리자 페이지 — 공지사항 · FAQ · 1:1 문의 관리</span>
+                </div>
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-be">Backend</span>
+                  <span class="role-sub-desc">AdminController — 공지/FAQ/문의 CRUD, 사용자 관리</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="role-item-header">
+                <strong>여행지 공공 데이터 수집</strong>
+                <span class="role-tag">Backend</span>
+              </div>
+              <div class="role-sub-list">
+                <div class="role-sub-item">
+                  <span class="role-sub-label role-sub-be">Backend</span>
+                  <span class="role-sub-desc">RestApiController + PlaceServiceImpl — 한국관광공사 API 호출, ExecutorService 병렬 처리(6~12 스레드), 배치 INSERT(300건), 태그 자동 분류(PlaceTagClassifier)</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2. 핵심 도메인 설계 -->
+    <section id="p2-domain" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">핵심 도메인 설계</h2>
+        <p class="section-desc">성향 분석 · 여행 일정 흐름 중심 핵심 테이블 발췌</p>
+        <div class="diagram-box">
+          <img src="images/erd_core_hashtrip.png" alt="HashTrip 핵심 도메인 ERD" style="width:100%;border-radius:8px;"/>
+        </div>
+        <ol class="domain-desc">
+          <li>
+            Place ↔ Tag를 N:M 중간 테이블(Place_Tag_Map)로 분리하고,
+            tag_weight · tag_confidence 컬럼을 두어 AI 자동 분류 이력과 신뢰도를 관리했습니다.
+          </li>
+          <li>
+            사용자 성향(User_Tag_Map)을 설문 질문별로 분리 저장해,
+            질문 단위 가중치 합산 방식의 유연한 성향 분석을 지원했습니다.
+          </li>
+          <li>
+            Travel_Plans와 Plan_Details를 분리해 계획 단위(공개/비공개)와
+            장소별 방문 순서(plan_visit_order)를 독립적으로 관리했습니다.
+          </li>
+        </ol>
+        <div class="domain-link-wrap">
+          <a href="https://dbdiagram.io/d/HashTrip-69f16903c6a36f9c1bb01a14" target="_blank" class="btn-erd-link">전체 ERD 보기 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2. 아키텍처 상세 -->
+    <section id="p2-detail" class="section">
+      <div class="container">
+        <h2 class="section-title">아키텍처 상세</h2>
+        <div class="arch-tabs">
+          <button class="tab-btn active" data-tab="p2-analysis">성향 분석 페이지</button>
+          <button class="tab-btn" data-tab="p2-data">공공 데이터 수집</button>
+        </div>
+
+        <!-- 성향 분석 페이지 흐름 -->
+        <div class="tab-content active" id="tab-p2-analysis">
+          <div class="arch-flow">
+            <div class="layer-box layer-box-client">
+              <div class="layer-title">브라우저 (사용자)</div>
+              <div class="layer-sub">설문 페이지 — 1:1 선택지 클릭</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-security">
+              <div class="layer-title">Spring Security</div>
+              <div class="layer-sub">Form 로그인 / OAuth2 인증 — 세션 기반 사용자 식별</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-ctrl">
+              <div class="layer-title">AnalysisController</div>
+              <div class="layer-sub">설문 질문 조회 (GET) · 답변 제출 (POST) 처리</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-service">
+              <div class="layer-title">AnalysisService</div>
+              <div class="layer-sub">질문별 선택 태그 수집 → 가중치 합산 → 최다 누적 태그로 여행 스타일 결정 → Travel_Styles 저장</div>
+            </div>
+            <div class="layer-arrow">↓ MyBatis</div>
+            <div class="layer-box layer-box-dao">
+              <div class="layer-title">DAO Layer</div>
+              <div class="layer-sub">User_Tag_Map INSERT · Travel_Styles INSERT · TravelStylesDAO · UserTagMapDAO</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-db">
+              <div class="layer-title">Oracle DB</div>
+              <div class="layer-sub">User_Tag_Map · Travel_Styles · Tag_Master</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 공공 데이터 수집 흐름 -->
+        <div class="tab-content" id="tab-p2-data">
+          <div class="arch-flow">
+            <div class="layer-box layer-box-client">
+              <div class="layer-title">브라우저 (관리자)</div>
+              <div class="layer-sub">여행지 데이터 수집 요청</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-ctrl">
+              <div class="layer-title">RestApiController</div>
+              <div class="layer-sub">수집 시작 트리거 — ImportProgressTracker로 진행률 관리</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-service">
+              <div class="layer-title">PlaceServiceImpl</div>
+              <div class="layer-sub">ExecutorService (6~12 스레드) 병렬 처리 — 운영시간 파싱(PlaceHoursParser) · 태그 자동 분류(PlaceTagClassifier)</div>
+            </div>
+            <div class="layer-arrow">↓ HTTP</div>
+            <div class="layer-box" style="border:1.5px solid #a78bfa;border-radius:8px;padding:12px 16px;">
+              <div class="layer-title">한국관광공사 공공API</div>
+              <div class="layer-sub">Area Based List API — 지역별 여행지 목록 · 상세 정보 반환</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-dao">
+              <div class="layer-title">PlaceDAO</div>
+              <div class="layer-sub">배치 INSERT 300건 단위 — Place · Place_Hours · Place_Tag_Map</div>
+            </div>
+            <div class="layer-arrow">↓</div>
+            <div class="layer-box layer-box-db">
+              <div class="layer-title">Oracle DB</div>
+              <div class="layer-sub">Place · Place_Hours · Place_Tag_Map · Tag_Master</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- P2. 대표 기능 흐름 -->
+    <section id="p2-flow" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">대표 기능 흐름</h2>
+        <div class="tabs flow-tabs">
+          <button class="tab-btn active" data-flow="p2-flow1">성향 분석 흐름</button>
+          <button class="tab-btn" data-flow="p2-flow2">공공 데이터 수집 흐름</button>
+        </div>
+
+        <!-- Flow 1: 성향 분석 -->
+        <div id="flow-panel-p2-flow1" class="flow-panel active">
+          <div class="flow-steps">
+
+            <div class="flow-phase-header">Phase 1. 로그인 &amp; 설문 진입</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 로그인 상태 확인</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-error">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>미로그인</strong>
+                    <span>로그인 페이지로 리다이렉트</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>로그인 완료</strong>
+                    <span>세션에서 사용자 정보 조회 → 성향 분석 페이지 진입</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>설문 질문 목록 조회</strong>
+                <span>GET /analysis — AnalysisController에서 질문·선택지 목록 로드</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>설문 화면 렌더링</strong>
+                <span>JSP — 질문별 1:1 선택지 카드 표시</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 2. 설문 응답 수집</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>선택지 클릭</strong>
+                <span>각 질문마다 A/B 중 하나 선택 — 선택한 답변의 태그 코드 누적</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>답변 제출</strong>
+                <span>POST /analysis/result — 질문별 선택 태그 목록 전송</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 3. 성향 분석 &amp; 결과 저장</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>가중치 합산 분석</strong>
+                <span>질문별 선택 태그에 가중치 부여 → 전체 합산 → 최다 누적 태그로 여행 스타일 결정</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>결과 저장</strong>
+                <span>User_Tag_Map INSERT (질문별 태그 이력) · Travel_Styles INSERT (최종 여행 스타일)</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>결과 페이지 표시</strong>
+                <span>여행 스타일명 · 요약 · 추천 태그 카드 렌더링</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 4. 성향 기반 추천 여행지 조회</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>추천 여행지 조회 요청</strong>
+                <span>결과 페이지에서 "추천 여행지 보기" 클릭 → GET /places/recommend</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>성향 코드 추출</strong>
+                <span>TRAVEL_STYLES 조회 → selectedPlaceCodes · selectedEnergyCodes · selectedPlanCodes 로드</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>성향 코드 기반 여행지 매칭</strong>
+                <span>PLACE_TAG_MAP JOIN PLACE JOIN TAG_MASTER — 성향 코드 일치 여행지 조회 · 태그 가중치·평점 기준 정렬</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>추천 여행지 목록 렌더링</strong>
+                <span>여행지명 · 주소 · 평점 · 매칭 태그 카드 표시</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 5. 여행 일정에 여행지 등록</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>일정 추가 요청</strong>
+                <span>추천 여행지 카드에서 "일정에 추가" 클릭</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-branch-block">
+              <div class="flow-branch-title">⚡ 분기: 일정 선택</div>
+              <div class="flow-branch-paths">
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>기존 일정 선택</strong>
+                    <span>내 여행 일정 목록에서 추가할 일정 선택</span>
+                  </div>
+                </div>
+                <div class="flow-branch-path path-ok">
+                  <span class="path-arrow">↳</span>
+                  <div class="flow-step-body">
+                    <strong>새 일정 생성</strong>
+                    <span>일정 제목 · 여행 기간 입력 후 새 TravelPlan 생성</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">API</span>
+              <div class="flow-step-body">
+                <strong>여행지 등록 요청</strong>
+                <span>POST /plan — PlanController → TravelPlanService.insertTravelPlanWithDetails() 호출</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>일정 &amp; 상세 저장</strong>
+                <span>TRAVEL_PLAN INSERT · PLAN_DETAILS INSERT (place_no · plan_visit_order · 방문 날짜 · 메모) — @Transactional</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-frontend">Frontend</span>
+              <div class="flow-step-body">
+                <strong>여행 일정 페이지 이동</strong>
+                <span>등록 완료 후 내 여행 일정 페이지로 리다이렉트</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Flow 2: 공공 데이터 수집 -->
+        <div id="flow-panel-p2-flow2" class="flow-panel">
+          <div class="flow-steps">
+
+            <div class="flow-phase-header">Phase 1. 수집 요청 &amp; 초기화</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-admin">Admin</span>
+              <div class="flow-step-body">
+                <strong>데이터 수집 요청</strong>
+                <span>관리자 페이지에서 수집 시작 버튼 클릭 → POST /api/import</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>ImportProgressTracker 초기화</strong>
+                <span>총 수집 예정 건수 설정, 진행률 0% 시작</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 2. 병렬 수집 &amp; 파싱</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>ExecutorService 병렬 처리</strong>
+                <span>6~12개 스레드로 지역별 API 동시 호출 — Area Based List API</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-external">External</span>
+              <div class="flow-step-body">
+                <strong>한국관광공사 공공API 응답</strong>
+                <span>여행지 기본 정보 · 운영시간 · 위도경도 · 카테고리 JSON 반환</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>파싱 &amp; 분류</strong>
+                <span>PlaceHoursParser — 텍스트 운영시간 → 구조화 데이터 변환 / PlaceTagClassifier — 카테고리 기반 태그 자동 분류</span>
+              </div>
+            </div>
+
+            <div class="flow-phase-divider"></div>
+
+            <div class="flow-phase-header">Phase 3. 배치 저장 &amp; 완료</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-db">DB</span>
+              <div class="flow-step-body">
+                <strong>배치 INSERT</strong>
+                <span>300건 단위 묶음 INSERT — Place · Place_Hours · Place_Tag_Map 트랜잭션 처리</span>
+              </div>
+            </div>
+            <div class="flow-step-arrow">↓</div>
+
+            <div class="flow-step">
+              <span class="actor-badge actor-backend">Service</span>
+              <div class="flow-step-body">
+                <strong>진행률 업데이트</strong>
+                <span>ImportProgressTracker — 배치 완료마다 진행률 갱신 → 관리자 화면에 실시간 반영</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- P2. 트러블슈팅 -->
+    <section id="p2-trouble" class="section">
+      <div class="container">
+        <h2 class="section-title">트러블슈팅 및 개선 포인트</h2>
+        <div class="trouble-cards">
+          <button class="trouble-card active" data-trouble="p2-t1">
+            <span class="trouble-card-num">01</span>
+            <span class="trouble-card-title">성향 분석 중복 태그 처리 오류 → 가중치 합산 방식으로 로직 전면 수정</span>
+          </button>
+          <button class="trouble-card" data-trouble="p2-t2">
+            <span class="trouble-card-num">02</span>
+            <span class="trouble-card-title">여행지 상세 정보 순차 조회로 인한 페이지 로딩 지연 → 병렬 처리 도입으로 성능 70~80% 개선</span>
+          </button>
+        </div>
+        <div class="trouble-detail">
+          <div class="trouble-panel active" id="trouble-panel-p2-t1">
+            <div class="trouble-steps">
+              <div class="trouble-step step-problem">
+                <span class="step-label">문제 상황</span>
+                <p>
+                  1:1 선택지 설문에서 사용자가 모든 질문에 답변한 후 성향 분석 결과를 도출할 때,
+                  동일 태그가 여러 질문에 걸쳐 중복 등장하는 경우 결과가 부정확하게 산출되는 오류가 발생했습니다.
+                  일부 케이스에서 실제 가장 많이 선택한 태그가 아닌 다른 태그가 최종 성향으로 결정되었습니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-cause">
+                <span class="step-label">원인 분석</span>
+                <p>
+                  초기 로직은 '태그 유무(존재 여부)'만 비교하는 방식이었습니다.
+                  각 질문에서 선택한 태그를 Set에 넣어 중복을 제거한 뒤 비교하다 보니,
+                  같은 태그가 여러 질문에서 반복 선택되어도 1회로만 카운트되었습니다.
+                  그 결과 실제 선택 빈도가 낮은 태그가 Set 기준으로 먼저 등장해 잘못된 성향으로 결정되는 경우가 발생했습니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-solve">
+                <span class="step-label">해결 과정</span>
+                <p>
+                  '태그 유무 비교' 방식을 폐기하고, '질문별 가중치 합산' 방식으로 로직을 전면 수정했습니다.
+                  각 질문에서 선택한 태그에 질문별 가중치를 부여하고,
+                  동일 태그가 여러 질문에서 선택될수록 합산 점수가 누적되도록 Map&lt;String, Integer&gt; 구조로 변경했습니다.
+                  전체 질문 답변 완료 후 가장 높은 합산 점수를 가진 태그를 최종 여행 스타일로 결정합니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-result">
+                <span class="step-label">결과</span>
+                <p>
+                  중복 태그가 발생하는 모든 케이스에서 사용자가 실제로 가장 많이 선택한 태그가
+                  정확하게 최종 여행 스타일로 결정됩니다.
+                  로직 수정 후 성향 분석 결과 오류 케이스 0건을 확인했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="trouble-panel" id="trouble-panel-p2-t2">
+            <div class="trouble-steps">
+              <div class="trouble-step step-problem">
+                <span class="step-label">문제 상황</span>
+                <p>
+                  여행지 상세 정보(영업시간 등)를 가져오는 과정에서 페이지 로딩 속도가 현저히 느려지는 현상이 발생했습니다.
+                  수많은 여행지 데이터를 처리할수록 응답 지연이 심해졌고, 사용자 경험에 직접적인 영향을 주었습니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-cause">
+                <span class="step-label">원인 분석</span>
+                <p>
+                  여행지 데이터를 순차적(Sequential)으로 하나씩 API 호출·DB 조회하는 구조였습니다.
+                  데이터 양에 비례하여 전체 응답 시간이 누적되는 구조적 문제였으며,
+                  앞선 처리가 완료될 때까지 다음 처리가 시작되지 못하는 Blocking이 발생했습니다.
+                  CPU·네트워크 자원을 충분히 활용할 수 있음에도 한 번에 하나의 작업만 수행하여 전체 처리 효율(Throughput)이 저하되었습니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-solve">
+                <span class="step-label">해결 과정</span>
+                <p>
+                  Java의 CompletableFuture 또는 Parallel Stream을 활용하여 단건 호출 방식을 병렬 처리 구조로 변경했습니다.
+                  여러 여행지 데이터를 동시에 처리하도록 설계함으로써 Blocking 없이 자원을 효율적으로 활용할 수 있게 되었습니다.
+                </p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-result">
+                <span class="step-label">결과</span>
+                <p>
+                  기존 순차 처리 대비 데이터 로딩 속도를 획기적으로 단축했습니다.
+                  병렬 처리 도입 후 기존 대비 약 70~80%의 성능 향상을 확인했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2. 회고 및 배운 점 -->
+    <section id="p2-retrospect" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">회고 및 배운 점</h2>
+        <div class="retro-grid">
+          <div class="retro-card">
+            <span class="retro-icon">⚙️</span>
+            <h3>기술적 성장</h3>
+            <p>
+              한국관광공사 공공API 대량 데이터를 ExecutorService 병렬 처리와 배치 INSERT로 효율적으로 수집하는 방법을 익혔습니다.
+              성향 분석 알고리즘을 직접 설계하고, 태그 중복 처리 버그를 발견·수정하는 과정에서
+              알고리즘의 엣지 케이스를 꼼꼼히 검토하는 습관이 생겼습니다.
+              Spring Security OAuth2 소셜 로그인 3종 연동을 통해 인증 흐름 전반을 이해하게 되었습니다.
+            </p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🤝</span>
+            <h3>협업 경험</h3>
+            <p>
+              최종 발표를 담당하면서 프로젝트 전반을 명확하게 정리하고 전달하는 능력을 키웠습니다.
+              팀원들의 구현 내용을 통합적으로 이해하고 아키텍처 전체 흐름을 파악하는 시야가 생겼습니다.
+              발표 준비 과정에서 팀 전원의 코드를 리뷰하며 각 모듈의 연결 지점을 직접 확인했습니다.
+            </p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🎯</span>
+            <h3>다음 목표</h3>
+            <p>
+              성향 분석 로직을 단순 태그 집계에서 벗어나 사용자 행동 이력 기반 추천 알고리즘으로 발전시키고 싶습니다.
+              공공 데이터 수집 파이프라인을 스케줄러 기반 자동화로 개선하고,
+              현재 Spring Legacy 구조를 Spring Boot로 마이그레이션하며 구조 차이를 직접 체득해보고 싶습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /project-content data-project="2" -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
