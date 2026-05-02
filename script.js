@@ -84,6 +84,9 @@ function switchProject(project) {
   document.querySelectorAll('.project-nav-item').forEach((item) => {
     item.style.display = item.dataset.project === project ? '' : 'none';
   });
+  // 프로젝트별 색상 테마 적용
+  const navbar = document.getElementById('navbar');
+  navbar.classList.toggle('theme-p2', project === '2');
   localStorage.setItem('activeProject', project);
 }
 

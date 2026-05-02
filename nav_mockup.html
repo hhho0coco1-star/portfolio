@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>네비게이션 개선안 비교</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; padding: 40px 24px; }
+
+    h1 { text-align: center; font-size: 1.4rem; color: #1e293b; margin-bottom: 8px; }
+    .subtitle { text-align: center; font-size: 0.9rem; color: #64748b; margin-bottom: 48px; }
+
+    .case-wrap { margin-bottom: 60px; }
+    .case-label {
+      font-size: 1rem; font-weight: 700; color: #1e293b;
+      margin-bottom: 6px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .badge-current {
+      font-size: 0.72rem; background: #fee2e2; color: #dc2626;
+      padding: 2px 8px; border-radius: 99px; font-weight: 600;
+    }
+    .badge-new {
+      font-size: 0.72rem; background: #dcfce7; color: #16a34a;
+      padding: 2px 8px; border-radius: 99px; font-weight: 600;
+    }
+    .case-desc {
+      font-size: 0.84rem; color: #64748b; margin-bottom: 16px; line-height: 1.6;
+    }
+
+    /* ===== 브라우저 프레임 ===== */
+    .browser {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      background: #fff;
+    }
+    .browser-bar {
+      background: #e2e8f0; padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #22c55e; }
+    .url-bar {
+      flex: 1; background: #fff; border-radius: 6px;
+      padding: 4px 12px; font-size: 0.78rem; color: #94a3b8;
+      margin-left: 8px;
+    }
+    .browser-body { padding: 0; }
+
+    /* ===== 현재 상태 ===== */
+    .nav-current {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 24px;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 700; color: #2563eb; font-size: 1rem; }
+    .nav-links { display: flex; gap: 2px; }
+    .nav-links a {
+      font-size: 0.8rem; color: #94a3b8; padding: 5px 9px;
+      border-radius: 6px; text-decoration: none;
+    }
+    .nav-links a.active { background: #eff6ff; color: #2563eb; }
+    .nav-content {
+      padding: 20px 24px; background: #f8fafc;
+      min-height: 80px;
+    }
+    .project-tabs-in-content {
+      display: flex; gap: 8px; margin-bottom: 14px;
+    }
+    .ptab {
+      padding: 6px 14px; border-radius: 8px; font-size: 0.82rem;
+      cursor: pointer; border: none; font-weight: 600;
+      background: #e2e8f0; color: #64748b;
+    }
+    .ptab.active { background: #2563eb; color: #fff; }
+    .content-preview {
+      font-size: 0.8rem; color: #94a3b8; background: #fff;
+      border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;
+    }
+    .problem-arrow {
+      background: #fef9c3; border: 1px solid #fde047;
+      border-radius: 8px; padding: 10px 14px; margin-top: 12px;
+      font-size: 0.8rem; color: #854d0e;
+    }
+
+    /* ===== 방법 1: 뱃지 ===== */
+    .nav-m1 {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-m1-left { display: flex; align-items: center; gap: 12px; }
+    .project-badge {
+      font-size: 0.72rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 99px;
+      background: #eff6ff; color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+    .project-badge.p2 { background: #f5f3ff; color: #7c3aed; border-color: #ddd6fe; }
+
+    /* ===== 방법 2: 색상 테마 ===== */
+    .nav-m2-p1 {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 3px solid #2563eb;
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-m2-p2 {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 3px solid #7c3aed;
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-links a.active-p2 { background: #f5f3ff; color: #7c3aed; }
+    .nav-logo-p2 { font-weight: 700; color: #7c3aed; font-size: 1rem; }
+    .indicator-bar {
+      height: 3px; width: 100%; background: #e2e8f0;
+    }
+    .indicator-bar.p1 { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+    .indicator-bar.p2 { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+
+    /* ===== 방법 3: 탭 통합 ===== */
+    .nav-m3 {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-m3-left { display: flex; align-items: center; gap: 20px; }
+    .nav-project-tabs { display: flex; gap: 4px; }
+    .nav-ptab {
+      font-size: 0.8rem; font-weight: 600;
+      padding: 5px 12px; border-radius: 8px;
+      border: none; cursor: pointer;
+      background: #f1f5f9; color: #64748b;
+    }
+    .nav-ptab.active-p1 { background: #2563eb; color: #fff; }
+    .nav-ptab.active-p2 { background: #7c3aed; color: #fff; }
+    .nav-divider {
+      width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;
+    }
+
+    /* ===== 조합안 (2+3) ===== */
+    .recommended-wrap {
+      border: 2px solid #22c55e;
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(34,197,94,0.15);
+    }
+    .recommended-header {
+      background: #dcfce7; padding: 10px 18px;
+      font-size: 0.84rem; font-weight: 700; color: #15803d;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ===== 비교 레이아웃 ===== */
+    .compare-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 16px;
+    }
+    .compare-item label {
+      display: block; font-size: 0.78rem; font-weight: 600;
+      color: #64748b; margin-bottom: 6px; text-align: center;
+    }
+
+    .pros-cons {
+      display: flex; gap: 12px; margin-top: 12px;
+    }
+    .pros, .cons {
+      flex: 1; border-radius: 8px; padding: 10px 12px; font-size: 0.78rem; line-height: 1.8;
+    }
+    .pros { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .cons { background: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .pros strong, .cons strong { display: block; font-size: 0.8rem; margin-bottom: 4px; }
+
+    hr.section-hr { border: none; border-top: 2px dashed #e2e8f0; margin: 48px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>네비게이션 개선안 비교</h1>
+  <p class="subtitle">각 방법이 실제로 어떻게 보이는지 확인하세요</p>
+
+  <!-- ===== 현재 상태 ===== -->
+  <div class="case-wrap">
+    <div class="case-label">
+      현재 상태
+      <span class="badge-current">문제 있음</span>
+    </div>
+    <p class="case-desc">
+      두 프로젝트 메뉴가 동일한 텍스트로 구성되어 있고, 탭이 콘텐츠 안에 있어
+      스크롤 내리면 어느 프로젝트를 보는지 알 수 없습니다.
+    </p>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+        <div class="url-bar">portfolio/index.html</div>
+      </div>
+      <div class="browser-body">
+        <div class="nav-current">
+          <span class="nav-logo">Portfolio</span>
+          <div class="nav-links">
+            <a href="#">소개</a>
+            <a href="#">기술스택</a>
+            <a href="#" class="active">프로젝트</a>
+            <a href="#">아키텍처</a>
+            <a href="#">담당 역할</a>
+            <a href="#">도메인 설계</a>
+            <a href="#">트러블슈팅</a>
+            <a href="#">회고</a>
+          </div>
+        </div>
+        <div class="nav-content">
+          <div class="project-tabs-in-content">
+            <button class="ptab active">LocalQuest</button>
+            <button class="ptab">HashTrip</button>
+          </div>
+          <div class="content-preview">
+            📄 프로젝트 콘텐츠 영역 — 스크롤을 내리면 탭이 사라짐
+          </div>
+          <div class="problem-arrow">
+            ⚠️ 문제: 스크롤을 내리면 탭(LocalQuest/HashTrip)이 보이지 않아서,
+            위 메뉴가 어느 프로젝트 메뉴인지 구분 불가
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-hr">
+
+  <!-- ===== 방법 1 ===== -->
+  <div class="case-wrap">
+    <div class="case-label">
+      방법 1 — 네비게이션에 현재 프로젝트 이름 뱃지 추가
+      <span class="badge-new">간단</span>
+    </div>
+    <p class="case-desc">
+      로고 옆에 현재 활성화된 프로젝트 이름을 뱃지로 표시합니다.
+      어느 프로젝트를 보고 있는지 항상 텍스트로 확인 가능합니다.
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-item">
+        <label>▶ LocalQuest 볼 때</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m1">
+            <div class="nav-m1-left">
+              <span class="nav-logo">Portfolio</span>
+              <span class="project-badge">LocalQuest</span>
+            </div>
+            <div class="nav-links">
+              <a href="#" class="active">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-item">
+        <label>▶ HashTrip 볼 때</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m1">
+            <div class="nav-m1-left">
+              <span class="nav-logo">Portfolio</span>
+              <span class="project-badge p2">HashTrip</span>
+            </div>
+            <div class="nav-links">
+              <a href="#" class="active">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros"><strong>👍 장점</strong>구현 가장 간단<br>네비 구조 변경 없음<br>깔끔하고 심플</div>
+      <div class="cons"><strong>👎 단점</strong>프로젝트 전환하려면 스크롤 위로 올라가야 함<br>색상 변화 없어 임팩트 약함</div>
+    </div>
+  </div>
+
+  <hr class="section-hr">
+
+  <!-- ===== 방법 2 ===== -->
+  <div class="case-wrap">
+    <div class="case-label">
+      방법 2 — 프로젝트별 네비게이션 색상 테마 분리
+      <span class="badge-new">시각적</span>
+    </div>
+    <p class="case-desc">
+      LocalQuest는 파랑, HashTrip은 보라로 네비게이션 하단 강조선과 활성 색상이 바뀝니다.
+      색만 봐도 어느 프로젝트인지 즉시 인식됩니다.
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-item">
+        <label>▶ LocalQuest 볼 때 (파랑)</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m2-p1">
+            <span class="nav-logo">Portfolio</span>
+            <div class="nav-links">
+              <a href="#" class="active">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+          <div class="indicator-bar p1"></div>
+        </div>
+      </div>
+      <div class="compare-item">
+        <label>▶ HashTrip 볼 때 (보라)</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m2-p2">
+            <span class="nav-logo-p2">Portfolio</span>
+            <div class="nav-links">
+              <a href="#" class="active-p2">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+          <div class="indicator-bar p2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros"><strong>👍 장점</strong>색만 봐도 즉시 구분<br>시각적 임팩트 강함<br>구현 난이도 낮음 (CSS만)</div>
+      <div class="cons"><strong>👎 단점</strong>프로젝트 전환 여전히 불편<br>색각 이상 사용자 배려 필요</div>
+    </div>
+  </div>
+
+  <hr class="section-hr">
+
+  <!-- ===== 방법 3 ===== -->
+  <div class="case-wrap">
+    <div class="case-label">
+      방법 3 — 프로젝트 탭을 네비게이션 바 안으로 통합
+      <span class="badge-new">구조 개선</span>
+    </div>
+    <p class="case-desc">
+      현재 콘텐츠 안에 있는 LocalQuest / HashTrip 탭을 네비게이션 바로 올립니다.
+      어디서 스크롤해도 탭이 항상 보이고, 바로 전환할 수 있습니다.
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-item">
+        <label>▶ LocalQuest 탭 활성 시</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m3">
+            <div class="nav-m3-left">
+              <span class="nav-logo">Portfolio</span>
+              <div class="nav-divider"></div>
+              <div class="nav-project-tabs">
+                <button class="nav-ptab active-p1">LocalQuest</button>
+                <button class="nav-ptab">HashTrip</button>
+              </div>
+            </div>
+            <div class="nav-links">
+              <a href="#" class="active">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-item">
+        <label>▶ HashTrip 탭 활성 시</label>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          </div>
+          <div class="nav-m3">
+            <div class="nav-m3-left">
+              <span class="nav-logo">Portfolio</span>
+              <div class="nav-divider"></div>
+              <div class="nav-project-tabs">
+                <button class="nav-ptab">LocalQuest</button>
+                <button class="nav-ptab active-p2">HashTrip</button>
+              </div>
+            </div>
+            <div class="nav-links">
+              <a href="#" class="active-p2">프로젝트</a>
+              <a href="#">아키텍처</a>
+              <a href="#">담당 역할</a>
+              <a href="#">트러블슈팅</a>
+              <a href="#">회고</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros"><strong>👍 장점</strong>탭이 항상 고정으로 보임<br>어디서든 프로젝트 전환 가능<br>구조 가장 명확</div>
+      <div class="cons"><strong>👎 단점</strong>HTML 구조 변경 필요<br>좁은 화면에서 메뉴 밀릴 수 있음</div>
+    </div>
+  </div>
+
+  <hr class="section-hr">
+
+  <!-- ===== 추천 조합 (2+3) ===== -->
+  <div class="case-wrap">
+    <div class="case-label">
+      ⭐ 추천 — 방법 2 + 방법 3 조합
+      <span class="badge-new">추천</span>
+    </div>
+    <p class="case-desc">
+      탭을 네비게이션 바에 통합(방법3) + 프로젝트별 색상 구분(방법2)을 동시에 적용합니다.
+      탭 위치로 "어느 프로젝트인지" 알고, 색상으로 "한눈에 구분"합니다.
+    </p>
+    <div class="recommended-wrap">
+      <div class="recommended-header">⭐ LocalQuest 활성 상태</div>
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          <div class="url-bar">portfolio/index.html</div>
+        </div>
+        <div class="nav-m2-p1">
+          <div class="nav-m3-left">
+            <span class="nav-logo">Portfolio</span>
+            <div class="nav-divider"></div>
+            <div class="nav-project-tabs">
+              <button class="nav-ptab active-p1">LocalQuest</button>
+              <button class="nav-ptab">HashTrip</button>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="active">프로젝트</a>
+            <a href="#">아키텍처</a>
+            <a href="#">담당 역할</a>
+            <a href="#">트러블슈팅</a>
+            <a href="#">회고</a>
+          </div>
+        </div>
+        <div class="indicator-bar p1"></div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="recommended-wrap">
+      <div class="recommended-header" style="background:#ede9fe; color:#5b21b6;">⭐ HashTrip 활성 상태</div>
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          <div class="url-bar">portfolio/index.html</div>
+        </div>
+        <div class="nav-m2-p2">
+          <div class="nav-m3-left">
+            <span class="nav-logo-p2">Portfolio</span>
+            <div class="nav-divider"></div>
+            <div class="nav-project-tabs">
+              <button class="nav-ptab">LocalQuest</button>
+              <button class="nav-ptab active-p2">HashTrip</button>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="active-p2">프로젝트</a>
+            <a href="#">아키텍처</a>
+            <a href="#">담당 역할</a>
+            <a href="#">트러블슈팅</a>
+            <a href="#">회고</a>
+          </div>
+        </div>
+        <div class="indicator-bar p2"></div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros"><strong>👍 장점</strong>탭 항상 고정 노출 (전환 편리)<br>색상으로 즉각적인 시각 구분<br>스크롤 어디서든 현재 프로젝트 인식</div>
+      <div class="cons"><strong>👎 단점</strong>세 가지 중 구현 난이도 가장 높음<br>(그래도 30분 내 구현 가능)</div>
+    </div>
+  </div>
+
+</body>
+</html>
