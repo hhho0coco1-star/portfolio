@@ -61,6 +61,7 @@ ul { list-style: none; }
   font-weight: 700;
   color: var(--color-primary);
   transition: color 0.3s;
+  cursor: pointer;
 }
 #navbar.theme-p2 .nav-logo {
   color: var(--color-accent);

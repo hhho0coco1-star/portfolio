@@ -88,6 +88,9 @@ function switchProject(project) {
   const navbar = document.getElementById('navbar');
   navbar.classList.toggle('theme-p2', project === '2');
   localStorage.setItem('activeProject', project);
+
+  const targetId = project === '2' ? 'p2-overview' : 'overview';
+  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
 }
 
 document.querySelectorAll('.project-tab').forEach((tab) => {
@@ -99,6 +102,13 @@ const savedProject = localStorage.getItem('activeProject');
 if (savedProject && document.querySelector(`.project-tab[data-project="${savedProject}"]`)) {
   switchProject(savedProject);
 }
+
+// ===== Portfolio 로고 클릭 시 프로젝트 시작 섹션으로 스크롤 =====
+document.querySelector('.nav-logo').addEventListener('click', () => {
+  const activeProject = document.querySelector('.project-tab.active')?.dataset.project || '1';
+  const targetId = activeProject === '2' ? 'p2-overview' : 'overview';
+  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+});
 
 // ===== 트러블슈팅 카드 탭 전환 =====
 document.querySelectorAll('.trouble-card').forEach((card) => {
