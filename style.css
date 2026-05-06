@@ -62,6 +62,7 @@ ul { list-style: none; }
   color: var(--color-primary);
   transition: color 0.3s;
   cursor: pointer;
+  text-decoration: none;
 }
 #navbar.theme-p2 .nav-logo {
   color: var(--color-accent);
@@ -354,6 +355,48 @@ main { padding-top: var(--nav-height); }
   border-radius: 999px;
   padding: 2px 8px;
   font-weight: 600;
+}
+
+/* ===== 프로젝트 선택 버튼 ===== */
+.project-select-grid {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.project-card-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 260px;
+  padding: 40px 32px;
+  border-radius: 16px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.project-card-btn:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.12);
+  transform: translateY(-4px);
+}
+.project-card-icon {
+  font-size: 2.4rem;
+}
+.project-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+.project-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 /* ===== 1. 프로젝트 소개 ===== */
