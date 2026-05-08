@@ -600,38 +600,11 @@
         <div class="trouble-cards">
           <button class="trouble-card active" data-trouble="t1">
             <span class="trouble-card-num">01</span>
-            <span class="trouble-card-title">QR URL 파라미터 이름 불일치로 인한 인증 불가</span>
-          </button>
-          <button class="trouble-card" data-trouble="t2">
-            <span class="trouble-card-num">02</span>
             <span class="trouble-card-title">QR 이미지 Blob URL 메모리 누수</span>
           </button>
         </div>
         <div class="trouble-detail">
           <div class="trouble-panel active" id="trouble-panel-t1">
-            <div class="trouble-steps">
-              <div class="trouble-step step-problem">
-                <span class="step-label">문제 상황</span>
-                <p>QR 코드를 스캔해 검증 페이지(<code>/qr/verify</code>)로 이동했을 때 <code>qrAuthKey</code> 값을 읽지 못해 &quot;유효한 QR 코드가 아닙니다&quot; 오류가 발생. 새로 출력한 QR은 정상 동작하지만 이전에 인쇄해 둔 QR은 계속 실패.</p>
-              </div>
-              <div class="trouble-arrow-v">↓</div>
-              <div class="trouble-step step-cause">
-                <span class="step-label">원인 분석</span>
-                <p>초기 구현에서 <code>buildQrVerifyUrl()</code>이 <code>?qrAuthKey={uuid}</code>로 URL을 생성했다가, 코드 간결화를 위해 <code>?key={uuid}</code>로 파라미터 이름을 변경함. <code>QrVerify.js</code>의 <code>searchParams.get()</code> 호출부는 그대로 두어 구 파라미터명을 읽지 못하는 불일치 발생.</p>
-              </div>
-              <div class="trouble-arrow-v">↓</div>
-              <div class="trouble-step step-solve">
-                <span class="step-label">해결 과정</span>
-                <p><code>QrVerify.js</code>에서 두 파라미터를 모두 수용하도록 <code>searchParams.get('key') || searchParams.get('qrAuthKey')</code> 방어적 fallback 처리를 추가. 이후 파라미터 이름 변경 시 양쪽을 동시에 수정하도록 팀 컨벤션에 명시.</p>
-              </div>
-              <div class="trouble-arrow-v">↓</div>
-              <div class="trouble-step step-result">
-                <span class="step-label">결과</span>
-                <p>구 파라미터(<code>qrAuthKey</code>)로 생성된 기존 QR과 신 파라미터(<code>key</code>)로 생성된 QR 모두 정상 인증. 파라미터 불일치로 인한 인증 실패 0건.</p>
-              </div>
-            </div>
-          </div>
-          <div class="trouble-panel" id="trouble-panel-t2">
             <div class="trouble-steps">
               <div class="trouble-step step-problem">
                 <span class="step-label">문제 상황</span>
