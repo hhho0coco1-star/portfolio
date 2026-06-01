@@ -1102,8 +1102,8 @@ main { padding-top: var(--nav-height); }
 .layer-box-db       { background: #fff1f2; border-color: #fda4af; border-left: 4px solid #e11d48; }
 .layer-box-view     { background: #f0f6ff; border-color: #93c5fd; border-left: 4px solid #2563eb; }
 
-.layer-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; color: var(--color-text); }
-.layer-sub   { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.6; }
+.layer-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; color: var(--color-text); word-break: keep-all; }
+.layer-sub   { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.6; word-break: keep-all; }
 
 /* ===== 프로젝트 개요 헤더 ===== */
 .overview-header {
