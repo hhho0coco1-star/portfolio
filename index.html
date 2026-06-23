@@ -16,15 +16,16 @@
       </div>
       <ul class="nav-links">
         <li><a href="#intro">소개</a></li>
-        <li><a href="#stack">기술 스택</a></li>
         <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#stack">기술 스택</a></li>
+        <li><a href="#education">교육</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
 
-    <!-- 0. 개인 소개 -->
+    <!-- 0. 히어로 (개인 소개) -->
     <section id="intro" class="section">
       <div class="container">
         <div class="intro-card">
@@ -33,7 +34,7 @@
           </div>
           <div class="intro-info">
             <h1 class="intro-name">안세웅</h1>
-            <p class="intro-tagline">React와 Spring을 함께 다루는 Java 풀스택 개발자입니다. 두 번의 팀 프로젝트에서 비즈니스 로직 설계부터 UI 구현까지 전 과정을 담당했습니다.</p>
+            <p class="intro-tagline">Spring 기반 백엔드 개발자입니다. 팀 프로젝트로 풀스택 전 과정을 경험하고, 개인 프로젝트에서 MSA·Kafka·Kubernetes 기반 실시간 분산 시스템을 직접 설계·운영하며 백엔드 역량을 넓혀왔습니다.</p>
             <div class="intro-links">
               <a href="mailto:dpcks2553@naver.com" class="link-badge">📧 dpcks2553@naver.com</a>
               <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">🐙 GitHub</a>
@@ -41,149 +42,53 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="edu-summary">
-          <h2 class="section-subtitle">교육 및 자격증</h2>
-          <div class="edu-list">
-            <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
-              <div class="edu-icon">🎓</div>
-              <div class="edu-info">
-                <div class="edu-header">
-                  <div>
-                    <div class="edu-title">자바(JAVA)활용 데이터 플랫폼 구축 풀스택 개발자 과정</div>
-                    <div class="edu-org">휴먼교육센터</div>
-                    <div class="edu-period">2025.10.15 ~ 2026.04.08</div>
-                    <div class="edu-tags">
-                      <span class="tag tag-backend">Java</span>
-                      <span class="tag tag-backend">Spring Framework</span>
-                      <span class="tag tag-backend">MyBatis</span>
-                      <span class="tag tag-backend">REST API</span>
-                      <span class="tag tag-frontend">JavaScript (ES6+)</span>
-                      <span class="tag tag-frontend">React</span>
-                      <span class="tag tag-frontend">HTML5/CSS3</span>
-                      <span class="tag tag-db">Oracle SQL</span>
-                      <span class="tag tag-infra">Git</span>
-                      <span class="tag tag-infra">Docker</span>
-                    </div>
-                  </div>
-                  <span class="edu-toggle">▼</span>
-                </div>
-                <div class="edu-detail">
-                  <div class="edu-curriculum">
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">Backend (Java &amp; Spring)</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>Java</strong> — 객체지향 프로그래밍(OOP) 기초 및 심화, 컬렉션 프레임워크 활용</li>
-                        <li><strong>Spring Framework</strong> — Spring Framework 패턴 기반 웹 서비스 구조 설계 및 RESTful API 구현</li>
-                        <li><strong>MyBatis</strong> — XML 기반 SQL 매핑을 통한 DB 연동 및 비즈니스 로직 분리</li>
-                      </ul>
-                    </div>
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">Frontend (JavaScript &amp; Library)</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>JavaScript (ES6+)</strong> — 비동기 처리(Async/Await, Promise) 및 DOM 조작</li>
-                        <li><strong>React</strong> — 컴포넌트 기반 설계, Props/State를 활용한 상태 관리 및 화면 렌더링 최적화</li>
-                        <li><strong>HTML5/CSS3</strong> — 시맨틱 마크업 및 반응형 웹 디자인 구현</li>
-                      </ul>
-                    </div>
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">Database &amp; Data Analysis</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>Oracle SQL</strong> — RDBMS 설계(ERD), 관계 정의 및 복잡한 Join/Subquery를 활용한 데이터 추출</li>
-                        <li><strong>데이터 플랫폼 구축</strong> — 공공 데이터 API 연동 및 데이터 가공/분석 로직 구현</li>
-                        <li><strong>SQLD 역량</strong> — 데이터 모델링 및 SQL 실행 계획 분석을 통한 쿼리 성능 최적화</li>
-                      </ul>
-                    </div>
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">DevOps &amp; Tools</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>IDE/Environment</strong> — VS Code, Eclipse를 활용한 효율적인 코드 작성 및 디버깅</li>
-                        <li><strong>Version Control</strong> — Git/GitHub를 활용한 코드 형상 관리 및 팀 협업 수행</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- 1. 프로젝트 선택 -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">프로젝트를 소개합니다.</p>
+        <div class="project-select-grid">
+          <a href="safealert.html" class="project-card-btn">
+            <div class="project-card-icon">🚨</div>
+            <h3 class="project-card-title">SafeAlert</h3>
+            <p class="project-card-desc">재난·기상 알림 MSA 서비스</p>
+            <p class="project-card-period">2026.05 ~ 2026.06</p>
+            <div class="project-card-tags">
+              <span class="tag tag-backend">Spring Boot</span>
+              <span class="tag tag-backend">Kafka</span>
+              <span class="tag tag-infra">Kubernetes</span>
             </div>
-            <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
-              <div class="edu-icon">🎓</div>
-              <div class="edu-info">
-                <div class="edu-header">
-                  <div>
-                    <div class="edu-title">심화_심층 데이터 분석을 통한 서비스 솔루션 개발자 과정</div>
-                    <div class="edu-org">휴먼교육센터</div>
-                    <div class="edu-period">2026.05.11 ~ 2026.07.13 (수강 중)</div>
-                    <div class="edu-tags">
-                      <span class="tag tag-backend">Python</span>
-                      <span class="tag tag-db">Pandas</span>
-                      <span class="tag tag-db">NumPy</span>
-                      <span class="tag tag-db">scikit-learn</span>
-                      <span class="tag tag-backend">FastAPI</span>
-                      <span class="tag tag-frontend">Streamlit</span>
-                      <span class="tag tag-db">PostgreSQL</span>
-                      <span class="tag tag-infra">Docker</span>
-                      <span class="tag tag-infra">Kubernetes</span>
-                      <span class="tag tag-infra">GitHub Actions</span>
-                    </div>
-                  </div>
-                  <span class="edu-toggle">▼</span>
-                </div>
-                <div class="edu-detail">
-                  <div class="edu-curriculum">
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">Data Analysis &amp; Machine Learning</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>Python (Pandas·NumPy)</strong> — 데이터 전처리 및 분석</li>
-                        <li><strong>머신러닝 (scikit-learn)</strong> — RandomForest 등 모델 학습·예측</li>
-                        <li><strong>딥러닝 (TensorFlow)</strong> — 신경망 모델 학습</li>
-                        <li><strong>빅데이터 (Apache Spark)</strong> — 분산 처리 개념 학습</li>
-                      </ul>
-                    </div>
-                    <div class="edu-cur-group">
-                      <div class="edu-cur-title">수행 프로젝트</div>
-                      <ul class="edu-cur-list">
-                        <li><strong>HPDFS (1차 · 완료)</strong> — 디스크(HDD/SSD) SMART 데이터 기반 고장 예측 시스템. 백엔드(FastAPI·PostgreSQL)·인프라(Docker·Kubernetes·GitHub Actions CI/CD)를 담당해 온프레미스 환경을 클라우드 인프라로 전환 · <a href="https://github.com/hhho0coco1-star/HPDFS" target="_blank">GitHub</a></li>
-                        <li><strong>G-SAFE (2차 · 진행 중)</strong> — 가스 누출 감지부터 자동 차단·복구까지 사람 개입 없이 처리하는 자동화 폐루프 시뮬레이션. 프론트엔드·Unity 3D 시뮬레이션·자동화 로직 담당</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </a>
+          <a href="localquest.html" class="project-card-btn">
+            <div class="project-card-icon">🗺️</div>
+            <h3 class="project-card-title">LocalQuest</h3>
+            <p class="project-card-desc">지역 탐험 O2O 플랫폼</p>
+            <p class="project-card-period">2026.03 ~ 2026.04</p>
+            <div class="project-card-tags">
+              <span class="tag tag-backend">Spring Framework</span>
+              <span class="tag tag-backend">Spring Security</span>
+              <span class="tag tag-frontend">React</span>
             </div>
-            <div class="edu-item">
-              <div class="edu-icon">📜</div>
-              <div class="edu-info">
-                <div class="edu-title">자격증</div>
-                <div class="cert-list">
-                  <div class="cert-item">
-                    <div class="cert-left">
-                      <span class="cert-name">SQLD (SQL 개발자)</span>
-                      <span class="cert-org">한국데이터산업진흥원</span>
-                    </div>
-                    <div class="cert-right">
-                      <span class="cert-date">2026.03.27 취득</span>
-                      <span class="cert-badge">합격</span>
-                    </div>
-                  </div>
-                  <div class="cert-item">
-                    <div class="cert-left">
-                      <span class="cert-name">정보처리기사</span>
-                      <span class="cert-org">한국산업인력공단</span>
-                    </div>
-                    <div class="cert-right">
-                      <span class="cert-date">필기 합격 · 실기 합격 · 2026.06.12</span>
-                      <span class="cert-badge">최종 합격</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </a>
+          <a href="hashtrip.html" class="project-card-btn">
+            <div class="project-card-icon">✈️</div>
+            <h3 class="project-card-title">HashTrip</h3>
+            <p class="project-card-desc">여행 해시태그 플랫폼</p>
+            <p class="project-card-period">2026.02 ~ 2026.03</p>
+            <div class="project-card-tags">
+              <span class="tag tag-backend">Spring Framework</span>
+              <span class="tag tag-backend">MyBatis</span>
+              <span class="tag tag-db">Oracle</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 1. 보유 기술 스택 -->
+    <!-- 2. 보유 기술 스택 -->
     <section id="stack" class="section section-alt">
       <div class="container">
         <h2 class="section-title">보유 기술 스택</h2>
@@ -265,35 +170,147 @@
       </div>
     </section>
 
-    <!-- 프로젝트 선택 -->
-    <section id="projects" class="section">
+    <!-- 3. 교육 및 자격증 -->
+    <section id="education" class="section">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-desc">프로젝트를 소개합니다.</p>
-        <div class="project-select-grid">
-          <a href="safealert.html" class="project-card-btn">
-            <div class="project-card-icon">🚨</div>
-            <h3 class="project-card-title">SafeAlert</h3>
-            <p class="project-card-desc">재난·기상 알림 MSA 서비스</p>
-            <p class="project-card-period">2026.05 ~ 2026.06</p>
-          </a>
-          <a href="localquest.html" class="project-card-btn">
-            <div class="project-card-icon">🗺️</div>
-            <h3 class="project-card-title">LocalQuest</h3>
-            <p class="project-card-desc">지역 탐험 O2O 플랫폼</p>
-            <p class="project-card-period">2026.03 ~ 2026.04</p>
-          </a>
-          <a href="hashtrip.html" class="project-card-btn">
-            <div class="project-card-icon">✈️</div>
-            <h3 class="project-card-title">HashTrip</h3>
-            <p class="project-card-desc">여행 해시태그 플랫폼</p>
-            <p class="project-card-period">2026.02 ~ 2026.03</p>
-          </a>
+        <h2 class="section-title">교육 및 자격증</h2>
+        <div class="edu-list">
+          <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-title">자바(JAVA)활용 데이터 플랫폼 구축 풀스택 개발자 과정</div>
+                  <div class="edu-org">휴먼교육센터</div>
+                  <div class="edu-period">2025.10.15 ~ 2026.04.08</div>
+                  <div class="edu-tags">
+                    <span class="tag tag-backend">Java</span>
+                    <span class="tag tag-backend">Spring Framework</span>
+                    <span class="tag tag-backend">MyBatis</span>
+                    <span class="tag tag-backend">REST API</span>
+                    <span class="tag tag-frontend">JavaScript (ES6+)</span>
+                    <span class="tag tag-frontend">React</span>
+                    <span class="tag tag-frontend">HTML5/CSS3</span>
+                    <span class="tag tag-db">Oracle SQL</span>
+                    <span class="tag tag-infra">Git</span>
+                    <span class="tag tag-infra">Docker</span>
+                  </div>
+                </div>
+                <span class="edu-toggle">▼</span>
+              </div>
+              <div class="edu-detail">
+                <div class="edu-curriculum">
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">Backend (Java &amp; Spring)</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>Java</strong> — 객체지향 프로그래밍(OOP) 기초 및 심화, 컬렉션 프레임워크 활용</li>
+                      <li><strong>Spring Framework</strong> — Spring Framework 패턴 기반 웹 서비스 구조 설계 및 RESTful API 구현</li>
+                      <li><strong>MyBatis</strong> — XML 기반 SQL 매핑을 통한 DB 연동 및 비즈니스 로직 분리</li>
+                    </ul>
+                  </div>
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">Frontend (JavaScript &amp; Library)</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>JavaScript (ES6+)</strong> — 비동기 처리(Async/Await, Promise) 및 DOM 조작</li>
+                      <li><strong>React</strong> — 컴포넌트 기반 설계, Props/State를 활용한 상태 관리 및 화면 렌더링 최적화</li>
+                      <li><strong>HTML5/CSS3</strong> — 시맨틱 마크업 및 반응형 웹 디자인 구현</li>
+                    </ul>
+                  </div>
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">Database &amp; Data Analysis</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>Oracle SQL</strong> — RDBMS 설계(ERD), 관계 정의 및 복잡한 Join/Subquery를 활용한 데이터 추출</li>
+                      <li><strong>데이터 플랫폼 구축</strong> — 공공 데이터 API 연동 및 데이터 가공/분석 로직 구현</li>
+                      <li><strong>SQLD 역량</strong> — 데이터 모델링 및 SQL 실행 계획 분석을 통한 쿼리 성능 최적화</li>
+                    </ul>
+                  </div>
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">DevOps &amp; Tools</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>IDE/Environment</strong> — VS Code, Eclipse를 활용한 효율적인 코드 작성 및 디버깅</li>
+                      <li><strong>Version Control</strong> — Git/GitHub를 활용한 코드 형상 관리 및 팀 협업 수행</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-title">심화_심층 데이터 분석을 통한 서비스 솔루션 개발자 과정</div>
+                  <div class="edu-org">휴먼교육센터</div>
+                  <div class="edu-period">2026.05.11 ~ 2026.07.13 (수강 중)</div>
+                  <div class="edu-tags">
+                    <span class="tag tag-backend">Python</span>
+                    <span class="tag tag-db">Pandas</span>
+                    <span class="tag tag-db">NumPy</span>
+                    <span class="tag tag-db">scikit-learn</span>
+                    <span class="tag tag-backend">FastAPI</span>
+                    <span class="tag tag-frontend">Streamlit</span>
+                    <span class="tag tag-db">PostgreSQL</span>
+                    <span class="tag tag-infra">Docker</span>
+                    <span class="tag tag-infra">Kubernetes</span>
+                    <span class="tag tag-infra">GitHub Actions</span>
+                  </div>
+                </div>
+                <span class="edu-toggle">▼</span>
+              </div>
+              <div class="edu-detail">
+                <div class="edu-curriculum">
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">Data Analysis &amp; Machine Learning</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>Python (Pandas·NumPy)</strong> — 데이터 전처리 및 분석</li>
+                      <li><strong>머신러닝 (scikit-learn)</strong> — RandomForest 등 모델 학습·예측</li>
+                      <li><strong>딥러닝 (TensorFlow)</strong> — 신경망 모델 학습</li>
+                      <li><strong>빅데이터 (Apache Spark)</strong> — 분산 처리 개념 학습</li>
+                    </ul>
+                  </div>
+                  <div class="edu-cur-group">
+                    <div class="edu-cur-title">수행 프로젝트</div>
+                    <ul class="edu-cur-list">
+                      <li><strong>HPDFS (1차 · 완료)</strong> — 디스크(HDD/SSD) SMART 데이터 기반 고장 예측 시스템. 백엔드(FastAPI·PostgreSQL)·인프라(Docker·Kubernetes·GitHub Actions CI/CD)를 담당해 온프레미스 환경을 클라우드 인프라로 전환 · <a href="https://github.com/hhho0coco1-star/HPDFS" target="_blank">GitHub</a></li>
+                      <li><strong>G-SAFE (2차 · 진행 중)</strong> — 가스 누출 감지부터 자동 차단·복구까지 사람 개입 없이 처리하는 자동화 폐루프 시뮬레이션. 프론트엔드·Unity 3D 시뮬레이션·자동화 로직 담당</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-icon">📜</div>
+            <div class="edu-info">
+              <div class="edu-title">자격증</div>
+              <div class="cert-list">
+                <div class="cert-item">
+                  <div class="cert-left">
+                    <span class="cert-name">SQLD (SQL 개발자)</span>
+                    <span class="cert-org">한국데이터산업진흥원</span>
+                  </div>
+                  <div class="cert-right">
+                    <span class="cert-date">2026.03.27 취득</span>
+                    <span class="cert-badge">합격</span>
+                  </div>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-left">
+                    <span class="cert-name">정보처리기사</span>
+                    <span class="cert-org">한국산업인력공단</span>
+                  </div>
+                  <div class="cert-right">
+                    <span class="cert-date">필기 합격 · 실기 합격 · 2026.06.12</span>
+                    <span class="cert-badge">최종 합격</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-
 
   </main>
 
