@@ -171,7 +171,7 @@
         <h2 class="section-title">담당 범위 및 역할</h2>
         <div class="role-header">
           <span class="role-badge role-badge-leader">👑 팀 리더</span>
-          <span class="role-badge role-badge-stack">풀스택 (Frontend + Backend)</span>
+          <span class="role-badge role-badge-stack">Backend 중심 풀스택</span>
         </div>
         <div class="project-bg" style="margin-top:16px;">
           <p class="project-bg-text" style="margin-bottom:8px;font-weight:700;color:#334155;">왜 이 역할을 맡았나</p>
@@ -615,6 +615,10 @@
             <span class="trouble-card-num">01</span>
             <span class="trouble-card-title">QR 이미지 Blob URL 메모리 누수</span>
           </button>
+          <button class="trouble-card" data-trouble="t2">
+            <span class="trouble-card-num">02</span>
+            <span class="trouble-card-title">인터셉터 범위 밖 인증 공백 → 관리자 경로 검증 범위 정비</span>
+          </button>
         </div>
         <div class="trouble-detail">
           <div class="trouble-panel active" id="trouble-panel-t1">
@@ -637,6 +641,30 @@
               <div class="trouble-step step-result">
                 <span class="step-label">결과</span>
                 <p>페이지 이탈 시 Blob URL이 즉시 해제되어 반복 진입·이탈 후에도 메모리 사용량이 일정하게 유지. 브라우저 DevTools Memory 탭에서 누수 패턴 소멸 확인.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="trouble-panel" id="trouble-panel-t2">
+            <div class="trouble-steps">
+              <div class="trouble-step step-problem">
+                <span class="step-label">문제 상황</span>
+                <p>관리자 페이지는 RoleBasedPageInterceptor로 세션·ADMIN 역할을 검증하는데, 점검 중 인터셉터 적용 경로에 포함되지 않은 일부 관리자 기능 URL이 검증 없이 접근 가능한 인증 공백을 발견했습니다.</p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-cause">
+                <span class="step-label">원인 분석</span>
+                <p>인터셉터의 <code>addPathPatterns</code>가 특정 prefix 중심으로만 등록되어 있어, 이후 추가된 관리자 경로 일부가 패턴에 포함되지 않았습니다. 인증을 인터셉터 한 곳에만 의존하다 보니 누락된 경로가 그대로 무방비로 노출됐습니다.</p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-solve">
+                <span class="step-label">해결 과정</span>
+                <p>관리자 전체 경로를 다시 점검해 인터셉터 적용 범위(<code>addPathPatterns</code>)를 재정의하고, 마스터 계정(userId=1) 보호 등 핵심 분기는 컨트롤러 레벨에서도 한 번 더 검증하도록 이중화했습니다.</p>
+              </div>
+              <div class="trouble-arrow-v">↓</div>
+              <div class="trouble-step step-result">
+                <span class="step-label">결과</span>
+                <p>모든 관리자 경로가 인증·역할 검증을 거치도록 정비됐습니다. <strong>배운 점:</strong> 인증을 한 지점에만 의존하면 누락 경로가 곧 취약점이 된다 — 적용 범위를 명시적으로 관리하고 핵심 로직은 다층 방어해야 한다.</p>
               </div>
             </div>
           </div>
