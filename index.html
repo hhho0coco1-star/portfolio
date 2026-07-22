@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>포트폴리오 | 안세웅</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- 폰트: Fraunces(라틴 세리프) + Gowun Batang(한글 세리프) + Pretendard(한글 본문) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+
+  <link rel="stylesheet" href="style-v2.css?v=5" />
 </head>
 <body>
 
@@ -15,74 +22,85 @@
         <a href="#intro" class="nav-logo">Portfolio</a>
       </div>
       <ul class="nav-links">
-        <li><a href="#intro">소개</a></li>
-        <li><a href="#stack">기술 스택</a></li>
-        <li><a href="#education">교육</a></li>
+        <li><a href="#intro">About</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#education">Experience</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
 
-    <!-- 0. 히어로 (개인 소개) -->
+    <!-- 1. 소개 + 프로젝트 -->
     <section id="intro" class="section">
       <div class="container">
         <div class="intro-card">
-          <div class="intro-avatar">
-            <img src="images/증명사진.jpg" alt="안세웅 프로필 사진" class="avatar-img" />
-          </div>
           <div class="intro-info">
+            <p class="intro-eyebrow">Backend Engineer</p>
             <h1 class="intro-name">안세웅</h1>
+            <p class="intro-role">Spring · MSA · <b>Kafka</b> · Kubernetes</p>
+            <div class="intro-hr"></div>
             <p class="intro-tagline">Spring 기반 백엔드 개발자입니다. 팀 프로젝트로 풀스택 전 과정을 경험하고, 개인 프로젝트에서 MSA·Kafka·Kubernetes 기반 실시간 분산 시스템을 직접 설계·운영하며 백엔드 역량을 넓혀왔습니다.</p>
+            <div class="intro-competency">
+              <span class="cp">MSA·분산 시스템 설계</span>
+              <span class="cp">실시간 처리 (Kafka·WebSocket)</span>
+              <span class="cp">Kubernetes 운영·관측성</span>
+              <span class="cp">성능 튜닝 p95 30%↓</span>
+            </div>
             <div class="intro-links">
-              <a href="mailto:dpcks2553@naver.com" class="link-badge">📧 dpcks2553@naver.com</a>
-              <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">🐙 GitHub</a>
-              <!-- 필요 시 추가: LinkedIn, 블로그 등 -->
+              <a href="mailto:dpcks2553@naver.com" class="link-badge">dpcks2553@naver.com</a>
+              <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">GitHub ↗</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 1. 프로젝트 선택 -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-desc">프로젝트를 소개합니다.</p>
-        <div class="project-select-grid">
-          <a href="safealert.html" class="project-card-btn">
-            <div class="project-card-icon">🚨</div>
-            <h3 class="project-card-title">SafeAlert</h3>
-            <p class="project-card-desc">재난·기상 알림 MSA 서비스</p>
-            <p class="project-card-period">2026.05 ~ 2026.06</p>
-            <div class="project-card-tags">
-              <span class="tag tag-backend">Spring Boot</span>
-              <span class="tag tag-backend">Kafka</span>
-              <span class="tag tag-infra">Kubernetes</span>
-            </div>
-          </a>
-          <a href="localquest.html" class="project-card-btn">
-            <div class="project-card-icon">🗺️</div>
-            <h3 class="project-card-title">LocalQuest</h3>
-            <p class="project-card-desc">지역 탐험 O2O 플랫폼</p>
-            <p class="project-card-period">2026.03 ~ 2026.04</p>
-            <div class="project-card-tags">
-              <span class="tag tag-backend">Spring Framework</span>
-              <span class="tag tag-backend">Spring Security</span>
-              <span class="tag tag-frontend">React</span>
-            </div>
-          </a>
-          <a href="hashtrip.html" class="project-card-btn">
-            <div class="project-card-icon">✈️</div>
-            <h3 class="project-card-title">HashTrip</h3>
-            <p class="project-card-desc">여행 해시태그 플랫폼</p>
-            <p class="project-card-period">2026.02 ~ 2026.03</p>
-            <div class="project-card-tags">
-              <span class="tag tag-backend">Spring Framework</span>
-              <span class="tag tag-backend">MyBatis</span>
-              <span class="tag tag-db">Oracle</span>
-            </div>
-          </a>
+        <!-- 프로젝트 -->
+        <div class="projects-block">
+          <div class="sec-head">
+            <span class="sec-head-title">Selected Projects</span>
+            <span class="sec-head-num">3 works</span>
+          </div>
+          <div class="project-select-grid">
+            <a href="safealert.html" class="project-card-btn">
+              <span class="pc-idx">01</span>
+              <span class="pc-go">↗</span>
+              <div class="project-card-icon">🚨</div>
+              <h3 class="project-card-title">SafeAlert</h3>
+              <p class="project-card-desc">재난·기상 알림 MSA 서비스</p>
+              <p class="project-card-period">2026.05 ~ 2026.06</p>
+              <div class="project-card-tags">
+                <span class="tag tag-backend">Spring Boot</span>
+                <span class="tag tag-backend">Kafka</span>
+                <span class="tag tag-infra">Kubernetes</span>
+              </div>
+            </a>
+            <a href="localquest.html" class="project-card-btn">
+              <span class="pc-idx">02</span>
+              <span class="pc-go">↗</span>
+              <div class="project-card-icon">🗺️</div>
+              <h3 class="project-card-title">LocalQuest</h3>
+              <p class="project-card-desc">지역 탐험 O2O 플랫폼</p>
+              <p class="project-card-period">2026.03 ~ 2026.04</p>
+              <div class="project-card-tags">
+                <span class="tag tag-backend">Spring Framework</span>
+                <span class="tag tag-backend">JWT</span>
+                <span class="tag tag-frontend">React</span>
+              </div>
+            </a>
+            <a href="hashtrip.html" class="project-card-btn">
+              <span class="pc-idx">03</span>
+              <span class="pc-go">↗</span>
+              <div class="project-card-icon">✈️</div>
+              <h3 class="project-card-title">HashTrip</h3>
+              <p class="project-card-desc">여행 성향 분석·일정 계획 플랫폼</p>
+              <p class="project-card-period">2026.02 ~ 2026.03</p>
+              <div class="project-card-tags">
+                <span class="tag tag-backend">Spring Framework</span>
+                <span class="tag tag-backend">MyBatis</span>
+                <span class="tag tag-db">Oracle</span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -154,7 +172,7 @@
               <span class="tag tag-db">scikit-learn</span>
             </div>
           </div>
-          <div class="stack-group stack-group-full">
+          <div class="stack-group">
             <h3 class="stack-group-title">Monitoring &amp; Test</h3>
             <div class="stack-tags">
               <span class="tag tag-infra">Prometheus</span>
@@ -172,7 +190,7 @@
     <!-- 3. 교육 및 자격증 -->
     <section id="education" class="section">
       <div class="container">
-        <h2 class="section-title">교육 및 자격증</h2>
+        <h2 class="section-title">경험 및 자격증</h2>
         <div class="edu-list">
           <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
             <div class="edu-icon">🎓</div>
@@ -241,7 +259,7 @@
                 <div>
                   <div class="edu-title">심화_심층 데이터 분석을 통한 서비스 솔루션 개발자 과정</div>
                   <div class="edu-org">휴먼교육센터</div>
-                  <div class="edu-period">2026.05.11 ~ 2026.07.13 (수강 중)</div>
+                  <div class="edu-period">2026.05.11 ~ 2026.07.13 (수료)</div>
                   <div class="edu-tags">
                     <span class="tag tag-backend">Python</span>
                     <span class="tag tag-db">Pandas</span>
@@ -272,7 +290,7 @@
                     <div class="edu-cur-title">수행 프로젝트</div>
                     <ul class="edu-cur-list">
                       <li><strong>HPDFS (1차 · 완료)</strong> — 디스크(HDD/SSD) SMART 데이터 기반 고장 예측 시스템. 백엔드(FastAPI·PostgreSQL)·인프라(Docker·Kubernetes·GitHub Actions CI/CD)를 담당해 온프레미스 환경을 클라우드 인프라로 전환 · <a href="https://github.com/hhho0coco1-star/HPDFS" target="_blank">GitHub</a></li>
-                      <li><strong>G-SAFE (2차 · 진행 중)</strong> — 가스 누출 감지부터 자동 차단·복구까지 사람 개입 없이 처리하는 자동화 폐루프 시뮬레이션. 프론트엔드·Unity 3D 시뮬레이션·자동화 로직 담당</li>
+                      <li><strong>G-SAFE (2차 · 완료)</strong> — 가스 누출 감지부터 자동 차단·복구까지 사람 개입 없이 처리하는 자동화 폐루프 시뮬레이션. 프론트엔드·Unity 3D 시뮬레이션·자동화 로직 담당</li>
                     </ul>
                   </div>
                 </div>

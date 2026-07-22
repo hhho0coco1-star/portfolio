@@ -2,3 +2,17 @@
 이력서.pdf
 resume.html
 Hyunwoo_Kim_MLE.pdf
+
+.superpowers/
+
+# 개인정보 - 사람인 이력서(파일명 달라 누락돼 있던 것)
+사람인 이력서 (2).pdf
+
+# 임시/백업
+style.css.bak
+
+# 내부 작업 문서 (공개 포트폴리오에 불필요)
+todo.md
+COMPRESSION_SPEC.md
+PORTFOLIO_수정필요사항.md
+.claude/
