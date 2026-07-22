@@ -145,8 +145,8 @@ main{position:relative;z-index:1;}
 }
 .intro-links .link-badge:first-child{background:var(--gold);color:var(--gold-ink);font-weight:600;}
 .intro-links .link-badge:first-child:hover{filter:brightness(1.08);}
-.intro-links .link-badge:last-child{color:var(--ink);border:1px solid var(--line2);}
-.intro-links .link-badge:last-child:hover{border-color:var(--gold-line);color:var(--gold);}
+.intro-links .link-badge:not(:first-child){color:var(--ink);border:1px solid var(--line2);}
+.intro-links .link-badge:not(:first-child):hover{border-color:var(--gold-line);color:var(--gold);}
 
 /* ===================== PROJECTS ===================== */
 .projects-block{margin-top:clamp(22px,3vw,38px);}

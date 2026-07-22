@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>안세웅 · 포트폴리오 요약 | Backend Engineer</title>
+  <style>
+    @page { size: A4; margin: 12mm 14mm; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --ink:#18181b;
+      --accent:#0f6d57;      /* 딥 에메랄드 (포트폴리오 브랜드 연계) */
+      --mid:#52525b;
+      --soft:#3f3f46;
+      --line:#d4d4d8;
+      --chipbg:#eef4f1;
+      --chipink:#0f6d57;
+    }
+    html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    body{
+      font-family:"Malgun Gothic","맑은 고딕",-apple-system,"Segoe UI",sans-serif;
+      color:var(--ink);font-size:10.5px;line-height:1.55;background:#fff;
+    }
+    .page{max-width:820px;margin:0 auto;padding:22px 26px;}
+
+    /* header */
+    header{border-bottom:2.5px solid var(--accent);padding-bottom:10px;margin-bottom:14px;}
+    .name{font-size:27px;font-weight:800;letter-spacing:.5px;line-height:1.05;}
+    .headline{font-size:10.5px;color:var(--accent);font-weight:700;letter-spacing:1.6px;text-transform:uppercase;margin-top:4px;}
+    .contact{font-size:9.5px;color:var(--mid);margin-top:7px;letter-spacing:.2px;}
+    .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+    .contact .sep{color:var(--line);margin:0 6px;}
+
+    /* section */
+    section{margin-top:16px;}
+    h2{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:2.4px;
+       padding-bottom:3px;margin-bottom:7px;border-bottom:1.2px solid var(--accent);}
+    h2::before{content:"▍";margin-right:3px;}
+
+    /* core competencies */
+    .cc{display:flex;flex-direction:column;gap:3px;}
+    .cc-row{font-size:10px;color:var(--soft);}
+    .cc-row b{color:var(--ink);font-weight:800;}
+
+    /* skills */
+    .skills{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;}
+    .sk{font-size:9.7px;color:var(--soft);}
+    .sk b{display:inline-block;min-width:82px;color:var(--ink);font-weight:800;}
+
+    /* projects */
+    .item{margin-bottom:11px;padding-left:9px;border-left:2px solid #7fd1bd;}
+    .item:last-child{margin-bottom:0;}
+    .ihead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+    .ititle{font-size:11px;font-weight:800;color:var(--ink);letter-spacing:.2px;}
+    .imeta{font-size:9px;color:var(--mid);white-space:nowrap;letter-spacing:.3px;}
+    .istack{font-size:8.8px;color:var(--mid);font-style:italic;margin:2px 0 4px;letter-spacing:.2px;}
+    ul{list-style:none;}
+    li{position:relative;padding-left:11px;font-size:9.8px;color:var(--soft);margin-bottom:3px;line-height:1.5;}
+    li::before{content:"–";position:absolute;left:0;color:var(--accent);font-weight:700;}
+    .m{font-weight:800;color:var(--accent);}
+
+    /* education / certs 2-col */
+    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:0 26px;}
+    .ed{font-size:9.8px;margin-bottom:4px;}
+    .ed .t{font-weight:700;color:var(--ink);}
+    .ed .m2{color:var(--mid);font-size:9px;}
+    .cert{font-size:9.8px;margin-bottom:4px;}
+    .cert .t{font-weight:700;color:var(--ink);}
+    .cert .m2{color:var(--mid);font-size:9px;}
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="name">안세웅</div>
+      <div class="headline">Backend Engineer · Spring · MSA · Kafka · Kubernetes</div>
+      <div class="contact">
+        <a href="mailto:dpcks2553@naver.com">dpcks2553@naver.com</a><span class="sep">·</span>
+        <a href="https://github.com/hhho0coco1-star">github.com/hhho0coco1-star</a><span class="sep">·</span>
+        <a href="https://hhho0coco1-star.github.io/portfolio/">Portfolio</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Core Competencies</h2>
+      <div class="cc">
+        <div class="cc-row"><b>MSA·실시간 분산 시스템 설계</b> — Kafka·WebSocket 기반 실시간 알림 처리 및 분산 환경 데이터 정합성 설계</div>
+        <div class="cc-row"><b>Spring 백엔드 API</b> — Spring Boot·Security 기반 REST API 및 JWT/OAuth2 인증·인가 구조 설계</div>
+        <div class="cc-row"><b>클라우드 인프라</b> — Kubernetes 컨테이너 구조 설계 및 온프레미스→클라우드 전환</div>
+        <div class="cc-row"><b>성능 엔지니어링</b> — k6 부하 테스트 기반 병목 분석으로 p95 응답시간 약 30% 개선</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="sk"><b>Backend</b> Java, Spring Boot, Spring Cloud Gateway, Spring Security, JWT/OAuth2, Kafka, WebSocket, MyBatis, FastAPI</div>
+        <div class="sk"><b>Database</b> Oracle, PostgreSQL, MongoDB, Redis</div>
+        <div class="sk"><b>Infra/DevOps</b> Docker, Kubernetes, Nginx, GitHub Actions, Git</div>
+        <div class="sk"><b>Frontend</b> React, Redux Toolkit, JavaScript, Axios, JSP</div>
+        <div class="sk"><b>Monitoring</b> Prometheus, Grafana, ELK, Jaeger, k6</div>
+        <div class="sk"><b>Data/ML</b> Python, Pandas, NumPy, scikit-learn</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">SafeAlert · 재난·기상 실시간 알림 MSA 서비스</span>
+          <span class="imeta">개인 · 2026.05 – 2026.06</span>
+        </div>
+        <div class="istack">Java 17 · Spring Boot · Spring Cloud Gateway · Kafka · WebSocket · PostgreSQL · MongoDB · Redis · Kubernetes</div>
+        <ul>
+          <li>재난·기상·미세먼지 공공 API를 수집해 WebSocket으로 실시간 전달하는 <span class="m">5개 마이크로서비스 + API Gateway</span>를 단독 설계·구현</li>
+          <li><span class="m">Transactional Outbox 패턴</span>으로 DB 저장과 Kafka 발행을 단일 트랜잭션으로 묶어 알림 유실 차단</li>
+          <li><span class="m">Redis Pub/Sub</span> 도입으로 Kubernetes replica 3 환경의 WebSocket 다중 인스턴스 미수신 문제 해결</li>
+          <li>k6 부하 테스트(100 VU) 오류율 97%를 HikariCP 풀 튜닝으로 해결, <span class="m">p95 2.66s → 1.86s (약 30%) 개선</span></li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">LocalQuest · 지역 탐험 O2O 플랫폼</span>
+          <span class="imeta">팀 5명 · 팀 리더 · 2026.03 – 2026.04</span>
+        </div>
+        <div class="istack">Spring · Spring Security · MyBatis · React · JSP · Oracle · JWT</div>
+        <ul>
+          <li>QR 현장 인증 시스템(LocationQrService) 설계·구현 및 비즈니스·관리자 <span class="m">14개 페이지</span> 풀스택 담당</li>
+          <li>5인 팀 리더로 일정·역할 조율, <span class="m">JWT·세션 이원화</span> 인증 구조 설계 (React SPA=JWT / 관리자 JSP=세션)</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">HashTrip · 여행 성향 분석 플랫폼</span>
+          <span class="imeta">팀 5명 · 2026.02 – 2026.03</span>
+        </div>
+        <div class="istack">Spring · MyBatis · JSP · Oracle · OAuth2</div>
+        <ul>
+          <li>설문 <span class="m">가중치 합산 기반 성향 분석 알고리즘</span> 설계·구현 (중복 태그 오산출 버그를 SQL 합산 방식으로 전면 수정)</li>
+          <li>한국관광공사 공공 API <span class="m">ExecutorService 병렬 수집(6~12 스레드)</span> + 300건 배치 INSERT로 수집 시간 대폭 단축</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">HPDFS · 디스크 고장 예측 시스템</span>
+          <span class="imeta">팀 5명 · 2026.05</span>
+        </div>
+        <div class="istack">FastAPI · scikit-learn · PostgreSQL · Streamlit · Docker · Kubernetes · GitHub Actions</div>
+        <ul>
+          <li>HDD/SSD SMART 데이터를 RandomForest로 예측하는 시스템에서 <span class="m">백엔드(FastAPI·PostgreSQL)·인프라</span> 담당</li>
+          <li>온프레미스 EXE 도구를 <span class="m">컨테이너 기반 클라우드 인프라로 전환</span>, GitHub Actions CI/CD 구성</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education &amp; Certifications</h2>
+      <div class="two">
+        <div>
+          <div class="ed"><span class="t">휴먼교육센터 · 자바 활용 데이터 플랫폼 풀스택 개발자 과정</span><div class="m2">2025.10 – 2026.04</div></div>
+          <div class="ed"><span class="t">휴먼교육센터 · 심층 데이터 분석 서비스 솔루션 개발자 과정</span><div class="m2">2026.05 – 2026.07 (수료)</div></div>
+          <div class="ed"><span class="t">호서대학교 · 안전소방학부 (학사)</span><div class="m2">2016.02 – 2022.02</div></div>
+        </div>
+        <div>
+          <div class="cert"><span class="t">정보처리기사</span> <span class="m2">· 2026.06 최종합격</span></div>
+          <div class="cert"><span class="t">SQLD (SQL 개발자)</span> <span class="m2">· 2026.03 취득</span></div>
+          <div class="cert"><span class="t">컴퓨터활용능력 1급</span> <span class="m2">· 2022.09</span></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
