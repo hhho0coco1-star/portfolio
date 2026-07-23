@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="slide-deck">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
 
-  <link rel="stylesheet" href="style-v2.css?v=6" />
+  <link rel="stylesheet" href="style-v2.css?v=7" />
 </head>
 <body>
 
@@ -19,315 +19,143 @@
   <nav id="navbar">
     <div class="nav-inner">
       <div class="nav-left">
-        <a href="#intro" class="nav-logo">Portfolio</a>
+        <a href="#hero" class="nav-logo">Portfolio</a>
       </div>
       <ul class="nav-links">
-        <li><a href="#intro">About</a></li>
+        <li><a href="#hero">About</a></li>
+        <li><a href="#work">Projects</a></li>
         <li><a href="#stack">Stack</a></li>
-        <li><a href="#education">Experience</a></li>
+        <li><a href="#exp">Experience</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
 
-    <!-- 1. 소개 + 프로젝트 -->
-    <section id="intro" class="section">
-      <div class="container">
-        <div class="intro-card">
-          <div class="intro-info">
-            <p class="intro-eyebrow">Backend Engineer</p>
-            <h1 class="intro-name">안세웅</h1>
-            <p class="intro-role">Spring · MSA · <b>Kafka</b> · Kubernetes</p>
-            <div class="intro-hr"></div>
-            <p class="intro-tagline">Spring 기반 백엔드 개발자입니다. 팀 프로젝트로 풀스택 전 과정을 경험하고, 개인 프로젝트에서 MSA·Kafka·Kubernetes 기반 실시간 분산 시스템을 직접 설계·운영하며 백엔드 역량을 넓혀왔습니다.</p>
-            <div class="intro-competency">
-              <span class="cp">MSA·분산 시스템 설계</span>
-              <span class="cp">실시간 처리 (Kafka·WebSocket)</span>
-              <span class="cp">Kubernetes 운영·관측성</span>
-              <span class="cp">성능 튜닝 p95 30%↓</span>
-            </div>
-            <div class="intro-links">
-              <a href="mailto:dpcks2553@naver.com" class="link-badge">dpcks2553@naver.com</a>
-              <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">GitHub ↗</a>
-              <a href="summary.pdf" download class="link-badge">이력서 PDF ↓</a>
-            </div>
-          </div>
+    <!-- SLIDE 1: HERO -->
+    <section id="hero" class="slide">
+      <span class="snum">01 / 05</span>
+      <div class="slide-wrap">
+        <p class="s-eyebrow">Backend Engineer</p>
+        <h1 class="s-name">안세웅</h1>
+        <p class="s-role">실시간 분산 시스템을 직접 설계·운영하는 <b>Spring 백엔드</b></p>
+        <p class="intro-tagline">Spring 기반 백엔드 개발자입니다. 팀 프로젝트로 풀스택 전 과정을 경험하고, 개인 프로젝트에서 MSA·Kafka·Kubernetes 기반 실시간 분산 시스템을 직접 설계·운영하며 백엔드 역량을 넓혀왔습니다.</p>
+        <div class="bigstats">
+          <div class="bs"><b>p95 30%↓</b><span>부하 테스트 기반 성능 개선</span></div>
+          <div class="bs"><b>MSA 5</b><span>마이크로서비스 단독 설계</span></div>
+          <div class="bs"><b>replica 3</b><span>WebSocket 무손실 (Redis Pub/Sub)</span></div>
         </div>
-
-        <!-- 프로젝트 -->
-        <div class="projects-block">
-          <div class="sec-head">
-            <span class="sec-head-title">Selected Projects</span>
-            <span class="sec-head-num">3 works</span>
-          </div>
-          <div class="project-select-grid">
-            <a href="safealert.html" class="project-card-btn">
-              <span class="pc-idx">01</span>
-              <span class="pc-go">↗</span>
-              <div class="project-card-icon">🚨</div>
-              <h3 class="project-card-title">SafeAlert</h3>
-              <p class="project-card-desc">재난·기상 알림 MSA 서비스</p>
-              <p class="project-card-period">2026.05 ~ 2026.06</p>
-              <div class="project-card-tags">
-                <span class="tag tag-backend">Spring Boot</span>
-                <span class="tag tag-backend">Kafka</span>
-                <span class="tag tag-infra">Kubernetes</span>
-              </div>
-            </a>
-            <a href="localquest.html" class="project-card-btn">
-              <span class="pc-idx">02</span>
-              <span class="pc-go">↗</span>
-              <div class="project-card-icon">🗺️</div>
-              <h3 class="project-card-title">LocalQuest</h3>
-              <p class="project-card-desc">지역 탐험 O2O 플랫폼</p>
-              <p class="project-card-period">2026.03 ~ 2026.04</p>
-              <div class="project-card-tags">
-                <span class="tag tag-backend">Spring Framework</span>
-                <span class="tag tag-backend">JWT</span>
-                <span class="tag tag-frontend">React</span>
-              </div>
-            </a>
-            <a href="hashtrip.html" class="project-card-btn">
-              <span class="pc-idx">03</span>
-              <span class="pc-go">↗</span>
-              <div class="project-card-icon">✈️</div>
-              <h3 class="project-card-title">HashTrip</h3>
-              <p class="project-card-desc">여행 성향 분석·일정 계획 플랫폼</p>
-              <p class="project-card-period">2026.02 ~ 2026.03</p>
-              <div class="project-card-tags">
-                <span class="tag tag-backend">Spring Framework</span>
-                <span class="tag tag-backend">MyBatis</span>
-                <span class="tag tag-db">Oracle</span>
-              </div>
-            </a>
-          </div>
+        <div class="s-links intro-links">
+          <a href="mailto:dpcks2553@naver.com" class="link-badge">dpcks2553@naver.com</a>
+          <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">GitHub ↗</a>
+          <a href="summary.pdf" download class="link-badge">이력서 PDF ↓</a>
         </div>
       </div>
+      <button type="button" class="cue" aria-label="다음 섹션으로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- 2. 보유 기술 스택 -->
-    <section id="stack" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">보유 기술 스택</h2>
-        <p class="section-desc">프로젝트 경험을 통해 습득한 보유 기술입니다.</p>
-        <div class="stack-grid">
-          <div class="stack-group">
-            <h3 class="stack-group-title">Backend</h3>
-            <div class="stack-tags">
-              <span class="tag tag-backend">Java</span>
-              <span class="tag tag-backend">Spring Framework</span>
-              <span class="tag tag-backend">Spring Boot</span>
-              <span class="tag tag-backend">Spring Cloud Gateway</span>
-              <span class="tag tag-backend">Spring JDBC</span>
-              <span class="tag tag-backend">MyBatis</span>
-              <span class="tag tag-backend">REST API</span>
-              <span class="tag tag-backend">Spring Security</span>
-              <span class="tag tag-backend">JWT</span>
-              <span class="tag tag-backend">OAuth2</span>
-              <span class="tag tag-backend">Apache Kafka</span>
-              <span class="tag tag-backend">WebSocket (STOMP)</span>
-              <span class="tag tag-backend">FastAPI</span>
-            </div>
-          </div>
-          <div class="stack-group">
-            <h3 class="stack-group-title">Frontend</h3>
-            <div class="stack-tags">
-              <span class="tag tag-frontend">React</span>
-              <span class="tag tag-frontend">JavaScript</span>
-              <span class="tag tag-frontend">React Router</span>
-              <span class="tag tag-frontend">Redux Toolkit</span>
-              <span class="tag tag-frontend">Axios</span>
-              <span class="tag tag-frontend">Tailwind CSS</span>
-              <span class="tag tag-frontend">QR Scanner</span>
-              <span class="tag tag-frontend">Web Push</span>
-              <span class="tag tag-frontend">Kakao Map API</span>
-              <span class="tag tag-frontend">Streamlit</span>
-            </div>
-          </div>
-          <div class="stack-group">
-            <h3 class="stack-group-title">Database</h3>
-            <div class="stack-tags">
-              <span class="tag tag-db">Oracle DB</span>
-              <span class="tag tag-db">PostgreSQL</span>
-              <span class="tag tag-db">MongoDB</span>
-              <span class="tag tag-db">Redis</span>
-            </div>
-          </div>
-          <div class="stack-group">
-            <h3 class="stack-group-title">Infra</h3>
-            <div class="stack-tags">
-              <span class="tag tag-infra">Docker</span>
-              <span class="tag tag-infra">Kubernetes</span>
-              <span class="tag tag-infra">Nginx</span>
-              <span class="tag tag-infra">Git</span>
-              <span class="tag tag-infra">Maven</span>
-              <span class="tag tag-infra">GitHub Actions</span>
-            </div>
-          </div>
-          <div class="stack-group">
-            <h3 class="stack-group-title">Data / ML</h3>
-            <div class="stack-tags">
-              <span class="tag tag-db">Pandas</span>
-              <span class="tag tag-db">NumPy</span>
-              <span class="tag tag-db">scikit-learn</span>
-            </div>
-          </div>
-          <div class="stack-group">
-            <h3 class="stack-group-title">Monitoring &amp; Test</h3>
-            <div class="stack-tags">
-              <span class="tag tag-infra">Prometheus</span>
-              <span class="tag tag-infra">Grafana</span>
-              <span class="tag tag-infra">Jaeger (OpenTelemetry)</span>
-              <span class="tag tag-infra">ELK Stack</span>
-              <span class="tag tag-infra">Swagger UI</span>
-              <span class="tag tag-infra">k6</span>
-            </div>
-          </div>
+    <!-- SLIDE 2: 대표작 -->
+    <section id="work" class="slide left">
+      <span class="snum">02 / 05</span>
+      <div class="slide-wrap">
+        <p class="kicker">대표 프로젝트</p>
+        <h2 class="flag">SafeAlert</h2>
+        <p class="fpitch">재난·기상·미세먼지 공공 API를 <b>WebSocket으로 실시간 전달</b>하는 MSA 구독 서비스. 5개 마이크로서비스 + API Gateway를 <b>단독 설계·구현·운영</b>했습니다.</p>
+        <div class="metrics">
+          <div class="metric"><b>2.66→1.86s</b><span>p95 응답 (약 30%↓)</span></div>
+          <div class="metric"><b>97 → 0%</b><span>k6 부하 오류율 해결</span></div>
+          <div class="metric"><b>replica 3</b><span>WebSocket 무손실<br>(Redis Pub/Sub)</span></div>
+          <div class="metric"><b>유실 0건</b><span>Transactional Outbox</span></div>
         </div>
+        <div class="chips">
+          <span class="chip">Spring Boot</span>
+          <span class="chip">Apache Kafka</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">Redis</span>
+          <span class="chip">WebSocket (STOMP)</span>
+          <span class="chip">PostgreSQL · MongoDB</span>
+        </div>
+        <a href="safealert.html" class="more">SafeAlert 자세히 보기 →</a>
       </div>
+      <button type="button" class="cue" aria-label="다음 섹션으로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- 3. 교육 및 자격증 -->
-    <section id="education" class="section">
-      <div class="container">
-        <h2 class="section-title">경험 및 자격증</h2>
-        <div class="edu-list">
-          <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
-            <div class="edu-icon">🎓</div>
-            <div class="edu-info">
-              <div class="edu-header">
-                <div>
-                  <div class="edu-title">심층 데이터 분석을 통한 서비스 솔루션 개발자 과정</div>
-                  <div class="edu-org">휴먼교육센터</div>
-                  <div class="edu-period">2026.05.11 ~ 2026.07.13</div>
-                  <div class="edu-tags">
-                    <span class="tag tag-backend">Python</span>
-                    <span class="tag tag-db">Pandas</span>
-                    <span class="tag tag-db">NumPy</span>
-                    <span class="tag tag-db">scikit-learn</span>
-                    <span class="tag tag-backend">FastAPI</span>
-                    <span class="tag tag-frontend">Streamlit</span>
-                    <span class="tag tag-db">PostgreSQL</span>
-                    <span class="tag tag-infra">Docker</span>
-                    <span class="tag tag-infra">Kubernetes</span>
-                    <span class="tag tag-infra">GitHub Actions</span>
-                  </div>
-                </div>
-                <span class="edu-toggle">▼</span>
-              </div>
-              <div class="edu-detail">
-                <div class="edu-curriculum">
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">Data Analysis &amp; Machine Learning</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>Python (Pandas·NumPy)</strong> — 데이터 전처리 및 분석</li>
-                      <li><strong>머신러닝 (scikit-learn)</strong> — RandomForest 등 모델 학습·예측</li>
-                      <li><strong>딥러닝 (TensorFlow)</strong> — 신경망 모델 학습</li>
-                      <li><strong>빅데이터 (Apache Spark)</strong> — 분산 처리 개념 학습</li>
-                    </ul>
-                  </div>
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">수행 프로젝트</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>HPDFS (1차 · 완료)</strong> — 디스크(HDD/SSD) SMART 데이터 기반 고장 예측 시스템. 백엔드(FastAPI·PostgreSQL)·인프라(Docker·Kubernetes·GitHub Actions CI/CD)를 담당해 온프레미스 환경을 클라우드 인프라로 전환 · <a href="https://github.com/hhho0coco1-star/HPDFS" target="_blank">GitHub</a></li>
-                      <li><strong>G-SAFE (2차 · 완료)</strong> — 가스 누출 감지부터 자동 차단·복구까지 사람 개입 없이 처리하는 자동화 폐루프 시뮬레이션. 프론트엔드·Unity 3D 시뮬레이션·자동화 로직 담당</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="edu-item edu-expandable" tabindex="0" role="button" aria-expanded="false">
-            <div class="edu-icon">🎓</div>
-            <div class="edu-info">
-              <div class="edu-header">
-                <div>
-                  <div class="edu-title">자바(JAVA)활용 데이터 플랫폼 구축 풀스택 개발자 과정</div>
-                  <div class="edu-org">휴먼교육센터</div>
-                  <div class="edu-period">2025.10.15 ~ 2026.04.08</div>
-                  <div class="edu-tags">
-                    <span class="tag tag-backend">Java</span>
-                    <span class="tag tag-backend">Spring Framework</span>
-                    <span class="tag tag-backend">MyBatis</span>
-                    <span class="tag tag-backend">REST API</span>
-                    <span class="tag tag-frontend">JavaScript (ES6+)</span>
-                    <span class="tag tag-frontend">React</span>
-                    <span class="tag tag-frontend">HTML5/CSS3</span>
-                    <span class="tag tag-db">Oracle SQL</span>
-                    <span class="tag tag-infra">Git</span>
-                    <span class="tag tag-infra">Docker</span>
-                  </div>
-                </div>
-                <span class="edu-toggle">▼</span>
-              </div>
-              <div class="edu-detail">
-                <div class="edu-curriculum">
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">Backend (Java &amp; Spring)</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>Java</strong> — 객체지향 프로그래밍(OOP) 기초 및 심화, 컬렉션 프레임워크 활용</li>
-                      <li><strong>Spring Framework</strong> — Spring Framework 패턴 기반 웹 서비스 구조 설계 및 RESTful API 구현</li>
-                      <li><strong>MyBatis</strong> — XML 기반 SQL 매핑을 통한 DB 연동 및 비즈니스 로직 분리</li>
-                    </ul>
-                  </div>
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">Frontend (JavaScript &amp; Library)</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>JavaScript (ES6+)</strong> — 비동기 처리(Async/Await, Promise) 및 DOM 조작</li>
-                      <li><strong>React</strong> — 컴포넌트 기반 설계, Props/State를 활용한 상태 관리 및 화면 렌더링 최적화</li>
-                      <li><strong>HTML5/CSS3</strong> — 시맨틱 마크업 및 반응형 웹 디자인 구현</li>
-                    </ul>
-                  </div>
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">Database &amp; Data Analysis</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>Oracle SQL</strong> — RDBMS 설계(ERD), 관계 정의 및 복잡한 Join/Subquery를 활용한 데이터 추출</li>
-                      <li><strong>데이터 플랫폼 구축</strong> — 공공 데이터 API 연동 및 데이터 가공/분석 로직 구현</li>
-                      <li><strong>SQLD 역량</strong> — 데이터 모델링 및 SQL 실행 계획 분석을 통한 쿼리 성능 최적화</li>
-                    </ul>
-                  </div>
-                  <div class="edu-cur-group">
-                    <div class="edu-cur-title">DevOps &amp; Tools</div>
-                    <ul class="edu-cur-list">
-                      <li><strong>IDE/Environment</strong> — VS Code, Eclipse를 활용한 효율적인 코드 작성 및 디버깅</li>
-                      <li><strong>Version Control</strong> — Git/GitHub를 활용한 코드 형상 관리 및 팀 협업 수행</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-icon">📜</div>
-            <div class="edu-info">
-              <div class="edu-title">자격증</div>
-              <div class="cert-list">
-                <div class="cert-item">
-                  <div class="cert-left">
-                    <span class="cert-name">SQLD (SQL 개발자)</span>
-                    <span class="cert-org">한국데이터산업진흥원</span>
-                  </div>
-                  <div class="cert-right">
-                    <span class="cert-date">2026.03.27 취득</span>
-                    <span class="cert-badge">합격</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-left">
-                    <span class="cert-name">정보처리기사</span>
-                    <span class="cert-org">한국산업인력공단</span>
-                  </div>
-                  <div class="cert-right">
-                    <span class="cert-date">필기 합격 · 실기 합격 · 2026.06.12</span>
-                    <span class="cert-badge">최종 합격</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- SLIDE 3: 나머지 프로젝트 -->
+    <section id="more" class="slide alt">
+      <span class="snum">03 / 05</span>
+      <div class="slide-wrap">
+        <h2 class="s-title">그 외 프로젝트</h2>
+        <p class="s-desc">팀 프로젝트로 다진 풀스택 · 리더십 경험</p>
+        <div class="twocard">
+          <a href="localquest.html" class="pc2">
+            <h3>LocalQuest</h3>
+            <p class="role">팀 5명 · 팀 리더 · 2026.03 – 04</p>
+            <p>지역 탐험 O2O 플랫폼. <b>QR 현장 인증 시스템</b> 설계·구현, 비즈니스·관리자 14개 페이지 풀스택. JWT·세션 이원화 인증 구조.</p>
+            <div class="chips"><span class="chip">Spring</span><span class="chip">React</span><span class="chip">MyBatis</span><span class="chip">Oracle</span></div>
+          </a>
+          <a href="hashtrip.html" class="pc2">
+            <h3>HashTrip</h3>
+            <p class="role">팀 5명 · 2026.02 – 03</p>
+            <p>여행 성향 분석 플랫폼. <b>설문 가중치 합산 성향 알고리즘</b> 설계, 공공 API 병렬 수집 파이프라인 구현.</p>
+            <div class="chips"><span class="chip">Spring</span><span class="chip">MyBatis</span><span class="chip">Oracle</span><span class="chip">OAuth2</span></div>
+          </a>
         </div>
       </div>
+      <button type="button" class="cue" aria-label="다음 섹션으로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 4: 주력 스택 -->
+    <section id="stack" class="slide">
+      <span class="snum">04 / 05</span>
+      <div class="slide-wrap">
+        <p class="kicker">TECH STACK</p>
+        <h2 class="s-title">주력 기술</h2>
+        <p class="s-desc">가장 깊게 다룬 핵심 스택</p>
+        <div class="topskills">
+          <span class="ts ts-top">Java · Spring Boot</span>
+          <span class="ts ts-top">Apache Kafka</span>
+          <span class="ts ts-top">Kubernetes</span>
+          <span class="ts">WebSocket</span>
+          <span class="ts">Redis</span>
+          <span class="ts">PostgreSQL</span>
+          <span class="ts">Docker</span>
+          <span class="ts">Spring Security</span>
+        </div>
+        <div class="restskills">
+          <div><span class="lbl">Frontend</span>React · Redux Toolkit · JavaScript · Axios · JSP</div>
+          <div><span class="lbl">Data / Infra</span>MongoDB · Oracle · Nginx · GitHub Actions · FastAPI · Python · Pandas · scikit-learn</div>
+          <div><span class="lbl">Observability</span>Prometheus · Grafana · Jaeger · ELK · k6</div>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 섹션으로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 5: 경험 & 자격증 -->
+    <section id="exp" class="slide alt">
+      <span class="snum">05 / 05</span>
+      <div class="slide-wrap">
+        <p class="kicker">EXPERIENCE &amp; CERTS</p>
+        <h2 class="s-title">경험 &amp; 자격증</h2>
+        <p class="s-desc">교육 이수 · 취득 자격</p>
+        <div class="exgrid">
+          <div>
+            <span class="lbl">교육</span>
+            <div class="exitem"><b>심층 데이터 분석 서비스 솔루션 개발자 과정</b><span>휴먼교육센터 · 2026.05 – 2026.07</span></div>
+            <div class="exitem"><b>자바 활용 데이터 플랫폼 풀스택 개발자 과정</b><span>휴먼교육센터 · 2025.10 – 2026.04</span></div>
+          </div>
+          <div>
+            <span class="lbl">자격증</span>
+            <div class="certline"><b>정보처리기사</b> · 2026.06 최종합격</div>
+            <div class="certline"><b>SQLD (SQL 개발자)</b> · 2026.03 취득</div>
+            <div class="certline"><b>컴퓨터활용능력 1급</b> · 2022.09</div>
+          </div>
+        </div>
+        <div class="exextra">
+          <span class="lbl">대외활동</span>
+          <div class="certline"><b>AX 인재전쟁 2026 해커톤</b> · 2026.07 예선 상위 10% (Codex 플러그인 3종 설계·제출) <a href="https://github.com/hhho0coco1-star/churn-intervention-playbook" target="_blank" class="ext-link">GitHub · 채널톡 트랙 코드 ↗</a></div>
+        </div>
+      </div>
+      <button type="button" class="cue cue-top" aria-label="처음으로 이동"><span class="a">↑</span> TOP</button>
     </section>
 
   </main>
