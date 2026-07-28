@@ -25,8 +25,7 @@
         <li><a href="#architecture">아키텍처</a></li>
         <li><a href="#role">담당 역할</a></li>
         <li><a href="#domain">도메인 설계</a></li>
-        <li><a href="#detail">상세 구조</a></li>
-        <li><a href="#flow">기능 흐름</a></li>
+        <li><a href="#flow">성향 분석 흐름</a></li>
         <li><a href="#trouble">트러블슈팅</a></li>
         <li><a href="#retrospect">회고</a></li>
       </ul>
@@ -70,7 +69,6 @@
               <li><strong>JSP 서버 렌더링</strong> — 페이지 단위 이동 중심 서비스라 SPA 없이 서버 렌더링으로 개발 속도 우선.</li>
               <li><strong>OAuth2 3종(Google·Kakao·Naver)</strong> — 여행 서비스 특성상 가입 장벽을 낮추기 위해 소셜 로그인 통합.</li>
               <li><strong>MyBatis</strong> — 성향 분석 태그 집계·여행지 매칭 등 복잡한 조인 쿼리를 SQL로 직접 제어.</li>
-              <li><strong>ExecutorService 병렬 처리</strong> — 순차 처리로 누적되던 운영시간 파싱을 6~12 스레드 병렬 구조로 전환.</li>
             </ul>
           </div>
         </div>
@@ -162,20 +160,20 @@
         </div>
         <div class="project-bg" style="margin-top:16px;">
           <p class="project-bg-text" style="margin-bottom:8px;font-weight:700;">왜 이 역할을 맡았나</p>
-          <p class="project-bg-text">HashTrip의 차별점은 <strong>성향 기반 맞춤 추천</strong>이고, 그 심장인 성향 분석 알고리즘을 직접 설계하고 싶어 맡았습니다. 추천 품질은 입력 데이터에 좌우되기 때문에, 데이터를 공급하는 <strong>공공 데이터 수집 파이프라인</strong>까지 함께 담당해 '수집 → 분석 → 추천'을 한 흐름으로 책임졌습니다. 프로젝트 전반을 꿰고 있어 최종 발표도 맡았습니다.</p>
+          <p class="project-bg-text">HashTrip의 차별점은 <strong>성향 기반 맞춤 추천</strong>이고, 그 심장인 성향 분석 알고리즘을 직접 설계하고 싶어 맡았습니다. 설문 응답을 어떻게 점수화해 하나의 여행 스타일로 수렴시킬지를 <strong>데이터 구조부터</strong> 설계했고, 메인·관리자 페이지를 풀스택으로 함께 담당했습니다. 프로젝트 전반을 꿰고 있어 최종 발표도 맡았습니다.</p>
         </div>
         <div class="role-stats">
           <div class="role-stat-card">
-            <span class="role-stat-num">4개 영역</span>
-            <span class="role-stat-label">메인 · 성향분석 · 관리자 · 데이터수집</span>
+            <span class="role-stat-num">3개 영역</span>
+            <span class="role-stat-label">메인 · 성향분석 · 관리자 풀스택</span>
           </div>
           <div class="role-stat-card">
             <span class="role-stat-num">설계</span>
             <span class="role-stat-label">성향 분석 알고리즘 (가중치 합산)</span>
           </div>
           <div class="role-stat-card">
-            <span class="role-stat-num">체감 대폭 단축</span>
-            <span class="role-stat-label">운영시간 파싱 병렬 처리 도입 (6~12 스레드 · 300건 배치 INSERT)</span>
+            <span class="role-stat-num">오류 0건</span>
+            <span class="role-stat-label">중복 태그 오산출 → 가중치 합산 로직 전면 수정</span>
           </div>
         </div>
         <div class="role-list">
@@ -228,18 +226,6 @@
                 </div>
               </div>
             </li>
-            <li>
-              <div class="role-item-header">
-                <strong>여행지 공공 데이터 수집</strong>
-                <span class="role-tag">Backend</span>
-              </div>
-              <div class="role-sub-list">
-                <div class="role-sub-item">
-                  <span class="role-sub-label role-sub-be">Backend</span>
-                  <span class="role-sub-desc">RestApiController + PlaceServiceImpl — 한국관광공사 API 수집, 운영시간 파싱 ExecutorService 병렬 처리(6~12 스레드) · 300건 배치 INSERT · 태그 자동 분류</span>
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
@@ -264,145 +250,11 @@
       </div>
     </section>
 
-    <!-- 아키텍처 상세 -->
-    <section id="detail" class="section">
-      <div class="container">
-        <h2 class="section-title">아키텍처 상세</h2>
-        <div class="arch-tabs">
-          <button class="tab-btn active" data-tab="analysis">성향 분석 페이지</button>
-          <button class="tab-btn" data-tab="data">공공 데이터 수집</button>
-        </div>
-        <div class="tab-content active" id="tab-analysis">
-          <div class="arch-stepper">
-            <div class="step">
-              <div class="rail"><div class="node">1</div></div>
-              <div class="content">
-                <div class="arch-card ac-client">
-                  <div class="arch-card-title"><span class="ic">🖥️</span>브라우저 (사용자)</div>
-                  <div class="arch-card-sub">설문 페이지 — 1:1 선택지 클릭</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">2</div></div>
-              <div class="content">
-                <div class="arch-card ac-sec">
-                  <div class="arch-card-title"><span class="ic">🔒</span>Spring Security</div>
-                  <div class="arch-card-sub">Form 로그인 / OAuth2 — 세션 기반 사용자 식별</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">3</div></div>
-              <div class="content">
-                <div class="arch-card ac-ctrl">
-                  <div class="arch-card-title"><span class="ic">🎯</span>AnalysisController</div>
-                  <div class="arch-card-sub">설문 질문 조회(GET) · 답변 제출(POST)</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">4</div></div>
-              <div class="content">
-                <span class="arch-rail-label">핵심 — 성향 분석 알고리즘</span>
-                <div class="arch-card ac-svc">
-                  <div class="arch-card-title"><span class="ic">⚙️</span>UserTagMapServiceImpl</div>
-                  <div class="arch-card-sub">선택 태그 저장 → Oracle SQL 가중치 합산(SUM·GROUP BY) → 최다 누적 태그로 여행 스타일 결정</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">5</div></div>
-              <div class="content">
-                <span class="arch-rail-label">MyBatis</span>
-                <div class="arch-card ac-dao">
-                  <div class="arch-card-title"><span class="ic">🗂️</span>DAO Layer</div>
-                  <div class="arch-card-sub">User_Tag_Map · Travel_Styles INSERT (UserTagMapDAO · TravelStylesDAO)</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">6</div></div>
-              <div class="content">
-                <div class="arch-card ac-db">
-                  <div class="arch-card-title"><span class="ic">🗄️</span>Oracle DB</div>
-                  <div class="arch-card-sub">User_Tag_Map · Travel_Styles · Tag_Master</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-content" id="tab-data">
-          <div class="arch-stepper">
-            <div class="step">
-              <div class="rail"><div class="node">1</div></div>
-              <div class="content">
-                <div class="arch-card ac-client">
-                  <div class="arch-card-title"><span class="ic">🖥️</span>브라우저 (관리자)</div>
-                  <div class="arch-card-sub">여행지 데이터 수집 요청</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">2</div></div>
-              <div class="content">
-                <div class="arch-card ac-ctrl">
-                  <div class="arch-card-title"><span class="ic">🎯</span>RestApiController</div>
-                  <div class="arch-card-sub">수집 시작 트리거 · ImportProgressTracker 진행률 관리</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">3</div></div>
-              <div class="content">
-                <span class="arch-rail-label">핵심 — 병렬 처리</span>
-                <div class="arch-card ac-svc">
-                  <div class="arch-card-title"><span class="ic">⚙️</span>PlaceServiceImpl</div>
-                  <div class="arch-card-sub">ExecutorService 6~12 스레드 병렬 — 운영시간 파싱(PlaceHoursParser) · 태그 자동 분류(PlaceTagClassifier)</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">4</div></div>
-              <div class="content">
-                <span class="arch-rail-label">HTTP</span>
-                <div class="arch-card ac-ext">
-                  <div class="arch-card-title"><span class="ic">🌐</span>한국관광공사 공공API</div>
-                  <div class="arch-card-sub">Area Based List API — 지역별 여행지 목록·상세 반환</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">5</div></div>
-              <div class="content">
-                <div class="arch-card ac-dao">
-                  <div class="arch-card-title"><span class="ic">🗂️</span>PlaceDAO</div>
-                  <div class="arch-card-sub">300건 단위 배치 INSERT — Place · Place_Hours · Place_Tag_Map</div>
-                </div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="rail"><div class="node">6</div></div>
-              <div class="content">
-                <div class="arch-card ac-db">
-                  <div class="arch-card-title"><span class="ic">🗄️</span>Oracle DB</div>
-                  <div class="arch-card-sub">Place · Place_Hours · Place_Tag_Map · Tag_Master</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 대표 기능 흐름 -->
-    <section id="flow" class="section section-alt">
+    <section id="flow" class="section">
       <div class="container">
-        <h2 class="section-title">대표 기능 흐름</h2>
-        <div class="tabs flow-tabs">
-          <button class="tab-btn active" data-flow="flow1">성향 분석 흐름</button>
-          <button class="tab-btn" data-flow="flow2">공공 데이터 수집 흐름</button>
-        </div>
+        <h2 class="section-title">성향 분석 아키텍처 및 흐름</h2>
+        <p class="section-desc">설문 진입부터 성향 판정 · 추천 · 일정 등록까지의 전체 경로</p>
 
         <div id="flow-panel-flow1" class="flow-panel active">
           <div class="flow-steps">
@@ -423,12 +275,12 @@
             <div class="flow-phase-header">Phase 3. 성향 분석 &amp; 결과 저장</div>
             <div class="flow-step">
               <span class="actor-badge actor-backend">Service</span>
-              <div class="flow-step-body"><strong>가중치 합산 분석</strong><span>선택 태그를 Oracle SQL로 전체 가중치 합산 → 최다 누적 태그로 여행 스타일 결정</span></div>
+              <div class="flow-step-body"><strong>가중치 합산 분석</strong><span>AnalysisController → UserTagMapServiceImpl — 선택 태그를 Oracle SQL 집계(SUM·GROUP BY)로 누적 합산해 최다 점수 태그를 여행 스타일로 결정. 결과 판정을 애플리케이션이 아닌 쿼리에서 끝내 로직을 한 곳에 모았습니다.</span></div>
             </div>
             <div class="flow-step-arrow">↓</div>
             <div class="flow-step">
               <span class="actor-badge actor-db">DB</span>
-              <div class="flow-step-body"><strong>결과 저장 &amp; 표시</strong><span>User_Tag_Map·Travel_Styles INSERT → 여행 스타일·추천 태그 결과 페이지 렌더링</span></div>
+              <div class="flow-step-body"><strong>결과 저장 &amp; 표시</strong><span>UserTagMapDAO · TravelStylesDAO — User_Tag_Map·Travel_Styles INSERT → 여행 스타일·추천 태그 결과 페이지 렌더링</span></div>
             </div>
             <div class="flow-phase-divider"></div>
 
@@ -456,65 +308,17 @@
             </div>
           </div>
         </div>
-
-        <div id="flow-panel-flow2" class="flow-panel">
-          <div class="flow-steps">
-            <div class="flow-phase-header">Phase 1. 수집 요청 &amp; 초기화</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-admin">Admin</span>
-              <div class="flow-step-body"><strong>데이터 수집 요청</strong><span>관리자 페이지에서 수집 시작 버튼 클릭 → POST /api/import</span></div>
-            </div>
-            <div class="flow-step-arrow">↓</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-backend">Service</span>
-              <div class="flow-step-body"><strong>ImportProgressTracker 초기화</strong><span>총 수집 예정 건수 설정, 진행률 0% 시작</span></div>
-            </div>
-            <div class="flow-phase-divider"></div>
-
-            <div class="flow-phase-header">Phase 2. 병렬 수집 &amp; 파싱</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-backend">Service</span>
-              <div class="flow-step-body"><strong>운영시간 파싱 병렬 처리</strong><span>지역별 API 응답은 순차 수집 · 수집된 장소의 운영시간 텍스트를 6~12개 스레드로 동시 파싱(PlaceHoursParser)</span></div>
-            </div>
-            <div class="flow-step-arrow">↓</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-external">External</span>
-              <div class="flow-step-body"><strong>한국관광공사 공공API 응답</strong><span>여행지 기본 정보 · 운영시간 · 위도경도 · 카테고리 JSON 반환</span></div>
-            </div>
-            <div class="flow-step-arrow">↓</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-backend">Service</span>
-              <div class="flow-step-body"><strong>파싱 &amp; 분류</strong><span>PlaceHoursParser — 텍스트 운영시간 → 구조화 데이터 변환 / PlaceTagClassifier — 카테고리 기반 태그 자동 분류</span></div>
-            </div>
-            <div class="flow-phase-divider"></div>
-
-            <div class="flow-phase-header">Phase 3. 배치 저장 &amp; 완료</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-db">DB</span>
-              <div class="flow-step-body"><strong>배치 INSERT</strong><span>300건 단위 묶음 INSERT — Place · Place_Hours · Place_Tag_Map 트랜잭션 처리</span></div>
-            </div>
-            <div class="flow-step-arrow">↓</div>
-            <div class="flow-step">
-              <span class="actor-badge actor-backend">Service</span>
-              <div class="flow-step-body"><strong>진행률 업데이트</strong><span>ImportProgressTracker — 배치 완료마다 진행률 갱신 → 관리자 화면에 실시간 반영</span></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- 트러블슈팅 -->
-    <section id="trouble" class="section">
+    <section id="trouble" class="section section-alt">
       <div class="container">
         <h2 class="section-title">트러블슈팅 및 개선 포인트</h2>
         <div class="trouble-cards">
           <button class="trouble-card active" data-trouble="t1">
             <span class="trouble-card-num">01</span>
             <span class="trouble-card-title">성향 분석 중복 태그 처리 오류 → 가중치 합산 방식으로 로직 전면 수정</span>
-          </button>
-          <button class="trouble-card" data-trouble="t2">
-            <span class="trouble-card-num">02</span>
-            <span class="trouble-card-title">여행지 상세정보(운영시간) 순차 조회로 인한 수집 시간 지연 → 병렬 처리 도입으로 대폭 단축</span>
           </button>
         </div>
         <div class="trouble-detail">
@@ -558,59 +362,19 @@
               </div>
             </div>
           </div>
-          <div class="trouble-panel" id="trouble-panel-t2">
-            <div class="trouble-metrics">
-              <div class="trouble-metric">
-                <span class="tm-label">상세 정보 수집</span>
-                <span class="tm-before">단건 순차(Blocking)</span>
-                <span class="tm-arrow">→</span>
-                <span class="tm-after">6~12 스레드 병렬 ⚡</span>
-              </div>
-            </div>
-            <div class="trouble-steps">
-              <div class="tstep">
-                <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
-                <div class="trouble-step step-problem">
-                  <span class="step-label">문제 상황</span>
-                  <p>관리자가 한국관광공사 공공 API로 여행지 데이터를 수집할 때, 여행지별 상세 정보(운영시간 등)를 하나씩 순차 조회하다 보니 전체 수집 시간이 과도하게 길어졌습니다. 수집 대상 여행지가 많아질수록 소요 시간이 비례해 누적되었습니다.</p>
-                </div>
-              </div>
-              <div class="tstep">
-                <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
-                <div class="trouble-step step-cause">
-                  <span class="step-label">원인 분석</span>
-                  <p>여행지 데이터를 순차적(Sequential)으로 하나씩 API 호출·DB 조회하는 구조였습니다. 데이터 양에 비례하여 전체 수집 시간이 누적되는 구조적 문제였으며, 앞선 처리가 완료될 때까지 다음 처리가 시작되지 못하는 Blocking이 발생했습니다.</p>
-                </div>
-              </div>
-              <div class="tstep">
-                <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
-                <div class="trouble-step step-solve">
-                  <span class="step-label">해결 과정</span>
-                  <p>단건 순차 조회 방식을 ExecutorService 기반 병렬 처리(6~12 스레드)로 변경했습니다. 수집된 여행지의 운영시간 등 상세 정보 조회를 여러 스레드로 동시에 수행하고, 수집 결과는 300건 단위 배치 INSERT로 저장해 DB 부하까지 함께 줄였습니다.</p>
-                </div>
-              </div>
-              <div class="tstep">
-                <div class="trail"><div class="tnode tnode-result">✅</div></div>
-                <div class="trouble-step step-result">
-                  <span class="step-label">결과</span>
-                  <p>기존 순차 처리 대비 상세 정보 수집 시간을 체감상 크게 단축했습니다(정밀 벤치마크 로그는 별도로 남기지 못함). <strong>배운 점:</strong> 외부 API 대량 호출은 병렬화와 배치 저장만으로도 처리 시간을 크게 줄일 수 있다.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- 회고 -->
-    <section id="retrospect" class="section section-alt">
+    <section id="retrospect" class="section">
       <div class="container">
         <h2 class="section-title">회고 및 배운 점</h2>
         <div class="retro-grid">
           <div class="retro-card">
             <span class="retro-icon">⚙️</span>
             <h3>기술적 성장</h3>
-            <p>한국관광공사 공공API 대량 데이터를 ExecutorService 병렬 처리와 배치 INSERT로 효율적으로 수집하는 방법을 익혔습니다. 성향 분석 알고리즘을 직접 설계하고, 태그 중복 처리 버그를 발견·수정하는 과정에서 알고리즘의 엣지 케이스를 꼼꼼히 검토하는 습관이 생겼습니다. Spring Security OAuth2 소셜 로그인 3종 연동을 통해 인증 흐름 전반을 이해하게 되었습니다.</p>
+            <p>성향 분석 알고리즘을 직접 설계하고, 태그 중복 처리 버그를 발견·수정하는 과정에서 알고리즘의 엣지 케이스를 꼼꼼히 검토하는 습관이 생겼습니다. 문자열 매칭으로는 선택 빈도를 반영할 수 없다는 한계를 확인하고 SQL 집계(SUM·GROUP BY) 기반으로 전환하며, 요구사항을 데이터 구조로 옮기는 판단을 경험했습니다. Spring Security OAuth2 소셜 로그인 3종 연동을 통해 인증 흐름 전반을 이해하게 되었습니다.</p>
           </div>
           <div class="retro-card">
             <span class="retro-icon">🤝</span>

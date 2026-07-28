@@ -78,7 +78,8 @@
       <div class="contact">
         <a href="mailto:dpcks2553@naver.com">dpcks2553@naver.com</a><span class="sep">·</span>
         <a href="https://github.com/hhho0coco1-star">github.com/hhho0coco1-star</a><span class="sep">·</span>
-        <a href="https://hhho0coco1-star.github.io/portfolio/">Portfolio</a>
+        <a href="https://hhho0coco1-star.github.io/portfolio/">Portfolio</a><span class="sep">·</span>
+        <a href="https://velog.io/@hhho0coco1-star/posts">Blog</a>
       </div>
     </header>
 
@@ -89,6 +90,7 @@
         <div class="cc-row"><b>Spring 백엔드 API</b> — Spring Boot·Security 기반 REST API 및 JWT/OAuth2 인증·인가 구조 설계</div>
         <div class="cc-row"><b>클라우드 인프라</b> — Kubernetes 컨테이너 구조 설계 및 온프레미스→클라우드 전환</div>
         <div class="cc-row"><b>성능 엔지니어링</b> — k6 부하 테스트 기반 병목 분석으로 p95 응답시간 약 30% 개선</div>
+        <div class="cc-row"><b>풀스택 대응</b> — 백엔드를 중심으로 설계하되 필요 시 React SPA·관리자 화면까지 직접 구현 (LocalQuest 팀 리더)</div>
       </div>
     </section>
 
@@ -98,7 +100,7 @@
         <div class="sk"><b>Backend</b> Java, Spring Boot, Spring Cloud Gateway, Spring Security, JWT/OAuth2, Kafka, WebSocket, MyBatis, FastAPI</div>
         <div class="sk"><b>Database</b> Oracle, PostgreSQL, MongoDB, Redis</div>
         <div class="sk"><b>Infra/DevOps</b> Docker, Kubernetes, Nginx, GitHub Actions, Git</div>
-        <div class="sk"><b>Frontend</b> React, Redux Toolkit, JavaScript, Axios, JSP</div>
+        <div class="sk"><b>Frontend</b> React, Redux Toolkit, JavaScript</div>
         <div class="sk"><b>Monitoring</b> Prometheus, Grafana, ELK, Jaeger, k6</div>
         <div class="sk"><b>Data/ML</b> Python, Pandas, NumPy, scikit-learn</div>
       </div>
@@ -115,7 +117,7 @@
         <div class="istack">Java 17 · Spring Boot · Spring Cloud Gateway · Kafka · WebSocket · PostgreSQL · MongoDB · Redis · Kubernetes</div>
         <ul>
           <li>재난·기상·미세먼지 공공 API를 수집해 WebSocket으로 실시간 전달하는 <span class="m">5개 마이크로서비스 + API Gateway</span>를 단독 설계·구현</li>
-          <li><span class="m">Transactional Outbox 패턴</span>으로 DB 저장과 Kafka 발행을 단일 트랜잭션으로 묶어 알림 유실 차단</li>
+          <li><span class="m">Transactional Outbox 패턴</span>으로 구독 이벤트의 DB 저장과 Kafka 발행을 단일 트랜잭션으로 묶어 유실 차단 (PENDING 보관 → 발행 실패 3회 초과 시 DEAD 분리)</li>
           <li><span class="m">Redis Pub/Sub</span> 도입으로 Kubernetes replica 3 환경의 WebSocket 다중 인스턴스 미수신 문제 해결</li>
           <li>k6 부하 테스트(100 VU) 오류율 97%를 HikariCP 풀 튜닝으로 해결, <span class="m">p95 2.66s → 1.86s (약 30%) 개선</span></li>
         </ul>
@@ -126,9 +128,9 @@
           <span class="ititle">LocalQuest · 지역 탐험 O2O 플랫폼</span>
           <span class="imeta">팀 5명 · 팀 리더 · 2026.03 – 2026.04</span>
         </div>
-        <div class="istack">Spring · Spring Security · MyBatis · React · JSP · Oracle · JWT</div>
+        <div class="istack">Spring · MyBatis · React · JSP · Oracle · JWT · Kakao Map API</div>
         <ul>
-          <li>QR 현장 인증 시스템(LocationQrService) 설계·구현 및 비즈니스·관리자 <span class="m">14개 페이지</span> 풀스택 담당</li>
+          <li>QR 현장 인증 시스템(LocationQrService) 설계·구현 및 비즈니스 React SPA와 관리자 <span class="m">8개 페이지</span> 풀스택 담당</li>
           <li>5인 팀 리더로 일정·역할 조율, <span class="m">JWT·세션 이원화</span> 인증 구조 설계 (React SPA=JWT / 관리자 JSP=세션)</li>
         </ul>
       </div>
@@ -141,14 +143,13 @@
         <div class="istack">Spring · MyBatis · JSP · Oracle · OAuth2</div>
         <ul>
           <li>설문 <span class="m">가중치 합산 기반 성향 분석 알고리즘</span> 설계·구현 (중복 태그 오산출 버그를 SQL 합산 방식으로 전면 수정)</li>
-          <li>한국관광공사 공공 API <span class="m">ExecutorService 병렬 수집(6~12 스레드)</span> + 300건 배치 INSERT로 수집 시간 대폭 단축</li>
         </ul>
       </div>
 
       <div class="item">
         <div class="ihead">
           <span class="ititle">HPDFS · 디스크 고장 예측 시스템</span>
-          <span class="imeta">팀 5명 · 2026.05</span>
+          <span class="imeta">팀 5명 · 2026.06</span>
         </div>
         <div class="istack">FastAPI · scikit-learn · PostgreSQL · Streamlit · Docker · Kubernetes · GitHub Actions</div>
         <ul>
@@ -167,9 +168,10 @@
           <div class="ed"><span class="t">호서대학교 · 안전소방학부 (학사)</span><div class="m2">2016.02 – 2022.02</div></div>
         </div>
         <div>
-          <div class="cert"><span class="t">정보처리기사</span> <span class="m2">· 2026.06 최종합격</span></div>
+          <div class="cert"><span class="t">정보처리기사</span> <span class="m2">· 2026.06 취득</span></div>
           <div class="cert"><span class="t">SQLD (SQL 개발자)</span> <span class="m2">· 2026.03 취득</span></div>
-          <div class="cert"><span class="t">컴퓨터활용능력 1급</span> <span class="m2">· 2022.09</span></div>
+          <div class="cert"><span class="t">컴퓨터활용능력 1급</span> <span class="m2">· 2022.09 취득</span></div>
+          <div class="cert" style="margin-top:8px;"><span class="t">AX 인재전쟁 2026 해커톤</span> <span class="m2">· 2026.07 예선 상위 10%</span><div class="m2">채널톡·리얼마이트립·카카오페이증권 3개 기업 트랙 Codex 플러그인 3종 설계·구현</div></div>
         </div>
       </div>
     </section>

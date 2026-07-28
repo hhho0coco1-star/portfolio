@@ -22,10 +22,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="#overview">프로젝트</a></li>
-        <li><a href="#architecture">아키텍처</a></li>
         <li><a href="#role">담당 역할</a></li>
         <li><a href="#domain">도메인 설계</a></li>
-        <li><a href="#detail">상세 구조</a></li>
+        <li><a href="#detail">시스템 구조</a></li>
         <li><a href="#flow">기능 흐름</a></li>
         <li><a href="#trouble">트러블슈팅</a></li>
         <li><a href="#retrospect">회고</a></li>
@@ -102,64 +101,8 @@
       </div>
     </section>
 
-    <!-- 전체 시스템 구조도 -->
-    <section id="architecture" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">전체 시스템 구조도</h2>
-        <p class="section-desc">인프라, 서버, DB 구성</p>
-        <div class="arch-system">
-          <div class="sys-row layer-client">
-            <div class="sys-label">Client Layer</div>
-            <div class="sys-content">
-              <div class="app-branches">
-                <div class="app-branch-box branch-admin">⚛️ React SPA<br><span style="font-size:0.72rem;color:#64748b;">사용자 · 비즈니스 페이지<br>포트 3000</span></div>
-                <div class="app-branch-box branch-api">🖥️ 브라우저 / 📱 모바일<br><span style="font-size:0.72rem;color:#64748b;">관리자 페이지<br>(JSP 서버 렌더링)</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="sys-connector">
-            <span class="sys-connector-arrow">↓</span>
-            <span>HTTP</span>
-          </div>
-          <div class="sys-row layer-app">
-            <div class="sys-label">App Layer</div>
-            <div class="sys-content">
-              <div>
-                <div class="layer-title">Spring Framework (Java 11 · 포트 8080)</div>
-                <div class="app-branches">
-                  <div class="app-branch-box branch-admin">🔒 Admin Controller<br><span style="font-size:0.72rem;color:#64748b;">JSP 서버 렌더링<br>세션 기반 인증</span></div>
-                  <div class="app-branch-box branch-api">⚡ REST API Controller<br><span style="font-size:0.72rem;color:#64748b;">JSON 응답<br>JWT 기반 인증</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="sys-connector">
-            <span class="sys-connector-arrow">↓</span>
-            <span>MyBatis</span>
-          </div>
-          <div class="sys-row layer-data">
-            <div class="sys-label">Data Layer</div>
-            <div class="sys-content">🗄️ Oracle DB</div>
-          </div>
-          <hr class="sys-divider">
-          <div class="sys-row layer-ext">
-            <div class="sys-label">External Services</div>
-            <div class="sys-content">
-              <div class="ext-badges">
-                <span class="ext-badge">🗺️ Kakao Map API</span>
-                <span class="ext-badge">🔑 OAuth2</span>
-                <span class="ext-badge">🔔 Web Push (VAPID)</span>
-                <span class="ext-badge">📁 File Storage</span>
-                <span class="ext-badge">🐍 Python OCR Server</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 담당 범위 및 역할 -->
-    <section id="role" class="section">
+    <section id="role" class="section section-alt">
       <div class="container">
         <h2 class="section-title">담당 범위 및 역할</h2>
         <div class="role-header">
@@ -173,7 +116,7 @@
         <div class="role-stats">
           <div class="role-stat-card">
             <span class="role-stat-num">8개</span>
-            <span class="role-stat-label">관리자 페이지 운영 (초기 버전 포함 14개 JSP 작성)</span>
+            <span class="role-stat-label">관리자 페이지 구현 (사용자·퀘스트·리워드·비즈니스·QR/위치·문의·공지·FAQ)</span>
           </div>
           <div class="role-stat-card">
             <span class="role-stat-num">3개 영역</span>
@@ -210,7 +153,7 @@
               <div class="role-sub-list">
                 <div class="role-sub-item">
                   <span class="role-sub-label role-sub-fe">Frontend</span>
-                  <span class="role-sub-desc">JSP 기반 관리자 8개 페이지 운영 — 사용자 · 퀘스트 · 리워드 · 비즈니스 · QR/위치 · 문의 · 공지 · FAQ 관리</span>
+                  <span class="role-sub-desc">JSP 기반 관리자 8개 페이지 구현 — 사용자 · 퀘스트 · 리워드 · 비즈니스 · QR/위치 · 문의 · 공지 · FAQ 관리</span>
                 </div>
                 <div class="role-sub-item">
                   <span class="role-sub-label role-sub-be">Backend</span>
@@ -240,7 +183,7 @@
     </section>
 
     <!-- 핵심 도메인 설계 -->
-    <section id="domain" class="section section-alt">
+    <section id="domain" class="section">
       <div class="container">
         <h2 class="section-title">핵심 도메인 설계</h2>
         <p class="section-desc">퀘스트 수행 흐름 중심 핵심 테이블 발췌 (전체 29개 테이블 중 7개)</p>
@@ -263,7 +206,7 @@
     </section>
 
     <!-- 아키텍처 상세 -->
-    <section id="detail" class="section">
+    <section id="detail" class="section section-alt">
       <div class="container">
         <h2 class="section-title">아키텍처 상세</h2>
         <div class="arch-tabs">
@@ -396,11 +339,25 @@
             </div>
           </div>
         </div>
+        <div class="arch-system" style="margin-top:24px;">
+          <div class="sys-row layer-ext">
+            <div class="sys-label">External Services</div>
+            <div class="sys-content">
+              <div class="ext-badges">
+                <span class="ext-badge">🗺️ Kakao Map API</span>
+                <span class="ext-badge">🔑 OAuth2</span>
+                <span class="ext-badge">🔔 Web Push (VAPID)</span>
+                <span class="ext-badge">📁 File Storage</span>
+                <span class="ext-badge">🐍 Python OCR Server</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- 대표 기능 흐름 -->
-    <section id="flow" class="section section-alt">
+    <section id="flow" class="section">
       <div class="container">
         <h2 class="section-title">대표 기능 흐름</h2>
         <div class="tabs flow-tabs">
@@ -496,7 +453,7 @@
     </section>
 
     <!-- 트러블슈팅 -->
-    <section id="trouble" class="section">
+    <section id="trouble" class="section section-alt">
       <div class="container">
         <h2 class="section-title">트러블슈팅 및 개선 포인트</h2>
         <div class="trouble-cards">
@@ -596,7 +553,7 @@
     </section>
 
     <!-- 회고 -->
-    <section id="retrospect" class="section section-alt">
+    <section id="retrospect" class="section">
       <div class="container">
         <h2 class="section-title">회고 및 배운 점</h2>
         <div class="retro-grid">
