@@ -818,12 +818,12 @@ html.slide-deck{scroll-snap-type:y mandatory;}
 /* ============================================================
    면접용 슬라이드 덱 인쇄 (slides.html 전용, .slide-deck 스코프)
    ============================================================ */
-@page{margin:0;}
+@page{size:13.333in 7.5in;margin:0;}
 @media print{
   html.slide-deck{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .slide-deck #navbar,.slide-deck .cue,.slide-deck .snum{display:none;}
   .slide-deck .slide{
-    height:auto;min-height:0;overflow:visible;
+    min-height:100vh;height:auto;overflow:visible;
     page-break-after:always;break-after:page;
     padding:20px 26px;
   }
@@ -832,4 +832,10 @@ html.slide-deck{scroll-snap-type:y mandatory;}
   .slide-deck .flow-node{min-width:0;padding:8px 6px;font-size:.68rem;}
   .slide-deck .flow-node b{font-size:.72rem;margin-bottom:2px;}
   .slide-deck .flow-arrow{font-size:.9rem;transform:none;}
+  .slide-deck .retro-grid{grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;}
+  .slide-deck .retro-card{padding:14px 12px;}
+  .slide-deck .retro-icon{font-size:1.3rem;margin-bottom:8px;}
+  .slide-deck .retro-card h3{font-size:.92rem;margin-bottom:6px;}
+  .slide-deck .retro-card p{font-size:.72rem;line-height:1.45;}
+  .slide-deck .role-stats{grid-template-columns:repeat(3,1fr);}
 }
