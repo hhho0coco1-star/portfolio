@@ -26,7 +26,7 @@
 
     <!-- SLIDE 1: 표지 -->
     <section id="s1" class="slide">
-      <span class="snum">01 / 08</span>
+      <span class="snum">01 / 09</span>
       <div class="slide-wrap">
         <p class="s-eyebrow">면접용 요약</p>
         <h1 class="s-name">안세웅</h1>
@@ -37,7 +37,7 @@
 
     <!-- SLIDE 2: 핵심역량 -->
     <section id="s2" class="slide left">
-      <span class="snum">02 / 08</span>
+      <span class="snum">02 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">CORE COMPETENCIES</p>
         <h2 class="s-title">핵심역량</h2>
@@ -53,7 +53,7 @@
 
     <!-- SLIDE 3: SafeAlert 개요 + 플로우 -->
     <section id="s3" class="slide alt">
-      <span class="snum">03 / 08</span>
+      <span class="snum">03 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 01</p>
         <h2 class="flag">SafeAlert</h2>
@@ -61,17 +61,21 @@
         <div class="flow-diagram">
           <div class="flow-node"><b>공공 API</b>재난·기상·미세먼지</div>
           <span class="flow-arrow">→</span>
-          <div class="flow-node"><b>Kafka</b>수집·처리 속도 분리</div>
+          <div class="flow-node"><b>Alert Collector</b>Circuit Breaker·중복 필터링</div>
           <span class="flow-arrow">→</span>
-          <div class="flow-node"><b>Notification</b>Redis Pub/Sub</div>
+          <div class="flow-node"><b>Alert Processor</b>가공·분류 · MongoDB 저장</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Notification</b>Redis Pub/Sub · replica 3</div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><b>WebSocket</b>React 클라이언트</div>
         </div>
+        <p class="s-desc">두 Kafka 토픽(alert.raw → alert.processed)이 수집·가공·알림 3단계를 서로 다른 속도로 독립 확장시킴 · 구독 등록은 Transactional Outbox로 이벤트 유실 방지</p>
         <div class="chips">
           <span class="chip">Spring Boot</span>
           <span class="chip">Apache Kafka</span>
           <span class="chip">Kubernetes</span>
           <span class="chip">Redis</span>
+          <span class="chip">MongoDB</span>
           <span class="chip">WebSocket (STOMP)</span>
         </div>
       </div>
@@ -80,7 +84,7 @@
 
     <!-- SLIDE 4: SafeAlert 트러블슈팅 -->
     <section id="s4" class="slide">
-      <span class="snum">04 / 08</span>
+      <span class="snum">04 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">SAFEALERT · TROUBLESHOOTING</p>
         <h2 class="s-title">k6 부하 테스트 오류율 97.85% → 0%</h2>
@@ -135,7 +139,7 @@
 
     <!-- SLIDE 5: LocalQuest 개요 + 역할 -->
     <section id="s5" class="slide left">
-      <span class="snum">05 / 08</span>
+      <span class="snum">05 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 02</p>
         <h2 class="flag">LocalQuest</h2>
@@ -157,7 +161,7 @@
 
     <!-- SLIDE 6: LocalQuest 트러블슈팅 -->
     <section id="s6" class="slide">
-      <span class="snum">06 / 08</span>
+      <span class="snum">06 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">LOCALQUEST · TROUBLESHOOTING</p>
         <h2 class="s-title">관리자 인증 공백 → 전 경로 검증 + 이중화</h2>
@@ -205,7 +209,7 @@
 
     <!-- SLIDE 7: HashTrip 개요 + 트러블슈팅 -->
     <section id="s7" class="slide alt">
-      <span class="snum">07 / 08</span>
+      <span class="snum">07 / 09</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 03</p>
         <h2 class="flag">HashTrip</h2>
@@ -252,9 +256,36 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- SLIDE 8: 마무리 -->
-    <section id="s8" class="slide">
-      <span class="snum">08 / 08</span>
+    <!-- SLIDE 8: 회고 및 배운 점 -->
+    <section id="s8" class="slide alt">
+      <span class="snum">08 / 09</span>
+      <div class="slide-wrap">
+        <p class="kicker">RETROSPECTIVE</p>
+        <h2 class="s-title">회고 및 배운 점</h2>
+        <div class="retro-grid">
+          <div class="retro-card">
+            <span class="retro-icon">⚙️</span>
+            <h3>기술적 성장</h3>
+            <p>이벤트 유실·다중 인스턴스 세션·인증 공백·알고리즘 엣지 케이스처럼 겉으로는 다른 문제들이 결국 같은 질문("코드가 실제로 그렇게 동작하는가")으로 수렴한다는 걸 세 프로젝트에서 반복해 확인했습니다.</p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🤝</span>
+            <h3>역할에 따른 시야</h3>
+            <p>SafeAlert는 기획부터 배포까지 단독 수행, LocalQuest는 팀 리더로 API-first 협업, HashTrip은 발표 담당으로 전체 아키텍처 통합 — 역할이 바뀔 때마다 요구되는 시야도 달라진다는 걸 체감했습니다.</p>
+          </div>
+          <div class="retro-card">
+            <span class="retro-icon">🎯</span>
+            <h3>다음 목표</h3>
+            <p>LocalQuest의 모놀리식 한계를 넘고자 SafeAlert에서 MSA·Kafka·Kubernetes 기반 분산 시스템 신뢰성 설계(재시도·서킷 브레이커·관측성)를 직접 다졌고, 이 경험을 AI 하네스 엔지니어링으로 확장하려 합니다.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 9: 마무리 -->
+    <section id="s9" class="slide">
+      <span class="snum">09 / 09</span>
       <div class="slide-wrap">
         <p class="s-eyebrow">Thank you</p>
         <h2 class="s-title">감사합니다</h2>

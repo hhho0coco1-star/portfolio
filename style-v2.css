@@ -818,6 +818,7 @@ html.slide-deck{scroll-snap-type:y mandatory;}
 /* ============================================================
    면접용 슬라이드 덱 인쇄 (slides.html 전용, .slide-deck 스코프)
    ============================================================ */
+@page{margin:0;}
 @media print{
   html.slide-deck{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .slide-deck #navbar,.slide-deck .cue,.slide-deck .snum{display:none;}
@@ -827,4 +828,8 @@ html.slide-deck{scroll-snap-type:y mandatory;}
     padding:20px 26px;
   }
   .slide-deck .slide:last-child{page-break-after:auto;break-after:auto;}
+  .slide-deck .flow-diagram{flex-direction:row;flex-wrap:nowrap;gap:6px;margin:14px 0 18px;}
+  .slide-deck .flow-node{min-width:0;padding:8px 6px;font-size:.68rem;}
+  .slide-deck .flow-node b{font-size:.72rem;margin-bottom:2px;}
+  .slide-deck .flow-arrow{font-size:.9rem;transform:none;}
 }
