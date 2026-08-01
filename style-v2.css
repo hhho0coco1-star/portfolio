@@ -807,3 +807,17 @@ html.slide-deck{scroll-snap-type:y mandatory;}
 .exextra .lbl{display:block;color:var(--gold);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
 .ext-link{color:var(--gold);text-decoration:none;font-size:.85rem;margin-left:10px;}
 .ext-link:hover{text-decoration:underline;text-underline-offset:3px;}
+
+/* ============================================================
+   면접용 슬라이드 덱 인쇄 (slides.html 전용, .slide-deck 스코프)
+   ============================================================ */
+@media print{
+  html.slide-deck{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .slide-deck #navbar,.slide-deck .cue,.slide-deck .snum{display:none;}
+  .slide-deck .slide{
+    height:auto;min-height:0;overflow:visible;
+    page-break-after:always;break-after:page;
+    padding:20px 26px;
+  }
+  .slide-deck .slide:last-child{page-break-after:auto;break-after:auto;}
+}
