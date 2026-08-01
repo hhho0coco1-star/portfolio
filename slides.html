@@ -51,6 +51,88 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
+    <!-- SLIDE 3: SafeAlert 개요 + 플로우 -->
+    <section id="s3" class="slide alt">
+      <span class="snum">03 / 08</span>
+      <div class="slide-wrap">
+        <p class="kicker">PROJECT 01</p>
+        <h2 class="flag">SafeAlert</h2>
+        <p class="fpitch">재난·기상·미세먼지 공공 API를 구독하고 <b>WebSocket으로 실시간 알림</b>을 받는 MSA 기반 구독 서비스. 5개 마이크로서비스 + API Gateway를 <b>단독 설계·구현·배포</b>.</p>
+        <div class="flow-diagram">
+          <div class="flow-node"><b>공공 API</b>재난·기상·미세먼지</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Kafka</b>수집·처리 속도 분리</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Notification</b>Redis Pub/Sub</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>WebSocket</b>React 클라이언트</div>
+        </div>
+        <div class="chips">
+          <span class="chip">Spring Boot</span>
+          <span class="chip">Apache Kafka</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">Redis</span>
+          <span class="chip">WebSocket (STOMP)</span>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 4: SafeAlert 트러블슈팅 -->
+    <section id="s4" class="slide">
+      <span class="snum">04 / 08</span>
+      <div class="slide-wrap">
+        <p class="kicker">SAFEALERT · TROUBLESHOOTING</p>
+        <h2 class="s-title">k6 부하 테스트 오류율 97.85% → 0%</h2>
+        <div class="trouble-metrics">
+          <div class="trouble-metric">
+            <span class="tm-label">오류율</span>
+            <span class="tm-before">97.85%</span>
+            <span class="tm-arrow">→</span>
+            <span class="tm-after">0%</span>
+          </div>
+          <div class="trouble-metric">
+            <span class="tm-label">p95 응답</span>
+            <span class="tm-before">2.66s</span>
+            <span class="tm-arrow">→</span>
+            <span class="tm-after">1.86s</span>
+            <span class="tm-delta">-30%</span>
+          </div>
+        </div>
+        <div class="trouble-steps">
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
+            <div class="trouble-step step-problem">
+              <span class="step-label">문제 상황</span>
+              <p>k6 로그인 부하 테스트(100 VU, 3분) 오류율 97.85%. p95 2.66s로 목표(2s) 초과.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
+            <div class="trouble-step step-cause">
+              <span class="step-label">원인 분석</span>
+              <p>HikariCP 기본 maximum-pool-size 10. 100명 동시 로그인 시 90명이 커넥션을 기다리다 타임아웃. Rate Limiting도 동일 IP 100개 요청을 차단하고 있었음.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
+            <div class="trouble-step step-solve">
+              <span class="step-label">해결 과정</span>
+              <p>Rate Limiting 로컬호스트 화이트리스트 추가, HikariCP <code>maximum-pool-size</code> 10 → 30으로 조정 후 재테스트.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-result">✅</div></div>
+            <div class="trouble-step step-result">
+              <span class="step-label">결과</span>
+              <p>목표 2s 이하 달성. <strong>배운 점:</strong> DB 커넥션 풀은 동시 요청 수를 고려해 설정해야 하며, 기본값이 실무와 다를 수 있다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
   </main>
 
   <script src="script.js"></script>

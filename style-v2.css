@@ -808,6 +808,13 @@ html.slide-deck{scroll-snap-type:y mandatory;}
 .ext-link{color:var(--gold);text-decoration:none;font-size:.85rem;margin-left:10px;}
 .ext-link:hover{text-decoration:underline;text-underline-offset:3px;}
 
+/* 슬라이드용 간소화 아키텍처 플로우 다이어그램 */
+.flow-diagram{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:20px 0 26px;}
+.flow-node{flex:1;min-width:130px;border:1px solid var(--line2);border-radius:10px;background:var(--panel);padding:14px 18px;font-size:.88rem;color:var(--ink);text-align:center;}
+.flow-node b{display:block;color:var(--gold);font-family:var(--serif);font-size:.98rem;margin-bottom:4px;}
+.flow-arrow{flex:none;color:var(--gold);font-size:1.3rem;}
+@media(max-width:760px){.flow-diagram{flex-direction:column;}.flow-arrow{transform:rotate(90deg);}}
+
 /* ============================================================
    면접용 슬라이드 덱 인쇄 (slides.html 전용, .slide-deck 스코프)
    ============================================================ */
