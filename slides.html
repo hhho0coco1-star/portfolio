@@ -26,7 +26,7 @@
 
     <!-- SLIDE 1: 표지 -->
     <section id="s1" class="slide">
-      <span class="snum">01 / 09</span>
+      <span class="snum">01 / 10</span>
       <div class="slide-wrap">
         <p class="s-eyebrow">면접용 요약</p>
         <h1 class="s-name">안세웅</h1>
@@ -37,7 +37,7 @@
 
     <!-- SLIDE 2: 핵심역량 -->
     <section id="s2" class="slide left">
-      <span class="snum">02 / 09</span>
+      <span class="snum">02 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">CORE COMPETENCIES</p>
         <h2 class="s-title">핵심역량</h2>
@@ -53,7 +53,7 @@
 
     <!-- SLIDE 3: SafeAlert 개요 + 플로우 -->
     <section id="s3" class="slide alt">
-      <span class="snum">03 / 09</span>
+      <span class="snum">03 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 01</p>
         <h2 class="flag">SafeAlert</h2>
@@ -84,7 +84,7 @@
 
     <!-- SLIDE 4: SafeAlert 트러블슈팅 -->
     <section id="s4" class="slide">
-      <span class="snum">04 / 09</span>
+      <span class="snum">04 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">SAFEALERT · TROUBLESHOOTING</p>
         <h2 class="s-title">k6 부하 테스트 오류율 97.85% → 0%</h2>
@@ -139,11 +139,20 @@
 
     <!-- SLIDE 5: LocalQuest 개요 + 역할 -->
     <section id="s5" class="slide left">
-      <span class="snum">05 / 09</span>
+      <span class="snum">05 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 02</p>
         <h2 class="flag">LocalQuest</h2>
         <p class="fpitch">지역을 게임처럼 탐험하는 미션 기반 O2O 로컬 발견 플랫폼. 팀 5명 중 <b>팀 리더</b>로 QR 현장 인증 시스템을 설계·구현하고, 비즈니스 React SPA와 관리자 8개 페이지를 풀스택으로 담당.</p>
+        <div class="flow-diagram">
+          <div class="flow-node"><b>로그인</b>JWT 24h 발급</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>퀘스트 탐색·수락</b>카카오 지도 · 진행 현황</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>QR 현장 인증</b>jsQR · 4중 부정사용 검증</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>완료·보상</b>포인트·배지 지급</div>
+        </div>
         <div class="role-stats">
           <div class="role-stat-card"><span class="role-stat-num">8개</span><span class="role-stat-label">관리자 페이지 풀스택 구현</span></div>
           <div class="role-stat-card"><span class="role-stat-num">3개 영역</span><span class="role-stat-label">비즈니스·관리자·QR 풀스택 담당</span></div>
@@ -161,7 +170,7 @@
 
     <!-- SLIDE 6: LocalQuest 트러블슈팅 -->
     <section id="s6" class="slide">
-      <span class="snum">06 / 09</span>
+      <span class="snum">06 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">LOCALQUEST · TROUBLESHOOTING</p>
         <h2 class="s-title">관리자 인증 공백 → 전 경로 검증 + 이중화</h2>
@@ -207,13 +216,40 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- SLIDE 7: HashTrip 개요 + 트러블슈팅 -->
+    <!-- SLIDE 7: HashTrip 개요 + 아키텍처 -->
     <section id="s7" class="slide alt">
-      <span class="snum">07 / 09</span>
+      <span class="snum">07 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">PROJECT 03</p>
         <h2 class="flag">HashTrip</h2>
         <p class="fpitch">여행 성향 분석부터 일정 공유까지, 내 취향에 맞는 여행을 계획하는 플랫폼. 설문 <b>가중치 합산 기반 성향 분석 알고리즘</b>을 직접 설계·구현.</p>
+        <div class="flow-diagram">
+          <div class="flow-node"><b>브라우저(JSP)</b>사용자·관리자 페이지</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Spring Security</b>Form + OAuth2 3종</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Spring MVC</b>Controller→Service→DAO</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><b>Oracle DB</b>MyBatis · DBCP2</div>
+        </div>
+        <p class="s-desc">한국관광공사 공공API로 여행지 데이터 수집 · Google·Kakao·Naver OAuth2 소셜 로그인 3종 연동</p>
+        <div class="chips">
+          <span class="chip">Spring Framework</span>
+          <span class="chip">Spring Security</span>
+          <span class="chip">OAuth2</span>
+          <span class="chip">MyBatis</span>
+          <span class="chip">Oracle</span>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 8: HashTrip 트러블슈팅 -->
+    <section id="s8" class="slide">
+      <span class="snum">08 / 10</span>
+      <div class="slide-wrap">
+        <p class="kicker">HASHTRIP · TROUBLESHOOTING</p>
+        <h2 class="s-title">중복 태그 오산출 → 가중치 합산 방식 전환</h2>
         <div class="trouble-metrics">
           <div class="trouble-metric">
             <span class="tm-label">성향 분석 결과</span>
@@ -256,9 +292,9 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- SLIDE 8: 회고 및 배운 점 -->
-    <section id="s8" class="slide alt">
-      <span class="snum">08 / 09</span>
+    <!-- SLIDE 9: 회고 및 배운 점 -->
+    <section id="s9" class="slide alt">
+      <span class="snum">09 / 10</span>
       <div class="slide-wrap">
         <p class="kicker">RETROSPECTIVE</p>
         <h2 class="s-title">회고 및 배운 점</h2>
@@ -283,9 +319,9 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
-    <!-- SLIDE 9: 마무리 -->
-    <section id="s9" class="slide">
-      <span class="snum">09 / 09</span>
+    <!-- SLIDE 10: 마무리 -->
+    <section id="s10" class="slide">
+      <span class="snum">10 / 10</span>
       <div class="slide-wrap">
         <p class="s-eyebrow">Thank you</p>
         <h2 class="s-title">감사합니다</h2>
