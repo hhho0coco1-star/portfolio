@@ -203,6 +203,71 @@
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
     </section>
 
+    <!-- SLIDE 7: HashTrip 개요 + 트러블슈팅 -->
+    <section id="s7" class="slide alt">
+      <span class="snum">07 / 08</span>
+      <div class="slide-wrap">
+        <p class="kicker">PROJECT 03</p>
+        <h2 class="flag">HashTrip</h2>
+        <p class="fpitch">여행 성향 분석부터 일정 공유까지, 내 취향에 맞는 여행을 계획하는 플랫폼. 설문 <b>가중치 합산 기반 성향 분석 알고리즘</b>을 직접 설계·구현.</p>
+        <div class="trouble-metrics">
+          <div class="trouble-metric">
+            <span class="tm-label">성향 분석 결과</span>
+            <span class="tm-before">중복 태그 시 오산출</span>
+            <span class="tm-arrow">→</span>
+            <span class="tm-after">오류 케이스 0건 ✅</span>
+          </div>
+        </div>
+        <div class="trouble-steps">
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
+            <div class="trouble-step step-problem">
+              <span class="step-label">문제 상황</span>
+              <p>동일 태그가 여러 질문에 걸쳐 중복 등장하면, 실제 가장 많이 선택한 태그가 아닌 다른 태그가 최종 성향으로 결정되는 오류 발생.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
+            <div class="trouble-step step-cause">
+              <span class="step-label">원인 분석</span>
+              <p>초기 로직은 태그 존재 여부만 비교하는 SQL 문자열 매칭 방식이라 선택 빈도가 반영되지 않았음.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
+            <div class="trouble-step step-solve">
+              <span class="step-label">해결 과정</span>
+              <p>'태그 유무 비교'를 폐기하고 '질문별 가중치 합산' 방식으로 전면 수정. Oracle SQL 가중치 합산 쿼리(SUM·GROUP BY)로 변경.</p>
+            </div>
+          </div>
+          <div class="tstep">
+            <div class="trail"><div class="tnode tnode-result">✅</div></div>
+            <div class="trouble-step step-result">
+              <span class="step-label">결과</span>
+              <p>중복 태그가 발생하는 모든 케이스에서 실제 최다 선택 태그가 정확히 결정됨. 로직 수정 후 오류 케이스 0건 확인.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
+    </section>
+
+    <!-- SLIDE 8: 마무리 -->
+    <section id="s8" class="slide">
+      <span class="snum">08 / 08</span>
+      <div class="slide-wrap">
+        <p class="s-eyebrow">Thank you</p>
+        <h2 class="s-title">감사합니다</h2>
+        <p class="s-role">더 궁금한 부분은 아래 채널로 편하게 연락 주세요.</p>
+        <div class="s-links intro-links">
+          <a href="mailto:dpcks2553@naver.com" class="link-badge">dpcks2553@naver.com</a>
+          <a href="https://github.com/hhho0coco1-star" target="_blank" class="link-badge">GitHub ↗</a>
+          <a href="https://velog.io/@hhho0coco1-star/posts" target="_blank" class="link-badge">기술 블로그 ↗</a>
+        </div>
+      </div>
+      <button type="button" class="cue cue-top" aria-label="처음으로 이동"><span class="a">↑</span> TOP</button>
+    </section>
+
   </main>
 
   <script src="script.js"></script>
