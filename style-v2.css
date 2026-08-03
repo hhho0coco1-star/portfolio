@@ -838,7 +838,6 @@ html.slide-deck{scroll-snap-type:y mandatory;}
   .slide-deck .retro-card h3{font-size:.92rem;margin-bottom:6px;}
   .slide-deck .retro-card p{font-size:.72rem;line-height:1.45;}
   .slide-deck .role-stats{grid-template-columns:repeat(3,1fr);}
-  .slide-deck .slide:has(.trouble-steps){justify-content:flex-start;}
   .slide-deck .kicker{margin-bottom:8px;}
   .slide-deck .s-title{font-size:1.5rem;margin-bottom:12px;}
   .slide-deck .trouble-metrics{margin-bottom:10px;}
