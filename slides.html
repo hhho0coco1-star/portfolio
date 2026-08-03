@@ -108,28 +108,28 @@
             <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
             <div class="trouble-step step-problem">
               <span class="step-label">문제 상황</span>
-              <p>k6로 <code>POST /api/auth/login</code>에 100 VU, 50초 부하 테스트를 처음 돌렸을 때 오류율 97.85%. p95도 2.66s로 목표(2s) 초과.</p>
+              <p>k6로 <code>POST /api/auth/login</code>에 100 VU, 50초(10s 증가 → 30s 유지 → 10s 감소) 부하 테스트를 처음 돌렸을 때 오류율 97.85%로 거의 모든 요청이 실패했습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
             <div class="trouble-step step-cause">
               <span class="step-label">원인 분석</span>
-              <p>원인 두 가지 — ① API Gateway <code>RateLimitFilter</code>가 IP당 분당 60건 제한, 로컬 1개 IP에서 100명 요청을 쏘니 대부분 429 ② 화이트리스트 후 재실행하니 에러율은 0%로 내려갔지만, HikariCP <code>maximum-pool-size</code> 기본값 10 때문에 90명이 커넥션을 기다리며 여전히 p95 초과.</p>
+              <p>원인이 두 겹이었습니다. ① API Gateway의 <code>RateLimitFilter</code>가 IP당 분당 60건(<code>MAX_REQUESTS=60</code>, <code>WINDOW=1분</code>)으로 막아두는데, k6가 로컬 1개 IP에서 100명분 요청을 한꺼번에 쏘다 보니 정상 트래픽조차 대부분 429로 튕겨나갔습니다. 화이트리스트를 넣고 재실행하니 에러율은 0%로 떨어졌지만 p95 응답시간이 2.66s로 목표(2s)를 여전히 넘겼습니다 — ② <code>auth-service</code>의 HikariCP <code>maximum-pool-size</code>가 기본값 10이라, 100명이 동시에 로그인하면 bcrypt 해싱 검증이 끝날 때까지 90명이 커넥션 자리를 기다리며 지연되는 구조였습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
             <div class="trouble-step step-solve">
               <span class="step-label">해결 과정</span>
-              <p>① <code>RateLimitFilter.java</code>에 로컬 부하 테스트용 화이트리스트(127.0.0.1) 추가 ② <code>auth-service</code> HikariCP <code>maximum-pool-size</code> 10 → 30으로 조정 후 재테스트.</p>
+              <p>① <code>RateLimitFilter.java</code>에 로컬 부하 테스트 전용 화이트리스트(127.0.0.1, 0:0:0:0:0:0:0:1)를 추가하고 ② <code>auth-service/application.yml</code>의 <code>hikari.maximum-pool-size</code>를 10 → 30으로 올린 뒤 재테스트했습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-result">✅</div></div>
             <div class="trouble-step step-result">
               <span class="step-label">결과</span>
-              <p>1,475건·p95 2.66s → 1,818건·p95 1.86s로 목표 달성, 평균 응답시간 31% 감소. <strong>배운 점:</strong> 커넥션 풀 기본값은 실무 규모를 가정하지 않을 수 있다 — 부하 테스트로 실측해야 병목을 안다.</p>
+              <p>1,475건 요청·p95 2.66s → 1,818건 요청·p95 1.86s로 목표(2s) 이내 달성. 평균 응답시간도 1.78s → 1.22s로 31% 줄었습니다. <strong>배운 점:</strong> 커넥션 풀 기본값(10)은 실무 동시 요청 규모를 가정한 값이 아닐 수 있다 — 부하 테스트로 실측하지 않으면 병목이 Rate Limit인지 DB 풀인지조차 알 수 없다.</p>
             </div>
           </div>
         </div>
@@ -187,28 +187,28 @@
             <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
             <div class="trouble-step step-problem">
               <span class="step-label">문제 상황</span>
-              <p><code>RoleBasedPageInterceptor</code>가 세션의 ADMIN 역할을 검사하는데, 점검 중 인터셉터가 적용되지 않아 검증 없이 접근 가능한 관리자 경로를 발견.</p>
+              <p>관리자 페이지는 <code>RoleBasedPageInterceptor</code>가 세션의 <code>ADMIN</code> 역할을 검사하는데, 점검 중 인터셉터가 적용되지 않아 검증 없이 접근 가능한 관리자 경로가 있는 걸 발견했습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
             <div class="trouble-step step-cause">
               <span class="step-label">원인 분석</span>
-              <p><code>servlet-context.xml</code>에 <code>/admin/**</code>만 등록돼 있었음. 스프링 AntPathMatcher는 trailing 세그먼트 없는 <code>/admin</code> 루트 자체는 매칭하지 않아, 관리자 진입점이 무방비로 열려 있었음.</p>
+              <p><code>servlet-context.xml</code>의 인터셉터 등록에 <code>&lt;mapping path="/admin/**"/&gt;</code>만 있었습니다. 스프링 AntPathMatcher는 <code>/admin/**</code>를 하위 경로에만 매칭시켜서, trailing 세그먼트가 없는 <code>/admin</code> 루트 자체(관리자 진입점, <code>AdminController</code>가 매핑된 경로)는 매칭 대상에서 빠집니다. 인증을 인터셉터 한 곳에만 의존하다 보니 이 매핑 누락이 그대로 무방비 구간으로 남아 있었습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
             <div class="trouble-step step-solve">
               <span class="step-label">해결 과정</span>
-              <p><code>/admin</code>을 <code>/admin/**</code>와 나란히 추가해 루트 경로까지 커버. 마스터 계정(userId=1) 보호 등 핵심 분기는 컨트롤러 레벨에서도 이중 검증.</p>
+              <p><code>servlet-context.xml</code>에 <code>&lt;mapping path="/admin"/&gt;</code>을 <code>/admin/**</code>와 나란히 추가해 루트 경로까지 커버하도록 정비했습니다. <code>RoleBasedPageInterceptor</code>의 <code>resolveAllowedRoles()</code>가 <code>requestPath.equals(routePrefix) || requestPath.startsWith(routePrefix + "/")</code>로 정확 일치·하위 경로를 모두 검사하는 것도 다시 확인했고, 마스터 계정(userId=1) 보호 같은 핵심 분기는 컨트롤러 레벨에서도 한 번 더 검증하도록 이중화했습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-result">✅</div></div>
             <div class="trouble-step step-result">
               <span class="step-label">결과</span>
-              <p><code>AdminController</code> 등 관리자 컨트롤러가 모두 <code>/admin</code> 하위라 매핑 정비 후 전 경로가 보호됨. <strong>배운 점:</strong> 인터셉터 경로 패턴은 프레임워크 매칭 규칙(<code>/**</code>는 자기 자신 미포함)까지 알아야 안전하다.</p>
+              <p><code>AdminController</code>·<code>AdminBusinessAuthController</code>·<code>AdminBusinessQrController</code> 등 관리자 컨트롤러가 모두 <code>/admin</code> 하위 경로라, 매핑 정비 후 모든 관리자 경로가 인증·역할 검증을 거칩니다. <strong>배운 점:</strong> 인터셉터 경로 패턴은 프레임워크의 매칭 규칙(<code>/**</code>는 자기 자신을 포함하지 않는다는 것)까지 알아야 안전하다 — 적용 범위를 명시적으로 관리하고 핵심 로직은 다층 방어해야 한다.</p>
             </div>
           </div>
         </div>
@@ -263,28 +263,28 @@
             <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
             <div class="trouble-step step-problem">
               <span class="step-label">문제 상황</span>
-              <p>1:1 선택지 설문 답변 후 최종 여행 스타일을 산출할 때, 동일 태그가 여러 질문에서 중복 선택되면 실제 최다 선택 태그가 아닌 다른 태그가 결정되는 오류 발생.</p>
+              <p>1:1 선택지 설문 10문항에 답변을 마치면 최종 여행 스타일을 산출하는데, 초기 버전은 <code>TRAVEL_ANALYSIS_MASTER</code> 테이블에서 문항별(Q1_PLACE·Q2_PLAN·Q9_ENERGY) 선택 조합키를 그대로 조회해 매칭하는 방식이었습니다. 동일 태그가 여러 질문에 걸쳐 중복 선택되면 실제 가장 많이 고른 태그가 아닌 다른 태그가 최종 성향으로 결정되는 오류가 나왔습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
             <div class="trouble-step step-cause">
               <span class="step-label">원인 분석</span>
-              <p>기존 <code>getFinalAnalysisResult</code> 조회는 선택 조합키가 마스터 테이블에 존재하는지만 보는 문자열 매칭이라 선택 빈도가 반영되지 않았음.</p>
+              <p>기존 <code>getFinalAnalysisResult</code> 조회는 선택한 조합키가 마스터 테이블에 존재하는지만 보는 문자열 매칭이라, 같은 태그를 여러 문항에서 반복 선택해도 그 빈도가 결과에 반영되지 않았습니다. 선택 횟수를 세는 로직 자체가 없어서, 1번 선택된 태그가 매칭 순서상 먼저 걸리면 3번 선택된 태그를 제치고 그대로 최종 결과가 되는 구조였습니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
             <div class="trouble-step step-solve">
               <span class="step-label">해결 과정</span>
-              <p><code>TRAVEL_ANALYSIS_MASTER</code>를 걷어내고 <code>TAG_WEIGHT_MASTER</code>·<code>TRAVEL_RESULT_MAPPING</code> 테이블 신설, <code>SUM(W.WEIGHT) GROUP BY W.CATEGORY</code> 쿼리로 문항별 선택 빈도를 합산하도록 전면 수정.</p>
+              <p><code>UserTagMapServiceImpl.processUserAnalysis()</code>를 전면 수정했습니다. <code>TRAVEL_ANALYSIS_MASTER</code>를 걷어내고 <code>TAG_WEIGHT_MASTER</code>·<code>TRAVEL_RESULT_MAPPING</code> 테이블을 새로 설계해, <code>users_mapper.xml</code>의 <code>getTravelAnalysisData</code> 쿼리에서 태그 코드를 카테고리(PLACE/ENERGY/PLAN)로 매핑한 뒤 <code>SUM(W.WEIGHT) ... GROUP BY W.CATEGORY</code>로 문항별 선택 빈도를 합산하도록 바꿨습니다. 질문 3개(QUESTION_ID 1, 2, 9) 각각에서 합산 점수가 가장 높은 카테고리를 뽑아 최종 문구를 구성합니다.</p>
             </div>
           </div>
           <div class="tstep">
             <div class="trail"><div class="tnode tnode-result">✅</div></div>
             <div class="trouble-step step-result">
               <span class="step-label">결과</span>
-              <p>중복 태그가 있는 모든 케이스에서 실제 최다 선택 태그가 정확히 결정됨. 로직 수정 후 오류 케이스 0건 확인.</p>
+              <p>중복 태그가 있는 모든 케이스에서 실제 선택 빈도가 가장 높은 태그가 최종 여행 스타일로 결정되도록 수정 후 오류 케이스 0건을 확인했습니다. 문자열 비교 → 가중치 계산으로 방식을 바꾼 덕분에, 이후 성향 문항이 늘어나도 카테고리·가중치 테이블만 추가하면 로직 변경 없이 확장할 수 있습니다.</p>
             </div>
           </div>
         </div>
