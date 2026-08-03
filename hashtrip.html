@@ -336,28 +336,28 @@
                 <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
                 <div class="trouble-step step-problem">
                   <span class="step-label">문제 상황</span>
-                  <p>1:1 선택지 설문에서 사용자가 모든 질문에 답변한 후 성향 분석 결과를 도출할 때, 동일 태그가 여러 질문에 걸쳐 중복 등장하는 경우 결과가 부정확하게 산출되는 오류가 발생했습니다. 일부 케이스에서 실제 가장 많이 선택한 태그가 아닌 다른 태그가 최종 성향으로 결정되었습니다.</p>
+                  <p>1:1 선택지 설문 10문항에 답변을 마치면 최종 여행 스타일을 산출하는데, 초기 버전은 <code>TRAVEL_ANALYSIS_MASTER</code> 테이블에서 문항별(Q1_PLACE·Q2_PLAN·Q9_ENERGY) 선택 조합키를 그대로 조회해 매칭하는 방식이었습니다. 동일 태그가 여러 질문에 걸쳐 중복 선택되면 실제 가장 많이 고른 태그가 아닌 다른 태그가 최종 성향으로 결정되는 오류가 나왔습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
                 <div class="trouble-step step-cause">
                   <span class="step-label">원인 분석</span>
-                  <p>초기 로직은 선택한 태그의 존재 여부만 비교하는 SQL 문자열 매칭 방식이었습니다. 같은 태그가 여러 질문에서 반복 선택돼도 빈도가 반영되지 않아, 실제 선택 빈도가 낮은 태그가 매칭 결과상 먼저 등장해 잘못된 성향으로 결정되는 경우가 발생했습니다.</p>
+                  <p>기존 <code>getFinalAnalysisResult</code> 조회는 선택한 조합키가 마스터 테이블에 존재하는지만 보는 문자열 매칭이라, 같은 태그를 여러 문항에서 반복 선택해도 그 빈도가 결과에 반영되지 않았습니다. 선택 횟수를 세는 로직 자체가 없어서, 1번 선택된 태그가 매칭 순서상 먼저 걸리면 3번 선택된 태그를 제치고 그대로 최종 결과가 되는 구조였습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
                 <div class="trouble-step step-solve">
                   <span class="step-label">해결 과정</span>
-                  <p>'태그 유무 비교' 방식을 폐기하고, '질문별 가중치 합산' 방식으로 로직을 전면 수정했습니다. 각 질문에서 선택한 태그에 질문별 가중치를 부여하고, 동일 태그가 여러 질문에서 선택될수록 합산 점수가 누적되도록 Oracle SQL 가중치 합산 쿼리(SUM·GROUP BY)로 변경했습니다. 전체 질문 답변 완료 후 가장 높은 합산 점수를 가진 태그를 최종 여행 스타일로 결정합니다.</p>
+                  <p><code>UserTagMapServiceImpl.processUserAnalysis()</code>를 전면 수정했습니다. <code>TRAVEL_ANALYSIS_MASTER</code>를 걷어내고 <code>TAG_WEIGHT_MASTER</code>·<code>TRAVEL_RESULT_MAPPING</code> 테이블을 새로 설계해, <code>users_mapper.xml</code>의 <code>getTravelAnalysisData</code> 쿼리에서 태그 코드를 카테고리(PLACE/ENERGY/PLAN)로 매핑한 뒤 <code>SUM(W.WEIGHT) ... GROUP BY W.CATEGORY</code>로 문항별 선택 빈도를 합산하도록 바꿨습니다. 질문 3개(QUESTION_ID 1, 2, 9) 각각에서 합산 점수가 가장 높은 카테고리를 뽑아 최종 문구를 구성합니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-result">✅</div></div>
                 <div class="trouble-step step-result">
                   <span class="step-label">결과</span>
-                  <p>중복 태그가 발생하는 모든 케이스에서 사용자가 실제로 가장 많이 선택한 태그가 정확하게 최종 여행 스타일로 결정됩니다. 로직 수정 후 성향 분석 결과 오류 케이스 0건을 확인했습니다.</p>
+                  <p>중복 태그가 있는 모든 케이스에서 실제 선택 빈도가 가장 높은 태그가 최종 여행 스타일로 결정되도록 수정 후 오류 케이스 0건을 확인했습니다. 문자열 비교 → 가중치 계산으로 방식을 바꾼 덕분에, 이후 성향 문항이 늘어나도 카테고리·가중치 테이블만 추가하면 로직 변경 없이 확장할 수 있습니다.</p>
                 </div>
               </div>
             </div>

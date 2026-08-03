@@ -481,28 +481,28 @@
                 <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
                 <div class="trouble-step step-problem">
                   <span class="step-label">문제 상황</span>
-                  <p>비즈니스 대시보드의 QR 탭을 반복해서 진입·이탈하면 브라우저 메모리 사용량이 점진적으로 증가. 장시간 사용 시 탭이 느려지는 현상 발생.</p>
+                  <p>비즈니스 대시보드의 QR 탭(<code>useBusinessOverview</code> 훅)을 반복해서 진입·이탈하면 브라우저 메모리 사용량이 점진적으로 증가했습니다. QR 이미지가 API 응답마다 새 Blob으로 내려오는 구조라, 대시보드를 오래 켜두고 새로고침을 반복하는 매장 운영자 입장에서는 장시간 사용 시 탭이 눈에 띄게 느려지는 문제였습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
                 <div class="trouble-step step-cause">
                   <span class="step-label">원인 분석</span>
-                  <p>API에서 받은 QR 이미지 Blob을 <code>URL.createObjectURL(blob)</code>으로 변환해 <code>&lt;img&gt;</code> src에 바인딩하는 방식. <code>createObjectURL()</code>로 생성된 URL은 명시적으로 <code>revokeObjectURL()</code>을 호출하기 전까지 브라우저 메모리에 유지됨. 초기 구현에서 <code>useEffect</code> cleanup이 없어 unmount 시 해제되지 않음.</p>
+                  <p><code>loadBusinessOverview()</code>에서 QR 이미지 Blob을 받아 <code>URL.createObjectURL(qrBlob)</code>으로 변환해 <code>&lt;img&gt;</code> src에 그대로 바인딩했습니다. <code>createObjectURL()</code>이 만든 URL은 <code>revokeObjectURL()</code>을 명시적으로 호출하기 전까지 브라우저 메모리에 참조가 남는데, 초기 구현엔 이전 URL을 해제하는 코드가 없어 대시보드를 다시 조회하거나 QR이 갱신될 때마다 이전 objectURL이 그대로 쌓였습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
                 <div class="trouble-step step-solve">
                   <span class="step-label">해결 과정</span>
-                  <p><code>useRef</code>(qrObjectUrlRef)로 현재 활성 Blob URL을 추적하고, useEffect의 cleanup 함수(return 블록)에서 <code>URL.revokeObjectURL(qrObjectUrlRef.current)</code>를 호출해 명시적으로 해제. 새 이미지 로드 시에도 이전 URL을 먼저 revoke한 뒤 새 URL을 저장.</p>
+                  <p>현재 활성 Blob URL을 <code>useRef</code>(<code>qrObjectUrlRef</code>)로 추적하는 <code>clearQrImage()</code> 헬퍼를 만들어, 새 QR 이미지를 받을 때마다 이전 objectURL을 <code>URL.revokeObjectURL()</code>로 먼저 해제한 뒤 새 URL을 저장하도록 바꿨습니다. 컴포넌트 unmount 시에도 별도 <code>useEffect</code> cleanup에서 마지막 objectURL을 해제하고, QR이 비활성이거나 응답이 유효한 Blob이 아닐 때도 <code>clearQrImage()</code>를 호출해 빈 상태로 정리합니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-result">✅</div></div>
                 <div class="trouble-step step-result">
                   <span class="step-label">결과</span>
-                  <p>페이지 이탈 시 Blob URL이 즉시 해제되어 반복 진입·이탈 후에도 메모리 사용량이 일정하게 유지. 브라우저 DevTools Memory 탭에서 누수 패턴 소멸 확인.</p>
+                  <p>페이지 이탈·재조회를 반복해도 Blob URL이 즉시 해제되어 메모리 사용량이 일정하게 유지됩니다. 브라우저 DevTools Memory 탭에서 반복 스냅샷을 떠 확인했을 때 이전에 보이던 계단식 증가 패턴이 사라졌습니다.</p>
                 </div>
               </div>
             </div>
@@ -522,28 +522,28 @@
                 <div class="trail"><div class="tnode tnode-problem">⚠️</div></div>
                 <div class="trouble-step step-problem">
                   <span class="step-label">문제 상황</span>
-                  <p>관리자 페이지는 RoleBasedPageInterceptor로 세션·ADMIN 역할을 검증하는데, 점검 중 인터셉터 적용 경로에 포함되지 않은 일부 관리자 기능 URL이 검증 없이 접근 가능한 인증 공백을 발견했습니다.</p>
+                  <p>관리자 페이지는 <code>RoleBasedPageInterceptor</code>가 세션의 <code>ADMIN</code> 역할을 검사하는데, 점검 중 인터셉터가 적용되지 않아 검증 없이 접근 가능한 관리자 경로가 있는 걸 발견했습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-cause">🔍</div></div>
                 <div class="trouble-step step-cause">
                   <span class="step-label">원인 분석</span>
-                  <p>인터셉터의 <code>addPathPatterns</code>가 특정 prefix 중심으로만 등록되어 있어, 이후 추가된 관리자 경로 일부가 패턴에 포함되지 않았습니다. 인증을 인터셉터 한 곳에만 의존하다 보니 누락된 경로가 그대로 무방비로 노출됐습니다.</p>
+                  <p><code>servlet-context.xml</code>의 인터셉터 등록에 <code>&lt;mapping path="/admin/**"/&gt;</code>만 있었습니다. 스프링 AntPathMatcher는 <code>/admin/**</code>를 하위 경로에만 매칭시켜서, trailing 세그먼트가 없는 <code>/admin</code> 루트 자체(관리자 진입점, <code>AdminController</code>가 매핑된 경로)는 매칭 대상에서 빠집니다. 인증을 인터셉터 한 곳에만 의존하다 보니 이 매핑 누락이 그대로 무방비 구간으로 남아 있었습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-solve">🛠️</div></div>
                 <div class="trouble-step step-solve">
                   <span class="step-label">해결 과정</span>
-                  <p>관리자 전체 경로를 다시 점검해 인터셉터 적용 범위(<code>addPathPatterns</code>)를 재정의하고, 마스터 계정(userId=1) 보호 등 핵심 분기는 컨트롤러 레벨에서도 한 번 더 검증하도록 이중화했습니다.</p>
+                  <p><code>servlet-context.xml</code>에 <code>&lt;mapping path="/admin"/&gt;</code>을 <code>/admin/**</code>와 나란히 추가해 루트 경로까지 커버하도록 정비했습니다. <code>RoleBasedPageInterceptor</code>의 <code>resolveAllowedRoles()</code>가 <code>requestPath.equals(routePrefix) || requestPath.startsWith(routePrefix + "/")</code>로 정확 일치·하위 경로를 모두 검사하는 것도 다시 확인했고, 마스터 계정(userId=1) 보호 같은 핵심 분기는 컨트롤러 레벨에서도 한 번 더 검증하도록 이중화했습니다.</p>
                 </div>
               </div>
               <div class="tstep">
                 <div class="trail"><div class="tnode tnode-result">✅</div></div>
                 <div class="trouble-step step-result">
                   <span class="step-label">결과</span>
-                  <p>모든 관리자 경로가 인증·역할 검증을 거치도록 정비됐습니다. <strong>배운 점:</strong> 인증을 한 지점에만 의존하면 누락 경로가 곧 취약점이 된다 — 적용 범위를 명시적으로 관리하고 핵심 로직은 다층 방어해야 한다.</p>
+                  <p><code>AdminController</code>·<code>AdminBusinessAuthController</code>·<code>AdminBusinessQrController</code> 등 관리자 컨트롤러가 모두 <code>/admin</code> 하위 경로라, 매핑 정비 후 모든 관리자 경로가 인증·역할 검증을 거칩니다. <strong>배운 점:</strong> 인터셉터 경로 패턴은 프레임워크의 매칭 규칙(<code>/**</code>는 자기 자신을 포함하지 않는다는 것)까지 알아야 안전하다 — 적용 범위를 명시적으로 관리하고 핵심 로직은 다층 방어해야 한다.</p>
                 </div>
               </div>
             </div>
