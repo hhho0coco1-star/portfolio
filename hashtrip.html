@@ -67,8 +67,8 @@
               <span class="role-stat-label">중복 태그 가중치 합산 로직 수정 후</span>
             </div>
             <div class="role-stat-card">
-              <span class="role-stat-num">70~80%↓</span>
-              <span class="role-stat-label">병렬 수집으로 여행지 데이터 로딩 시간 단축</span>
+              <span class="role-stat-num">스레드 6~12</span>
+              <span class="role-stat-label">공공 API 병렬 수집 + 300건 배치 INSERT</span>
             </div>
             <div class="role-stat-card">
               <span class="role-stat-num">3개 영역</span>
@@ -346,7 +346,7 @@
           </button>
           <button class="trouble-card" data-trouble="t2">
             <span class="trouble-card-num">02</span>
-            <span class="trouble-card-title">공공 데이터 순차 수집 지연 → 병렬 처리로 70~80% 단축</span>
+            <span class="trouble-card-title">공공 데이터 순차 수집 지연 → 스레드풀 병렬 처리 + 배치 INSERT</span>
           </button>
         </div>
         <div class="trouble-detail">
@@ -396,7 +396,7 @@
                 <span class="tm-label">여행지 상세 수집</span>
                 <span class="tm-before">순차 조회</span>
                 <span class="tm-arrow">→</span>
-                <span class="tm-after">70~80% 단축 ✅</span>
+                <span class="tm-after">6~12 스레드 병렬 ✅</span>
               </div>
             </div>
             <div class="trouble-steps">
@@ -425,7 +425,7 @@
                 <div class="trail"><div class="tnode tnode-result">✅</div></div>
                 <div class="trouble-step step-result">
                   <span class="step-label">결과</span>
-                  <p>순차 수집 대비 <strong>70~80%</strong> 수집 시간을 단축했습니다.</p>
+                  <p>건수에 비례해 선형으로 늘던 수집 시간을 <strong>스레드 수만큼 분할</strong>했고, 건당 INSERT를 300건 배치로 묶어 DB 왕복 횟수도 줄였습니다.</p>
                 </div>
               </div>
             </div>
