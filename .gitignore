@@ -16,3 +16,9 @@ todo.md
 COMPRESSION_SPEC.md
 PORTFOLIO_수정필요사항.md
 .claude/
+
+# 개인 사진 - 페이지에서 미사용, 공개 저장소에 둘 이유 없음
+images/증명사진.jpg
+
+# slides.html에서 브라우저 인쇄로 생성하는 산출물 (커밋 시 원본과 어긋남)
+slides.pdf
