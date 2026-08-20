@@ -818,7 +818,9 @@ html.slide-deck{scroll-snap-type:y mandatory;}
 /* ============================================================
    면접용 슬라이드 덱 인쇄 (slides.html 전용, .slide-deck 스코프)
    ============================================================ */
-@page{size:13.333in 7.5in;margin:0;}
+@page slidedeck{size:13.333in 7.5in;margin:0;}
+html.slide-deck{page:slidedeck;}
+@page{size:auto;margin:14mm 16mm;}
 @media print{
   html.slide-deck{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .slide-deck #navbar,.slide-deck .cue,.slide-deck .snum{display:none;}
@@ -849,4 +851,64 @@ html.slide-deck{scroll-snap-type:y mandatory;}
   .slide-deck .trouble-step{padding:9px 13px;}
   .slide-deck .trouble-step p{font-size:.74rem;line-height:1.42;}
   .slide-deck .step-label{font-size:.68rem;}
+  .slide-deck .pc2,.slide-deck .exextra .certline{page-break-inside:avoid;break-inside:avoid;}
+}
+
+/* ============================================================
+   상세 페이지 인쇄 (safealert.html/localquest.html/hashtrip.html,
+   .page-sa/.page-lq/.page-ht 스코프) — style-v2.css 공유 후 인쇄 CSS가
+   없던 것을 보완. slide-deck과 달리 슬라이드 단위가 아니라 문서처럼
+   길게 흐르는 레이아웃이라 페이지 나누기 대신 카드 잘림 방지 위주.
+   ============================================================ */
+@media print{
+  .page-sa,.page-lq,.page-ht{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    background:var(--bg)!important;
+  }
+  .page-sa #navbar,.page-lq #navbar,.page-ht #navbar{display:none;}
+  .page-sa .container,.page-lq .container,.page-ht .container{max-width:100%;}
+  .page-sa .section,.page-lq .section,.page-ht .section{
+    min-height:0;height:auto;display:block;
+    opacity:1!important;transform:none!important;
+  }
+  .page-sa .s-links.intro-links,.page-lq .s-links.intro-links,.page-ht .s-links.intro-links{display:none;}
+  .page-sa .overview-card,.page-lq .overview-card,.page-ht .overview-card,
+  .page-sa .role-stat-card,.page-lq .role-stat-card,.page-ht .role-stat-card,
+  .page-sa .feature-card,.page-lq .feature-card,.page-ht .feature-card,
+  .page-sa .trouble-panel,.page-lq .trouble-panel,.page-ht .trouble-panel,
+  .page-sa .tstep,.page-lq .tstep,.page-ht .tstep,
+  .page-sa .retro-card,.page-lq .retro-card,.page-ht .retro-card,
+  .page-sa .metric,.page-lq .metric,.page-ht .metric,
+  .page-sa .role-list li,.page-lq .role-list li,.page-ht .role-list li,
+  .page-sa .project-bg,.page-lq .project-bg,.page-ht .project-bg,
+  .page-sa .arch-card,.page-lq .arch-card,.page-ht .arch-card,
+  .page-sa .arch-txmini,.page-lq .arch-txmini,.page-ht .arch-txmini,
+  .page-sa .arch-res,.page-lq .arch-res,.page-ht .arch-res,
+  .page-sa .flow-step,.page-lq .flow-step,.page-ht .flow-step,
+  .page-sa .trouble-metric,.page-lq .trouble-metric,.page-ht .trouble-metric,
+  .page-sa .trouble-step,.page-lq .trouble-step,.page-ht .trouble-step,
+  .page-sa .diagram-box,.page-lq .diagram-box,.page-ht .diagram-box,
+  .page-sa .sys-row,.page-lq .sys-row,.page-ht .sys-row{
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  .page-sa .section-title,.page-lq .section-title,.page-ht .section-title,
+  .page-sa .kicker,.page-lq .kicker,.page-ht .kicker{
+    page-break-after:avoid;break-after:avoid;
+  }
+  /* 섹션당 한 페이지에 최대한 맞추기 위한 압축(폰트·여백 축소) */
+  .page-sa .section,.page-lq .section,.page-ht .section{padding:14px 0;}
+  .page-sa .role-list ul,.page-lq .role-list ul,.page-ht .role-list ul{gap:5px;}
+  .page-sa .role-list li,.page-lq .role-list li,.page-ht .role-list li{padding:6px 12px;}
+  .page-sa .role-item-header,.page-lq .role-item-header,.page-ht .role-item-header{margin-bottom:4px;}
+  .page-sa .role-item-header strong,.page-lq .role-item-header strong,.page-ht .role-item-header strong{font-size:.86rem;}
+  .page-sa .role-sub-list,.page-lq .role-sub-list,.page-ht .role-sub-list{gap:3px;}
+  .page-sa .role-sub-desc,.page-lq .role-sub-desc,.page-ht .role-sub-desc{font-size:.68rem;line-height:1.35;}
+  .page-sa .role-stat-card,.page-lq .role-stat-card,.page-ht .role-stat-card{padding:8px 12px;}
+  .page-sa .role-stat-num,.page-lq .role-stat-num,.page-ht .role-stat-num{font-size:1.15rem;margin-bottom:2px;}
+  .page-sa .role-stat-label,.page-lq .role-stat-label,.page-ht .role-stat-label{font-size:.66rem;}
+  .page-sa .role-stats,.page-lq .role-stats,.page-ht .role-stats{gap:6px;margin:6px 0;}
+  .page-sa .overview-card,.page-lq .overview-card,.page-ht .overview-card{padding:14px 18px;}
+  .page-sa .project-bg,.page-lq .project-bg,.page-ht .project-bg{padding:8px 14px!important;margin-top:8px!important;}
+  .page-sa .project-bg-text,.page-lq .project-bg-text,.page-ht .project-bg-text{font-size:.74rem;line-height:1.4;}
+  .page-sa .feature-card,.page-lq .feature-card,.page-ht .feature-card{padding:8px 10px;}
 }

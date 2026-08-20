@@ -41,11 +41,12 @@
       <div class="slide-wrap">
         <p class="kicker">CORE COMPETENCIES</p>
         <h2 class="s-title">핵심역량</h2>
-        <p class="intro-tagline">백엔드를 중심으로 설계하고, 필요하면 화면까지 직접 붙입니다. 재난·기상 실시간 알림 서비스(SafeAlert)를 기획부터 배포까지 단독 수행하며 5개 마이크로서비스와 API Gateway를 설계했고, O2O 플랫폼(LocalQuest)에서는 팀 리더로 Spring·React 풀스택을 담당했습니다.</p>
+        <p class="intro-tagline">재난·기상 실시간 알림 서비스 SafeAlert를 기획부터 배포까지 단독 수행하며 5개 마이크로서비스와 API Gateway를 설계했습니다. O2O 플랫폼(LocalQuest)에서는 팀 리더로 Spring·React 풀스택을 담당했습니다.</p>
         <div class="bigstats">
           <div class="bs"><b>p95 30%↓</b><span>부하 테스트 기반 성능 개선</span></div>
           <div class="bs"><b>MSA 5</b><span>마이크로서비스 단독 설계</span></div>
-          <div class="bs"><b>replica 3</b><span>WebSocket 무손실 (Redis Pub/Sub)</span></div>
+          <div class="bs"><b>Redis Pub/Sub</b><span>WebSocket 다중 인스턴스 무손실 설계</span></div>
+          <div class="bs"><b>상위 10%</b><span>AX 해커톤 · AI 산출물 검증 Codex 플러그인</span></div>
         </div>
       </div>
       <button type="button" class="cue" aria-label="다음 슬라이드로 이동"><span class="a">↓</span> SCROLL</button>
@@ -65,7 +66,7 @@
           <span class="flow-arrow">→</span>
           <div class="flow-node"><b>Alert Processor</b>가공·분류 · MongoDB 저장</div>
           <span class="flow-arrow">→</span>
-          <div class="flow-node"><b>Notification</b>Redis Pub/Sub · replica 3</div>
+          <div class="flow-node"><b>Notification</b>Redis Pub/Sub</div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><b>WebSocket</b>React 클라이언트</div>
         </div>
