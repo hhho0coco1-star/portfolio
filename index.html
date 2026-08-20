@@ -73,7 +73,7 @@
         <p class="fpitch">재난·기상·미세먼지 공공 API를 <b>WebSocket으로 실시간 전달</b>하는 MSA 구독 서비스. 5개 마이크로서비스 + API Gateway를 <b>단독 설계·구현·배포</b>했습니다.</p>
         <div class="metrics">
           <div class="metric"><b>2.66→1.86s</b><span>p95 응답 (약 30%↓)</span></div>
-          <div class="metric"><b>97 → 0%</b><span>k6 부하 오류율 해결</span></div>
+          <div class="metric"><b>1,475→1,818건</b><span>동일 조건 처리량 23%↑<br>(HikariCP 풀 10→30)</span></div>
           <div class="metric"><b>Redis Pub/Sub</b><span>WebSocket 다중 인스턴스<br>무손실 설계</span></div>
           <div class="metric"><b>Outbox</b><span>구독 이벤트 유실 방지<br>(PENDING → 3회 실패 DEAD)</span></div>
         </div>

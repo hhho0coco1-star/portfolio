@@ -134,7 +134,7 @@
           <li>재난·기상·미세먼지 공공 API를 수집해 WebSocket으로 실시간 전달하는 <span class="m">5개 마이크로서비스 + API Gateway</span>를 단독 설계·구현</li>
           <li><span class="m">Transactional Outbox 패턴</span>으로 구독 이벤트의 DB 저장과 Kafka 발행을 단일 트랜잭션으로 묶어 유실 차단 (PENDING 보관 → 발행 실패 3회 초과 시 DEAD 분리)</li>
           <li><span class="m">Redis Pub/Sub</span> 도입으로 Kubernetes 다중 인스턴스 환경의 WebSocket 미수신 문제 해결</li>
-          <li>k6 부하 테스트(100 VU) 오류율 97%를 HikariCP 풀 튜닝으로 해결, <span class="m">p95 2.66s → 1.86s (약 30%) 개선</span></li>
+          <li>k6 부하 테스트(100 VU)로 병목을 실측해 HikariCP 풀을 10 → 30으로 조정, <span class="m">p95 2.66s → 1.86s (약 30%)·처리량 1,475 → 1,818건 개선</span></li>
         </ul>
       </div>
 
