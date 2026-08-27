@@ -82,6 +82,15 @@
     .cert{font-size:9.8px;margin-bottom:4px;}
     .cert .t{font-weight:700;color:var(--ink);}
     .cert .m2{color:var(--mid);font-size:9px;}
+
+    /* cover letter page */
+    .page-break{break-before:page;page-break-before:always;margin-top:26px;padding-top:26px;border-top:1px dashed var(--line);}
+    @media print{.page-break{border-top:none;padding-top:0;}}
+    .cl-header{margin-bottom:14px;}
+    .cl-title{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);}
+    .cl-sub{font-size:9.5px;color:var(--accent);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-top:3px;}
+    .cl-p{font-size:10.3px;color:var(--soft);line-height:1.75;margin-bottom:8px;letter-spacing:.1px;}
+    .cl-p:last-child{margin-bottom:0;}
   </style>
 </head>
 <body>
@@ -190,6 +199,31 @@
         </div>
       </div>
     </section>
+
+    <div class="page-break">
+      <div class="cl-header">
+        <div class="cl-title">자기소개서</div>
+        <div class="cl-sub">(주)더즌 상시 인재풀 지원</div>
+      </div>
+
+      <section>
+        <h2>개발자를 선택한 이유</h2>
+        <p class="cl-p">안전소방 현장에서 일하며 반복되는 업무가 많았습니다. 매번 같은 항목을 점검하고, 같은 형식으로 기록을 남기고 문서로 정리하는 과정이 그랬습니다. 사람이 손으로 하기에는 비효율적인 반복 작업이라는 생각이 계속 들었고, 이걸 자동화할 수 있는 방법이 있을 거라는 생각에서 개발을 배우기 시작했습니다.</p>
+        <p class="cl-p">실제로 코드를 짜보니, 단순히 반복 업무를 줄이는 것 이상으로 시스템을 설계하고 문제를 구조적으로 풀어가는 과정 자체에 흥미를 느꼈습니다. 지금은 눈앞의 업무를 자동화하는 것보다, 데이터가 정확하게 흐르도록 시스템을 설계하는 백엔드 쪽에 더 관심을 두고 있습니다.</p>
+      </section>
+
+      <section>
+        <h2>핵심 역량 / 협업 및 커뮤니케이션</h2>
+        <p class="cl-p">SafeAlert를 만들기 전까지 Kafka와 Redis를 실무에서 써본 적이 없었습니다. 알림 유실을 막으려면 메시징 시스템이 필요하다는 걸 알고 나서, 문서를 보고 작은 예제부터 직접 돌려보며 익혔습니다. Transactional Outbox 패턴과 Redis Pub/Sub을 실제 프로젝트에 적용할 수 있었던 건, 모르는 기술도 필요할 때 붙잡고 끝까지 파고들어 적용해본 경험 덕분입니다.</p>
+        <p class="cl-p">협업 쪽에서는 LocalQuest에서 5인 팀 리더를 맡으며 겪은 일이 있습니다. 페이지를 나눠 맡기고 나니, 팀원들이 각자 담당 페이지에 기능을 최대한 많이 넣으려 했고, 그 결과 페이지마다 기능이 과도하게 늘어나 사용자가 쓰기 어려운 상태가 됐습니다. 각 페이지를 사용자 입장에서 다시 살펴보고 꼭 필요한 기능만 남기도록 조율했고, 페이지 간 디자인과 구조 기준을 통일해 8개 페이지가 하나의 서비스처럼 보이도록 정리했습니다.</p>
+      </section>
+
+      <section>
+        <h2>입사 후 포부</h2>
+        <p class="cl-p">입사 초기에는 더즌의 거래·정산 도메인을 빠르게 익히는 데 집중하려 합니다. 문서만 보고 이해하기보다, 기존 코드와 시스템 구조를 직접 뜯어보면서 데이터가 어떤 흐름으로 오가고 어느 지점에서 정합성을 지켜야 하는지부터 파악하겠습니다. 동시에 SafeAlert에서 쌓은 MSA·이벤트 기반 설계 경험을 살려, 정합성이 중요한 지점부터 작게라도 기여할 수 있는 부분을 찾겠습니다.</p>
+        <p class="cl-p">장기적으로는 문제가 생긴 뒤 해결하는 사람이 아니라, 장애가 나기 전에 설계로 미리 막는 사람이 되고 싶습니다. SafeAlert에서 이벤트 유실을 막기 위해 Outbox 패턴과 재시도·분리 로직을 고민했던 것처럼, 더즌의 거래 시스템에서도 정합성과 안정성을 책임지는 설계자로 신뢰받는 게 목표입니다.</p>
+      </section>
+    </div>
 
   </div>
 </body>
