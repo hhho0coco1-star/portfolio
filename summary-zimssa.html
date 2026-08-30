@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>안세웅 · 백엔드 개발자 지원 요약 | Spring Boot · JPA · MSA</title>
+  <meta name="description" content="Spring Boot·JPA·Kafka·MSA 중심 백엔드 개발자 안세웅의 핵심 역량·프로젝트·자격을 A4 한 장으로 정리한 요약본." />
+  <meta name="author" content="안세웅" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    @page { size: A4; margin: 12mm 14mm; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --ink:#18181b;
+      --accent:#1a2b4c;      /* 다크 네이비 — 진한 톤, 인쇄 가독성 우선 */
+      --accent-line:#4a6789; /* 미드 네이비 — 보더·장식용 (텍스트 아님) */
+      --mid:#52525b;
+      --soft:#3f3f46;
+      --line:#d4d4d8;
+      --chipbg:#eef1f6;
+      --chipink:#2d4463;
+      --serif:'Gowun Batang','Batang','바탕',Georgia,'Times New Roman',serif;
+    }
+    html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    body{
+      font-family:"Malgun Gothic","맑은 고딕",-apple-system,"Segoe UI",sans-serif;
+      color:var(--ink);font-size:10.5px;line-height:1.55;background:#fff;
+    }
+    .page{max-width:820px;margin:0 auto;padding:22px 26px;}
+
+    /* header */
+    header{border-bottom:2.5px solid var(--accent-line);padding-bottom:10px;margin-bottom:14px;}
+    .name{font-family:var(--serif);font-size:29px;font-weight:700;letter-spacing:1px;line-height:1.05;}
+    .headline{font-size:10.5px;color:var(--accent);font-weight:700;letter-spacing:1.6px;text-transform:uppercase;margin-top:4px;}
+    .contact{font-size:9.5px;color:var(--mid);margin-top:7px;letter-spacing:.2px;}
+    .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+    .contact .sep{color:var(--line);margin:0 6px;}
+
+    /* section */
+    section{margin-top:15px;}
+    h2{font-family:var(--serif);font-size:11.5px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:2.4px;
+       padding-bottom:3px;margin-bottom:7px;border-bottom:1.2px solid var(--accent-line);}
+    h2::before{content:"▍";margin-right:3px;}
+
+    /* core competencies */
+    .cc{display:flex;flex-direction:column;gap:3px;}
+    .cc-row{font-size:10px;color:var(--soft);}
+    .cc-row b{color:var(--ink);font-weight:800;}
+
+    /* skills */
+    .skills{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;}
+    .sk{font-size:9.7px;color:var(--soft);}
+    .sk b{display:inline-block;min-width:82px;color:var(--ink);font-weight:800;}
+
+    /* projects */
+    .item{margin-bottom:10px;padding-left:9px;border-left:2px solid var(--accent-line);}
+    .item:last-child{margin-bottom:0;}
+    .ihead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+    .ititle{font-size:11px;font-weight:800;color:var(--ink);letter-spacing:.2px;}
+    .ititle a{color:inherit;text-decoration:none;border-bottom:1px solid var(--accent-line);}
+    .deep{font-size:8.6px;font-weight:700;color:var(--accent);letter-spacing:.3px;white-space:nowrap;
+          background:var(--chipbg);border-radius:2px;padding:1px 4px;margin-left:5px;}
+    .imeta{font-size:9px;color:var(--mid);white-space:nowrap;letter-spacing:.3px;}
+    .istack{font-size:8.8px;color:var(--mid);font-style:italic;margin:2px 0 4px;letter-spacing:.2px;}
+    ul{list-style:none;}
+    li{position:relative;padding-left:11px;font-size:9.8px;color:var(--soft);margin-bottom:3px;line-height:1.5;}
+    li::before{content:"–";position:absolute;left:0;color:var(--accent);font-weight:700;}
+    .m{font-weight:800;color:var(--accent);}
+    .pb{font-weight:800;color:var(--ink);}
+
+    /* education / certs 2-col */
+    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:0 26px;}
+    .ed{font-size:9.8px;margin-bottom:4px;}
+    .ed .t{font-weight:700;color:var(--ink);}
+    .ed .m2{color:var(--mid);font-size:9px;}
+    .cert{font-size:9.8px;margin-bottom:4px;}
+    .cert .t{font-weight:700;color:var(--ink);}
+    .cert .m2{color:var(--mid);font-size:9px;}
+
+    /* motivation */
+    .mot{font-size:9.8px;color:var(--soft);line-height:1.6;padding-left:9px;border-left:2px solid var(--accent-line);}
+    .mot b{color:var(--ink);font-weight:800;}
+    .mot p{margin-bottom:5px;}
+    .mot p:last-child{margin-bottom:0;}
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="name">안세웅</div>
+      <div class="headline">Backend Engineer · Spring Boot · JPA · Kafka · MSA</div>
+      <div class="contact">
+        <a href="mailto:dpcks2553@naver.com">dpcks2553@naver.com</a><span class="sep">·</span>
+        <a href="https://github.com/hhho0coco1-star">github.com/hhho0coco1-star</a><span class="sep">·</span>
+        <a href="https://hhho0coco1-star.github.io/portfolio/">Portfolio</a><span class="sep">·</span>
+        <a href="https://velog.io/@hhho0coco1-star/posts">Blog</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Core Competencies</h2>
+      <div class="cc">
+        <div class="cc-row"><b>Spring Boot · JPA 백엔드 API</b> — Spring Boot·Security 기반 REST API와 JPA 엔티티·연관관계 설계, JWT/OAuth2 인증·인가 구조 구현</div>
+        <div class="cc-row"><b>AI 도구·에이전트 활용</b> — Codex 플러그인 규격으로 AI 산출물 검증을 코드로 강제(출처 날조·논리 모순 차단)하는 워크플로우 설계</div>
+        <div class="cc-row"><b>MSA · 비동기 메시징</b> — Kafka·WebSocket 기반 이벤트 전달과 Transactional Outbox로 분산 환경 데이터 정합성 확보</div>
+        <div class="cc-row"><b>DB 설계 (RDB · NoSQL)</b> — PostgreSQL·MongoDB·Redis를 용도별로 나눠 스키마와 연관관계를 설계, 구독 도메인 엔티티 7종 구성</div>
+        <div class="cc-row"><b>성능 엔지니어링</b> — k6 부하 테스트로 병목을 실측해 커넥션 풀을 조정, p95 응답시간 약 30% 개선</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="sk"><b>Backend</b> Java, Spring Boot, <span class="pb">JPA/Hibernate</span>, Spring Security, Spring Cloud Gateway, JWT/OAuth2, Kafka, WebSocket, MyBatis, FastAPI</div>
+        <div class="sk"><b>Database</b> PostgreSQL, Oracle, MongoDB, Redis</div>
+        <div class="sk"><b>Infra/DevOps</b> Docker, Kubernetes, Nginx, GitHub Actions, Git</div>
+        <div class="sk"><b>AI Tooling</b> Codex, Claude Code, 에이전트·스킬 정의</div>
+        <div class="sk"><b>Monitoring</b> Prometheus, Grafana, ELK, Jaeger, k6</div>
+        <div class="sk"><b>Frontend / Data</b> React, Redux Toolkit, JavaScript · Python, Pandas, scikit-learn</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle"><a href="https://hhho0coco1-star.github.io/portfolio/safealert.html">SafeAlert · 재난·기상 실시간 알림 MSA 서비스</a><span class="deep">▸ 트러블슈팅 상세</span></span>
+          <span class="imeta">개인 · 2026.05 – 2026.06</span>
+        </div>
+        <div class="istack">Java 17 · Spring Boot · JPA · Spring Cloud Gateway · Kafka · WebSocket · PostgreSQL · MongoDB · Redis · Kubernetes</div>
+        <ul>
+          <li>재난·기상·미세먼지 공공 API를 수집해 WebSocket으로 실시간 전달하는 <span class="m">5개 마이크로서비스 + API Gateway</span>를 단독 설계·구현·배포</li>
+          <li><span class="pb">[이벤트 유실]</span> DB 저장과 Kafka 발행이 분리돼 정합성이 깨지던 구간을 <span class="m">Transactional Outbox 패턴</span>으로 단일 트랜잭션에 묶어 차단 — Outbox를 JPA 엔티티로 관리하며 PENDING 보관 → 발행 3회 실패 시 DEAD 분리</li>
+          <li><span class="pb">[다중 인스턴스 미수신]</span> Kubernetes 스케일아웃 시 다른 파드에 연결된 클라이언트가 알림을 받지 못하던 문제를 <span class="m">Redis Pub/Sub</span> 브로드캐스트로 해결</li>
+          <li><span class="pb">[요청 실패·응답 지연]</span> k6 100 VU 부하 테스트에서 <span class="m">오류율 97.85%</span> 발생 — 원인이 두 겹임을 확인했습니다. ① Gateway Rate Limit(IP당 분당 60건)이 단일 IP에서 오는 정상 트래픽까지 429로 차단, ② 해제 후에도 남은 <span class="m">HikariCP 기본값 10</span> 병목으로 100명 동시 로그인 시 대기 발생. 화이트리스트 추가 + 풀 10 → 30 조정으로 <span class="m">오류율 0%·p95 2.66s → 1.86s(30%↓)·처리량 1,475 → 1,818건(23%↑)</span></li>
+          <li>구독 도메인을 <span class="m">JPA 엔티티 7종</span>으로 설계 — <span class="m">@OneToMany(cascade·orphanRemoval)</span>로 하위 조건 생명주기를 일치시키고, @ManyToOne은 지연 로딩 기준으로 두어 불필요한 조인을 차단. 조회는 JPQL @Query와 @Transactional(readOnly)로 분리</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">AI 산출물 검증 Codex 플러그인 · 이탈 대응 플레이북 생성기</span>
+          <span class="imeta">개인 · 2026.07</span>
+        </div>
+        <div class="istack">Codex 플러그인 규격(plugin.json · SKILL.md) · Python 표준 라이브러리(의존성 0) · unittest</div>
+        <ul>
+          <li><span class="pb">[AI 산출물 신뢰]</span> LLM이 생성한 리포트를 사람이 매번 검수해야 하던 문제를, <span class="m">검증을 코드로 강제하는 플러그인</span>으로 전환 — 인용 출처가 실제 출처 목록에 존재하는지 대조해 <span class="m">날조를 차단</span>하고, 중간 판정과 최종 결론이 모순되면 FAIL 처리(위반 시 exit 1)</li>
+          <li>검증기 자체를 <span class="m">단위 테스트 17개 + 의도적으로 잘못 만든 리포트 8종의 적대적 테스트</span>로 실증. 한국어 Windows(cp949) 콘솔에서 크래시하던 출력 인코딩을 UTF-8로 고정</li>
+          <li><span class="m">AX 인재전쟁 2026 해커톤 예선 상위 10%</span> — 기업 트랙 3종 플러그인 설계·제출</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle"><a href="https://hhho0coco1-star.github.io/portfolio/localquest.html">LocalQuest · 지역 탐험 O2O 플랫폼</a><span class="deep">▸ 트러블슈팅 상세</span></span>
+          <span class="imeta">팀 5명 · 팀 리더 · 2026.03 – 2026.04</span>
+        </div>
+        <div class="istack">Spring · MyBatis · React · JSP · Oracle · JWT · Kakao Map API</div>
+        <ul>
+          <li><span class="pb">[부정 인증]</span> 현장에 가지 않고도 미션을 완료 처리할 수 있던 허점을, QR 현장 인증 시스템에 <span class="m">운영중지·순서 위반·시간 초과·중복 제출 4종 검증</span>을 넣어 차단</li>
+          <li>5인 팀 리더로 일정·역할을 조율하고, 사용자 React SPA는 JWT·관리자 JSP는 세션으로 <span class="m">인증 이원화</span> 설계 + 관리자 8개 페이지 풀스택 담당</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="ihead">
+          <span class="ititle">그 외</span>
+          <span class="imeta">팀 5명 · 2026.02 – 2026.06</span>
+        </div>
+        <ul>
+          <li><span class="pb">HashTrip</span> · 여행 성향 분석 플랫폼 — 설문 <span class="m">가중치 합산 성향 분석 알고리즘</span> 설계. 중복 태그로 결과가 왜곡되던 오류를 SQL 집계 방식으로 전면 수정해 <span class="m">재현 0건</span> 확인 <span style="color:var(--mid)">(Spring · MyBatis · Oracle · OAuth2)</span></li>
+          <li><span class="pb">HPDFS</span> · 디스크 고장 예측 시스템 — 단일 PC에서만 돌던 온프레미스 EXE 도구를 <span class="m">서버 기반 클라우드 구조로 재설계</span>, FastAPI·PostgreSQL 백엔드와 Docker·Kubernetes·GitHub Actions CI/CD 담당 <span style="color:var(--mid)">(FastAPI · scikit-learn · PostgreSQL)</span></li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Education &amp; Certifications</h2>
+      <div class="two">
+        <div>
+          <div class="ed"><span class="t">휴먼교육센터 · 자바 활용 데이터 플랫폼 풀스택 개발자 과정</span><div class="m2">2025.10 – 2026.04</div></div>
+          <div class="ed"><span class="t">휴먼교육센터 · 심층 데이터 분석 서비스 솔루션 개발자 과정</span><div class="m2">2026.05 – 2026.07</div></div>
+        </div>
+        <div>
+          <div class="cert"><span class="t">정보처리기사</span> <span class="m2">· 2026.06 취득</span></div>
+          <div class="cert"><span class="t">SQLD (SQL 개발자)</span> <span class="m2">· 2026.03 취득</span></div>
+          <div class="cert"><span class="t">컴퓨터활용능력 1급</span> <span class="m2">· 2022.09 취득</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>지원동기</h2>
+      <div class="mot">
+        <p>교육 과정에서 팀 프로젝트를 하던 중, 제가 몇 시간을 붙잡고 짠 코드보다 AI에게 맡긴 쪽이 더 빠르고 나은 결과를 낸다는 걸 알게 됐습니다. 생산성이 올랐다는 사실이 반가웠던 것도 잠시, 이내 마음이 편치 않았고, 결국 <b>AI가 다 해주는데 개발자가 왜 필요한가</b> 하는 물음에 한동안 붙들려 있었습니다.</p>
+        <p>거기서 빠져나온 건 AI가 내놓은 결과물을 계속 들여다보면서였습니다. AI는 빨랐지만 종종 틀렸고, 무엇보다 틀린 것을 그럴듯하게 포장해 내놓았습니다. 그렇다면 개발자에게 남는 일은 AI를 대신하는 게 아니라 <b>AI가 만든 것을 믿을 수 있게 만드는 일</b>이라는 결론에 닿았습니다.</p>
+        <p>이후의 작업은 모두 그 결론 위에 있습니다. AX 인재전쟁 2026 해커톤에 제출한 Codex 플러그인에는 인용 출처가 실재하는지 대조해 날조를 걸러내고 판정과 결론이 어긋나면 실패 처리하는 검증기를 붙여 예선 상위 10%에 들었고, SafeAlert에서 이벤트 유실을 <b>Transactional Outbox</b>로, 다중 인스턴스 미수신을 <b>Redis Pub/Sub</b>으로 막은 것 역시 "이게 정말 제대로 동작한 게 맞나"라는 같은 질문에서 나왔습니다. 짐싸 채용 공고에서는 자격요건 첫 줄의 AI 도구·에이전트 활용뿐 아니라 <b>Spring Boot와 JPA</b>, 우대사항의 <b>MSA와 메시징 큐</b>까지 제가 다뤄온 것과 그대로 겹쳤습니다. 특히 백엔드팀의 과제가 <b>고객–파트너 매칭과 비동기 처리</b>라는 대목에서, 제가 붙들려 있던 질문을 이곳에서 이어갈 수 있겠다고 판단해 지원했습니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>핵심역량 및 협업</h2>
+      <div class="mot">
+        <p>프로젝트를 하며 반복해 마주친 선택이 있습니다. 지금 덮을 것인가, 한 번 더 팔 것인가.</p>
+        <p>구독 하나를 지웠는데 그 아래 지역·카테고리 조건이 남아 알림이 계속 나가는 상황은 만들고 싶지 않았습니다. 사용자가 여러 지역과 카테고리를 동시에 고르는 구조라 <b>무엇을 한 덩어리로 볼지</b>부터 정해야 했고, 구독을 기준으로 삼아 엔티티 일곱 종을 나눈 뒤 상위가 사라지면 하위도 함께 사라지도록 묶었습니다. 어노테이션을 먼저 고르고 거기 맞춰 설계했다면 나오지 않았을 구조입니다.</p>
+        <p>오류율 <b>97.85%</b>. k6로 로그인 API에 100 VU를 걸었을 때 처음 나온 수치입니다. 코드를 의심하기 전에 층을 나눠 짚었더니 게이트웨이의 Rate Limit이 IP당 분당 60건이라 로컬 한 대에서 나가는 정상 요청까지 막고 있었습니다. 그 층을 걷어내자 요청은 제대로 들어갔지만 p95가 2.66초로 목표인 2초를 넘겼고, 다시 보니 <b>아무도 건드린 적 없는 커넥션 풀 기본값 10</b>이 남아 있었습니다. 풀을 30으로 올려 <b>p95 1.86초</b>, 같은 조건 처리량은 1,475건에서 <b>1,818건</b>으로 늘었습니다. <b>추측으로 손대지 않고 측정으로 병목을 특정한 뒤, 원인을 층별로 갈라내 하나씩 걷어내는 것이 제가 성능 문제에 접근하는 방식입니다.</b></p>
+        <p>LocalQuest에서는 팀원이 페이지 단위로 각자 풀스택을 맡았습니다. 그러다 보니 화면마다 디자인과 구조가 어긋났고, 각자 화려함을 더하는 쪽으로 가면서 페이지 복잡도까지 올라갔습니다. <b>팀 리더로 회의를 소집해</b> 디자인 구조를 통일하고, 페이지마다 <b>필수 기능만 남기기로</b> 정리했습니다. <b>각자의 완성도를 모아 하나의 서비스로 맞추고, 필요하면 범위를 덜어내는 판단이 제가 팀 리더로서 한 역할입니다.</b></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>입사 후 포부</h2>
+      <div class="mot">
+        <p>처음 얼마간은 코드를 고치기보다 읽는 데 쓰겠습니다. 이사는 견적과 매칭, 배정과 정산이 이어지는 흐름이고 단계마다 취소와 변경이 끼어드는 것으로 알고 있습니다. 이 데이터가 어떤 모양으로 저장되고 어느 지점에서 이벤트가 오가는지 파악하기 전에는 제가 손대는 수정이 전부 추측이 됩니다. 그 위에서 쿼리 개선이나 응답 정리처럼 <b>범위가 분명한 작업부터 확실히 끝내겠습니다.</b></p>
+        <p>그다음에는 <b>비동기 처리</b> 쪽에서 몫을 맡고 싶습니다. 개인 프로젝트에서 다룬 이벤트 유실과 중복은 사용자가 백 명일 때와 백만 명일 때가 다른 문제라고 생각합니다. 제가 써본 방법이 짐싸의 규모에서도 통하는지, 통하지 않는다면 무엇이 달라서인지를 확인하는 일이 지금 가장 해보고 싶은 것입니다.</p>
+        <p>AI 도구를 팀의 개발 과정에 붙이는 일은 그 뒤에 두겠습니다. 지금까지 만든 검증 자동화는 전부 혼자 쓰던 것이라, 여러 사람이 함께 쓰는 환경에서 무엇이 필요한지는 아직 모릅니다. <b>팀이 실제로 어디에 시간을 쓰는지 먼저 보고</b>, 제가 해온 방식이 도움이 될 지점을 찾겠습니다.</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
